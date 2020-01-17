@@ -1,0 +1,10 @@
+#command:	/home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+#format_version:	1.0.2
+#ensemble of 10 nnet models:	/home/max/16jF_secnet_ubuntu/models/4label_practical
+#id:	example
+#app:	SecNet of version, 1.16.4
+#labels:	4 labels: H, E, C, T
+#label_definition:	(C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+#recnu:	75
+#seq:	STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+#ss:	CCCCCCCHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTCEEEEECCCCC

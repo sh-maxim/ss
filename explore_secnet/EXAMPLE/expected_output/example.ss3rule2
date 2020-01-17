@@ -1,0 +1,10 @@
+#command:	/home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+#format_version:	1.0.2
+#ensemble of 10 nnet models:	/home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+#id:	example
+#app:	SecNet of version, 1.16.4
+#labels:	3 labels of Rule #2: H, E, C
+#label_definition:	(C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+#recnu:	75
+#seq:	STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+#ss:	CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEECCCCC
