@@ -49,6 +49,7 @@ Download a tiny (11KB) **SecNet Kit Installer**. The installer will automaticall
 Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.PLoS ONE, Submitted. [Manuscript will be available soon.](https://journals.plos.org/plosone/)
 
 ## SecNet Tool Help:
+<pre>
 Quick start:
 ============
 Please included QUICK_START file for a quick reference.
@@ -226,4 +227,4 @@ Examples:
 
 #To reduce amount of standard output and only report whether each sequence was successfully processed:
 ./secnet.py3 --input "input/*.fasta" --output output/ --label 8 --quiet
-
+</pre>
