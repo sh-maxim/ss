@@ -177,7 +177,7 @@ features           -- saves generated input feature files, speeds up nnet comput
 features/psiblast  -- saved input psiblast features with PSSM profiles from the 1st and 2nd rounds
                       (example.mtx.1 and exammple.mtx.2)
 features/hhm       -- saved input hhm features with HHM parameters (example.hhm1)
-features/temp      -- includes undeleted temporary files to track down errors for failed input features
+features/temp      -- undeleted temporary files to track down errors in failed generation of input features
 input              -- includes example.fasta and 4 other sample sequences in FASTA format
 models             -- trained neural networks for 5 sets of labels each with 10 cross-validation trainings
 nnpython3          -- symbolic link to locally installed Anaconda Python 3
