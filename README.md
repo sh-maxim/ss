@@ -188,9 +188,9 @@ secnet.py3         -- SecNet executable to be executed as ./secnet.py3 or /home/
 Test2018           -- files related to Test2018 data set from our paper
 Test2018/input     -- 149 FASTA-formatted sequence files from Test2018
 Test2018/expected  -- expected secondary-structure predictions for 5 label alphabets of 149 Test2018 sequences
-Test2018/test.bash -- a script testing your SecNet installation on Test2018 and saves results to Test2018/output.
+Test2018/test.bash -- script testing your SecNet installation on Test2018 and saves results to Test2018/output.
                       You may compare your re-generated results with the expected ones from Test2018/expected.
-                      It is a normal situation when due to different hardware and software your predictions and
+                      It is a normal situation when due to different hardware & software your predictions and
                       expected predictions slightly vary by one or few labels. Your overall accurarcy will be
                       close within 0.01-0.03% to the one reported in our paper.
 Test2018/output    -- an empty directory for output from Test2018/test.bash
