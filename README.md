@@ -1,4 +1,4 @@
-# SecNet, template-free protein secondary structure prediction software
+# *SecNet*, template-free protein secondary structure prediction software
 
 Copyright (c) 2018-2019, Maxim Shapovalov<sup>†,‡</sup>, Roland L. Dunbrack, Jr.<sup>†,*</sup>, Slobodan Vucetic<sup>‡,\*</sup>  
 All rights reserved.  
@@ -7,11 +7,11 @@ All rights reserved.
 \* Corresponding authors, roland dot dunbrack at fccc dot edu and vucetic at temple dot edu
 
 ## Description:
-### SecNet
+### *SecNet*
 a software tool which reads a protein sequence in FASTA format and predicts secondary structure. There are several options of the secondary structure label alphabet. Among them are 3 labels (harder Rule #1 or easier Rule #2) and unambiguous 8 labels. We also provide 2 new alphabets with 4 and 5 labels. The tool allows selection of one of these 5 alphabets for prediction purposes.
 
-### Set2018
-a rigorously prepared data set, Set2018 which includes training, validation and Test2018 testing sets.
+### *Set2018*
+a rigorously prepared data set, **Set2018** which includes training, validation and **Test2018** testing sets.
 
 ## Operating Systems:
 
@@ -49,7 +49,7 @@ Download a tiny (11KB) **SecNet Kit Installer**. The installer will automaticall
 Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.PLoS ONE, Submitted. [Manuscript will be available soon.](https://journals.plos.org/plosone/)
 
 ## SecNet Tool Help:
-
+<pre>
 Quick start:
 ============
 Please included QUICK_START file for a quick reference.
@@ -227,3 +227,4 @@ Examples:
 
 #To reduce amount of standard output and only report whether each sequence was successfully processed:
 ./secnet.py3 --input "input/*.fasta" --output output/ --label 8 --quiet
+</pre>
