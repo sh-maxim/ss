@@ -56,10 +56,10 @@ Please included QUICK_START file for a quick reference.
 
 Proper execution of SecNet:
 ===========================
-Please launch SecNet as an executable, i.e. ./secnet.py3; do NOT try to execute secnet.py3 with your own python,
-for example please AVOID "/bin/python secnet.py3". Your python may not include required libraries. Please execute
-secnet.py3 as executable, i.e. ./secnet.py3; for the proper execution the first line of secnet.py3 includes a reference
-to Anaconda Python 3 locally installed to the SecNet kit directory.
+Please launch SecNet as an executable, i.e. ./secnet.py3; do NOT try to execute secnet.py3 with your own
+python, for example please AVOID "/bin/python secnet.py3". Your python may not include required libraries.
+Please execute secnet.py3 as executable, i.e. ./secnet.py3; for the proper execution the first line of
+secnet.py3 includes a reference to Anaconda Python 3 locally installed to the SecNet kit directory.
 
 Usage:
 ======
@@ -109,7 +109,7 @@ Labels and rules for 3 labels:
 (4) 3 harder to predict labels of Rule #1: H, E, C
     (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
     Argument: --label 3 or -l 3 or --label 3 --rule 1 or -l 3 -r 1
-    Note: The rule option is only applicable to 3 labels. If no option is specified, Rule #1 is assumed by default.
+    Note: The rule option is only applicable to 3 labels. If no option is specified, Rule #1 is by default.
 
 (5) 3 easier to predict labels of Rule #2: H, E, C
     (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
@@ -130,7 +130,7 @@ Input:
     --input /data/myproject/dir_with_seqs -i ./all_seq/
 
 (3) Wildcard matching, please use ' or " quotes
-    otherwise a shell may expand all matching files into a set of program arguments and the program will fail
+    otherwise a shell may expand all matching files into a set of program arguments and the program fails
     --input '/pdb/2A*.fasta' or -i "~/project_jan/*.seq" or -i "ABCD?.seq"
 
 Output directory:
@@ -142,8 +142,8 @@ for example example.fasta will lead to example.ss8 or ABCD4.seq will produce ABC
 
 CPU:
 ====
-By default, SecNet will detect a number of available CPU cores and will use all of them to run 3rd-party software
-to generate input features and to process neural networks to make predictions.
+By default, SecNet will detect a number of available CPU cores and will use all of them to run 3rd-party
+software to generate input features and to process neural networks to make predictions.
 A user can limit a number of used CPU cores to make the system more responsive during the prediction for
 other user tasks. It will take longer time to make the predictions.
     --cpu 4 or -c 2 or --cpu 7
@@ -177,22 +177,22 @@ features           -- saves generated input feature files, speeds up nnet comput
 features/psiblast  -- saved input psiblast features with PSSM profiles from the 1st and 2nd rounds
                       (example.mtx.1 and exammple.mtx.2)
 features/hhm       -- saved input hhm features with HHM parameters (example.hhm1)
-features/temp      -- includes undeleted temporary files to track down errors for failed generation of input features
+features/temp      -- includes undeleted temporary files to track down errors for failed input features
 input              -- includes example.fasta and 4 other sample sequences in FASTA format
 models             -- trained neural networks for 5 sets of labels each with 10 cross-validation trainings
 nnpython3          -- symbolic link to locally installed Anaconda Python 3
 output             -- empty directory for output convenience
 QUICK_START        -- quick start instructions with examples
 README             -- a readme file with this content
-secnet.py3         -- SecNet executable which should be executed as ./secnet.py3 or /home/user/secnet_kit/secnet.py3
+secnet.py3         -- SecNet executable to be executed as ./secnet.py3 or /home/user/secnet_kit/secnet.py3
 Test2018           -- files related to Test2018 data set from our paper
 Test2018/input     -- 149 FASTA-formatted sequence files from Test2018
-Test2018/expected  -- expected secondary-structure predictions for all 5 label alphabets of 149 Test2018 sequences
-Test2018/test.bash -- a script that tests your SecNet installation on Test2018 and saves results to Test2018/output.
-                      You may compare your re-generated results with the expected ones stored in Test2018/expected.
+Test2018/expected  -- expected secondary-structure predictions for 5 label alphabets of 149 Test2018 sequences
+Test2018/test.bash -- a script testing your SecNet installation on Test2018 and saves results to Test2018/output.
+                      You may compare your re-generated results with the expected ones from Test2018/expected.
                       It is a normal situation when due to different hardware and software your predictions and
-                      expected predictions slightly vary by one or few labels. Your overall accurarcy will be close
-                      within 0.01-0.03% to the one reported in our paper.
+                      expected predictions slightly vary by one or few labels. Your overall accurarcy will be
+                      close within 0.01-0.03% to the one reported in our paper.
 Test2018/output    -- an empty directory for output from Test2018/test.bash
 
 
