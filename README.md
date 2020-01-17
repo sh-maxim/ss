@@ -1,6 +1,6 @@
 # SecNet, template-free protein secondary structure prediction software
 
-Copyright (c) 2018-2019, Maxim Shapovalov†,‡, Roland L. Dunbrack, Jr.†,*, Slobodan Vucetic‡,\*  
+Copyright (c) 2018-2019, Maxim Shapovalov<sup>†,‡</sup>, Roland L. Dunbrack, Jr.<sup>†,*</sup>, Slobodan Vucetic<sup>‡,\*</sup>  
 All rights reserved.  
 † Fox Chase Cancer Center, 333 Cottman Avenue, Philadelphia PA 19111, USA  
 ‡ Temple University, 1801 N Broad Street, Philadelphia PA 19122, USA  
