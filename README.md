@@ -24,14 +24,14 @@ The installer will not disrupt your systemwide or user-specific Python or shell 
 simply run a command: *rm -rf ./secnet_kit_directory*
 
 ## License
-Open-source BSD 3-Clause License. [Full text is here.](http://dunbrack.fccc.edu/ss/explore/LICENSE)
+Open-source BSD 3-Clause License. [Full text is here.](https://github.com/sh-maxim/ss/explore_secnet/LICENSE)
 
 ## Download and Installation:
 
 Download a tiny (11KB) **SecNet Kit Installer**. The installer will automatically download, install and configure all required components. Depending on Internet speed between you and our server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
 
 * **SecNet Kit Installer**
-  * from [Github](http://dunbrack.fccc.edu/ss/explore/link) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/explore/link)
+  * from [Github](https://github.com/sh-maxim/ss/install_secnet.bash) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/install_secnet.bash)
   * open a terminal window or command prompt
   * change the current directory to the download location, for example *cd /home/user/Downloads*
   * launch the installer with:
@@ -40,11 +40,14 @@ Download a tiny (11KB) **SecNet Kit Installer**. The installer will automaticall
     * watch your favorite TV series for ~1-6 hours and come back :-)
 
 * Download **Set2018** data set which includes training, validation and **Test2018** testing sets
-  * from [Github](http://dunbrack.fccc.edu/ss/explore/link) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/explore/link)
+  * from [Github](https://github.com/sh-maxim/ss/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)
 
 * Explore our SecNet Kit file and directory structure
-  * from [Github](http://dunbrack.fccc.edu/ss/explore/link) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/explore/link)
+  * from [Github](https://github.com/sh-maxim/ss/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
 
+* Access all downloadable files
+  * from [Github](https://github.com/sh-maxim/ss) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public)
+  
 ## Preprint:
 Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.PLoS ONE, Submitted. [Manuscript will be available soon.](https://journals.plos.org/plosone/)
 
@@ -52,7 +55,7 @@ Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and
 <pre>
 Quick start:
 ============
-Please included QUICK_START file for a quick reference.
+Please see included QUICK_START file for a quick reference.
 
 Proper execution of SecNet:
 ===========================
