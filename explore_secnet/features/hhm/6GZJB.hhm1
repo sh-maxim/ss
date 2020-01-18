@@ -1,0 +1,198 @@
+HHsearch 1.5
+NAME  6GZJB
+FAM   
+FILE  6GZJB
+COM   /app/bin2bin/3rd_software/unix/hh/hh/hhmake -i /app/bin2bin/features/temp/6GZJB_12137/6GZJB.a3m -o /app/bin2bin/features/hhm/6GZJB.hhm1 
+DATE  Sat Jan 11 04:11:44 2020
+LENG  54 match states, 54 columns in multiple alignment
+FILT  9 out of 9 sequences passed filter (-id 90 -cov 0 -qid 0 -qsc -20.00 -diff 100)
+NEFF  1.8 
+SEQ
+>Consensus
+serrxxsekrlLxxrxxxxxldxdYaniDfxKxxtkDsytltEElaEYAEIRVK
+>6GZJB
+SEKRLGSERRLLGLRGESPELDLSYSHSDLGKRPTKDSYTLTEELAEYAEIRVK
+>gi|514454912|ref|XP_005002308.1|(570-623:623) PREDICTED: myelin-associated glycoprotein [Cavia porcellus]   E=3e-19 s/c=1.85 id=89% cov=102%
+SERRVGSERRLLGLRGEPQELDLSYSHSDMGKRPTKDSYTLTEELAEYAEIRVK
+>gi|530653042|ref|XP_005312780.1|(574-626:626) PREDICTED: myelin-associated glycoprotein isoform X1 [Chrysemys picta bellii]   gi|641785147|ref|XP_008174832.1| PREDICTED: myelin-associated glycoprotein isoform X1 [Chrysemys picta bellii]   gi|641785149|ref|XP_008174833.1| PREDICTED: myelin-associated glycoprotein isoform X1 [Chrysemys picta bellii]   gi|641785151|ref|XP_008174834.1| PREDICTED: myelin-associated glycoprotein isoform X1 [Chrysemys picta bellii]  E=7e-19 s/c=1.86 id=61% cov=100%
+-ERRLASDKRLLNKPEGSLDLNVDYANIDFTKLPTKDSYTLTEELAEYAEIRVK
+>gi|557329888|ref|XP_006037836.1|(610-660:660) PREDICTED: myelin-associated glycoprotein-like [Alligator sinensis]   E=6e-17 s/c=1.81 id=62% cov=96%
+---RPASDKRLLSKREGSLDLDVDYANIDFAKLSTKDSYTLTEELAEYAEIRVK
+>gi|565314688|gb|ETE66740.1|(509-552:552) Myelin-associated glycoprotein, partial [Ophiophagus hannah]   E=4e-13 s/c=1.81 id=62% cov=83%
+-------DKRLLNKRE---DLGIDYANIDFTKLSTKDSYTLTEELAEYAEIRVK
+>gi|327286004|ref|XP_003227721.1|(577-621:621) PREDICTED: myelin-associated glycoprotein-like isoform X1 [Anolis carolinensis]   gi|637355564|ref|XP_008119150.1| PREDICTED: myelin-associated glycoprotein-like isoform X1 [Anolis carolinensis]  E=4e-13 s/c=1.76 id=59% cov=85%
+------SDKRFLAKRD---DLGIDYANIDFTKLSTKDKYTLTEELAEYAEIRVK
+>gi|301627962|ref|XP_002943135.1|(578-625:625) PREDICTED: myelin-associated glycoprotein isoform X1 [Xenopus (Silurana) tropicalis]   gi|512855971|ref|XP_004916459.1| PREDICTED: myelin-associated glycoprotein isoform X1 [Xenopus (Silurana) tropicalis]  E=3e-09 s/c=1.39 id=49% cov=91%
+------SEKILLSKRQQPSRVDTDYANIDFTKRNVRDSFTSPEELTEYAEIRVK
+>gi|557023020|ref|XP_006011738.1|(601-648:648) PREDICTED: myelin-associated glycoprotein-like [Latimeria chalumnae]  E=8e-06 s/c=1.15 id=43% cov=91%
+------AEGQILLDKKGTTELDMDYANLDFSKLSVKDGNVHTEEETEYAEIRVK
+>gi|334328657|ref|XP_001369703.2|(573-626:626) PREDICTED: myelin-associated glycoprotein isoform X1 [Monodelphis domestica]   gi|612025660|ref|XP_007491887.1| PREDICTED: myelin-associated glycoprotein isoform X2 [Monodelphis domestica]   gi|612025662|ref|XP_007491888.1| PREDICTED: myelin-associated glycoprotein isoform X3 [Monodelphis domestica]   gi|612025665|ref|XP_007491889.1| PREDICTED: myelin-associated glycoprotein isoform X4 [Monodelphis domestica]  E=3e-21 s/c=1.96 id=87% cov=102%
+SERRLGAERRLLGLRAEPPELDLSYAHVDLGKRPTKDSYTLTEELAEYAEIRVK
+#
+NULL   3706	5728	4211	4064	4839	3729	4763	4308	4069	3323	5509	4640	4464	4937	4285	4423	3815	3783	6325	4665	
+HMM    A	C	D	E	F	G	H	I	K	L	M	N	P	Q	R	S	T	V	W	Y	
+       M->M	M->I	M->D	I->M	I->I	D->M	D->D	Neff	Neff_I	Neff_D
+       0	*	*	0	*	0	*	*	*	*	
+S 1    *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	1
+       0	*	*	*	*	*	*	1112	0	0	
+
+E 2    *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2
+       0	*	*	*	*	*	*	1352	0	0	
+
+K 3    *	*	*	*	*	*	*	*	2163	*	*	*	*	*	365	*	*	*	*	*	3
+       0	*	*	*	*	*	*	1352	0	0	
+
+R 4    *	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	4
+       0	*	*	*	*	*	*	1405	0	0	
+
+L 5    *	*	*	*	*	*	*	*	*	756	*	*	2216	*	*	*	*	2376	*	*	5
+       0	*	*	*	*	*	*	1405	0	0	
+
+G 6    1206	*	*	*	*	820	*	*	*	*	*	*	*	*	*	*	*	*	*	*	6
+       0	*	*	*	*	*	*	1405	0	0	
+
+S 7    1754	*	*	*	*	*	*	*	*	*	*	*	*	*	*	507	*	*	*	*	7
+       0	*	*	*	*	*	*	1833	0	0	
+
+E 8    *	*	1467	648	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	8
+       0	*	*	*	*	*	*	1820	0	0	
+
+R 9    *	*	*	*	*	2476	*	*	938	*	*	*	*	*	1745	*	*	*	*	*	9
+       0	*	*	*	*	*	*	1820	0	0	
+
+R 10   *	*	*	*	*	*	*	2641	*	*	*	*	*	2476	599	*	*	*	*	*	10
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 11   *	*	*	*	3371	*	*	2476	*	467	*	*	*	*	*	*	*	*	*	*	11
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 12   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	12
+       0	*	*	*	*	*	*	1820	0	0	
+
+G 13   3371	*	*	*	*	1745	*	*	*	2476	*	2502	*	*	*	2007	*	*	*	*	13
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 14   *	*	2476	*	*	*	*	*	938	1745	*	*	*	*	*	*	*	*	*	*	14
+       0	*	*	*	*	*	*	1820	0	0	
+
+R 15   *	*	*	*	*	*	*	*	2476	*	*	*	3373	*	466	*	*	*	*	*	15
+       0	*	*	*	*	*	*	1820	0	0	
+
+G 16   3352	*	3371	1916	*	2320	*	*	2476	*	*	*	*	2641	*	*	*	*	*	*	16
+       281	*	2501	*	*	*	*	1820	0	0	
+
+E 17   *	*	*	1489	*	1113	*	*	*	*	*	*	*	2464	*	*	*	*	*	*	17
+       0	*	*	*	*	*	0	1798	0	1065	
+
+S 18   *	*	*	*	*	*	*	*	*	*	*	*	1244	*	*	1438	2260	*	*	*	18
+       0	*	*	*	*	*	0	1798	0	1065	
+
+P 19   *	*	*	*	*	*	*	*	*	1979	*	*	2087	3048	*	2464	2260	*	*	*	19
+       0	*	*	*	*	0	*	1798	0	1065	
+
+E 20   *	*	1467	1065	*	*	*	*	*	*	*	*	*	*	2641	*	*	*	*	*	20
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 21   *	*	*	*	*	*	*	*	*	252	*	*	*	*	*	*	*	2641	*	*	21
+       0	*	*	*	*	*	*	1820	0	0	
+
+D 22   *	*	460	*	*	2501	*	*	*	*	*	3373	*	*	*	*	*	*	*	*	22
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 23   *	*	*	*	*	*	*	2501	*	1745	2476	*	*	*	*	*	2641	2434	*	*	23
+       0	*	*	*	*	*	*	1820	0	0	
+
+S 24   *	*	511	*	*	*	*	*	*	*	*	*	*	*	*	1745	*	*	*	*	24
+       0	*	*	*	*	*	*	1820	0	0	
+
+Y 25   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	25
+       0	*	*	*	*	*	*	1820	0	0	
+
+S 26   323	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2320	*	*	*	*	26
+       0	*	*	*	*	*	*	1820	0	0	
+
+H 27   *	*	*	*	*	*	1745	*	*	*	*	511	*	*	*	*	*	*	*	*	27
+       0	*	*	*	*	*	*	1820	0	0	
+
+S 28   *	*	*	*	*	*	*	938	*	2476	*	*	*	*	*	2320	*	3352	*	*	28
+       0	*	*	*	*	*	*	1820	0	0	
+
+D 29   *	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	29
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 30   *	*	*	*	511	*	*	*	*	2356	3279	*	*	*	*	*	*	*	*	*	30
+       0	*	*	*	*	*	*	1820	0	0	
+
+G 31   3498	*	*	*	*	1745	*	*	*	*	*	*	*	*	*	2476	1206	*	*	*	31
+       0	*	*	*	*	*	*	1820	0	0	
+
+K 32   *	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	32
+       0	*	*	*	*	*	*	1820	0	0	
+
+R 33   *	*	*	*	*	*	*	*	*	885	*	*	*	*	1125	*	*	*	*	*	33
+       0	*	*	*	*	*	*	1820	0	0	
+
+P 34   *	*	*	*	*	*	*	*	*	*	*	2641	1341	*	*	1168	*	*	*	*	34
+       0	*	*	*	*	*	*	1820	0	0	
+
+T 35   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	599	1556	*	*	35
+       0	*	*	*	*	*	*	1820	0	0	
+
+K 36   *	*	*	*	*	*	*	*	252	*	*	*	*	*	2641	*	*	*	*	*	36
+       0	*	*	*	*	*	*	1820	0	0	
+
+D 37   *	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	37
+       0	*	*	*	*	*	*	1820	0	0	
+
+S 38   *	*	*	*	*	2476	*	*	3371	*	*	*	*	*	*	467	*	*	*	*	38
+       0	*	*	*	*	*	*	1820	0	0	
+
+Y 39   *	*	*	*	2641	*	*	*	*	*	*	2476	*	*	*	*	*	*	*	599	39
+       0	*	*	*	*	*	*	1820	0	0	
+
+T 40   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	286	2476	*	*	40
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 41   *	*	*	*	*	*	2476	*	*	599	*	*	*	*	*	2641	*	*	*	*	41
+       0	*	*	*	*	*	*	1820	0	0	
+
+T 42   *	*	*	*	*	*	*	*	*	*	*	*	2641	*	*	*	252	*	*	*	42
+       0	*	*	*	*	*	*	1820	0	0	
+
+E 43   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	43
+       0	*	*	*	*	*	*	1820	0	0	
+
+E 44   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	44
+       0	*	*	*	*	*	*	1820	0	0	
+
+L 45   *	*	*	2476	*	*	*	*	*	286	*	*	*	*	*	*	*	*	*	*	45
+       0	*	*	*	*	*	*	1820	0	0	
+
+A 46   599	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	1556	*	*	*	46
+       0	*	*	*	*	*	*	1820	0	0	
+
+E 47   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	47
+       0	*	*	*	*	*	*	1820	0	0	
+
+Y 48   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	48
+       0	*	*	*	*	*	*	1820	0	0	
+
+A 49   0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	49
+       0	*	*	*	*	*	*	1820	0	0	
+
+E 50   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	50
+       0	*	*	*	*	*	*	1820	0	0	
+
+I 51   *	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	51
+       0	*	*	*	*	*	*	1820	0	0	
+
+R 52   *	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	52
+       0	*	*	*	*	*	*	1820	0	0	
+
+V 53   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	53
+       0	*	*	*	*	*	*	1820	0	0	
+
+K 54   *	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	54
+       0	*	*	0	*	*	*	1820	0	0	
+
+//

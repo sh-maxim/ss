@@ -1,0 +1,242 @@
+HHsearch 1.5
+NAME  6C62D
+FAM   
+FILE  6C62D
+COM   /app/bin2bin/3rd_software/unix/hh/hh/hhmake -i /app/bin2bin/features/temp/6C62D_14504/6C62D.a3m -o /app/bin2bin/features/hhm/6C62D.hhm1 
+DATE  Mon Jan 13 15:22:58 2020
+LENG  68 match states, 68 columns in multiple alignment
+FILT  11 out of 11 sequences passed filter (-id 90 -cov 0 -qid 0 -qsc -20.00 -diff 100)
+NEFF  2.3 
+SEQ
+>Consensus
+MtexxilxyVxAsAxxlxLpLdearxxrVAxHlaRTxxmaxlLxxxplxxedEpAEiyxPapFPxedx
+>6C62D
+MTETEIFAYIEAASIAIGIPLEPARARAVAHHFSRTALLAEMLESVPLSPESELAEIYRPAPFPAEDI
+>gi|827459846|ref|WP_047219900.1|(1-67:69) hypothetical protein [Delftia lacustris]   E=1e-15 s/c=1.31 id=57% cov=100%
+MEESQVIQYVQAAAVAVGLPLDAARAQAVAQHLGRTVALARLLETAPLAPEDEPAEIYRPAPFPTED-
+>gi|493339453|ref|WP_006296378.1|(1-66:69) hypothetical protein [Hylemonella gracilis]   gi|332041957|gb|EGI78301.1| hypothetical protein HGR_02014 [Hylemonella gracilis ATCC 19624]  E=3e-05 s/c=0.80 id=45% cov=96%
+MSDDEMLTYVRASARLLDLPLDEARAARVAGHLQRTAAMAALLERLDLAVEDEPAEIYCPArPVP----
+>gi|835421145|ref|WP_047500395.1|(1-70:72) hypothetical protein [Methylibium sp. CF468]   E=0.0001 s/c=0.73 id=43% cov=100%
+MTDTapsDIVDFVRASAQLLELPLDDAQVARVAMHLARTRTMVAPLRLLPLGAELEPAEVYCPAPFPAED-
+>gi|553770292|ref|WP_023102368.1|(7-64:68) MULTISPECIES: hypothetical protein [Pseudomonas]   gi|552297985|gb|ERV57814.1| hypothetical protein Q065_00081 [Pseudomonas aeruginosa BL11]   gi|552628808|gb|ERY45239.1| hypothetical protein Q060_05054 [Pseudomonas aeruginosa BL06]   gi|856793798|gb|KMN11653.1| hypothetical protein TU84_02120 [Pseudomonas sp. DSM 29165]  E=4e-12 s/c=1.32 id=42% cov=87%
+--------YVTAMSVLLDLNLSEEQLERVAEHFARTKQLAGLLGAVPMTPWDEPAELYQPCPFPSE--
+>gi|497204430|ref|WP_009518692.1|(1-63:68) MULTISPECIES: hypothetical protein [Hydrogenophaga]   gi|388264417|gb|EIK89988.1| hypothetical protein Q5W_3134 [Hydrogenophaga sp. PBC]   gi|633888612|emb|CDN90247.1| hypothetical protein BN948_04689 [Hydrogenophaga intermedia]  E=7e-12 s/c=1.19 id=41% cov=94%
+MEEQDVLAYVKACARVLGLPLDEEQTARVATHLQRTAAMAELLDAFALRDEDEIAEVFCPAPF-----
+>gi|497785738|ref|WP_010099922.1|(1-65:78) hypothetical protein [Verminephrobacter aporrectodeae]   E=8e-10 s/c=1.06 id=35% cov=97%
+MTDAGTLACVQASAATLGLVLDEARARRVAAHLAQIERMAQLLLAAPMGAHAELAGTYAPLAFPS---
+>gi|835396783|ref|WP_047490710.1|(2-66:73) hypothetical protein [Methylibium sp. CF059]   E=9e-08 s/c=0.95 id=38% cov=97%
+--NSEIQDYVRATARFLALPLDEAQVERVAVHLARTRSMVAALQAEPLHAEIEPAEVFCPAPFPPGD-
+>gi|658513851|ref|WP_029709346.1|(1-69:73) hypothetical protein [Rhodoferax saidenbachensis]   E=2e-10 s/c=1.03 id=48% cov=101%
+MTEAEILSYVQASAAALGLPLDAGRTQRVAAHLTRTAALAQLLLDAPMEPHDELAEIYKPLDFqPASNM
+>gi|860488394|ref|WP_048439229.1|(1-67:69) hypothetical protein [Caenimonas sp. SL110]   E=2e-08 s/c=0.96 id=51% cov=100%
+MDESEVLAYVTSAARMVRLPLDAQRAQAVATHLARTAAMAALLEAAPLSPEDEPAEVFCPAPFPKED-
+#
+NULL   3706	5728	4211	4064	4839	3729	4763	4308	4069	3323	5509	4640	4464	4937	4285	4423	3815	3783	6325	4665	
+HMM    A	C	D	E	F	G	H	I	K	L	M	N	P	Q	R	S	T	V	W	Y	
+       M->M	M->I	M->D	I->M	I->I	D->M	D->D	Neff	Neff_I	Neff_D
+       0	*	*	0	*	0	*	*	*	*	
+M 1    *	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	1
+       0	*	*	*	*	*	*	2224	0	0	
+
+T 2    *	*	3355	2228	*	*	*	*	*	*	*	*	*	*	*	2551	948	*	*	*	2
+       0	*	*	*	*	*	*	2224	0	0	
+
+E 3    *	*	1356	972	*	*	*	*	*	*	*	3329	*	*	*	*	*	*	*	*	3
+       0	*	*	*	*	*	*	2261	0	0	
+
+T 4    2097	*	2703	*	*	*	*	*	*	*	*	*	*	3344	*	1838	2093	*	*	*	4
+       153	3309	*	1585	585	*	*	2261	1000	0	
+
+E 5    *	*	1849	1018	*	2875	*	*	*	*	*	*	*	3435	*	*	*	*	*	*	5
+       0	*	*	*	*	*	*	2261	0	0	
+
+I 6    *	*	*	*	*	*	*	1213	*	*	2703	*	*	*	*	*	2875	1843	*	*	6
+       0	*	*	*	*	*	*	2261	0	0	
+
+F 7    *	*	*	*	2905	*	*	3435	*	802	*	*	*	3329	*	*	*	3309	*	*	7
+       0	*	*	*	*	*	*	2261	0	0	
+
+A 8    1133	*	2319	*	*	*	*	*	*	*	*	*	*	3435	*	3358	2703	*	*	*	8
+       0	*	*	*	*	*	*	2261	0	0	
+
+Y 9    *	3007	*	*	3419	*	*	*	*	*	*	*	*	*	*	*	*	*	*	355	9
+       0	*	*	*	*	*	*	2386	0	0	
+
+I 10   *	*	*	*	*	*	*	3092	*	*	*	*	*	*	*	*	*	180	*	*	10
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 11   *	*	*	3092	*	*	*	*	3509	*	*	*	*	1769	1644	*	2462	*	*	*	11
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 12   116	*	*	*	*	*	*	*	*	*	*	*	*	*	*	3691	*	*	*	*	12
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 13   1853	3509	*	*	*	*	*	*	*	*	3264	*	*	*	*	1187	3442	*	*	*	13
+       0	*	*	*	*	*	*	2386	0	0	
+
+S 14   361	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2176	*	*	*	*	14
+       0	*	*	*	*	*	*	2386	0	0	
+
+I 15   2243	*	*	*	*	*	*	3092	*	*	*	*	*	3419	1352	*	*	2425	*	*	15
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 16   1805	*	*	*	3442	*	*	*	*	1590	3691	*	*	*	*	*	3007	3509	*	*	16
+       0	*	*	*	*	*	*	2386	0	0	
+
+I 17   *	*	*	*	*	*	*	3092	*	468	*	*	*	*	*	*	*	2647	*	*	17
+       0	*	*	*	*	*	*	2386	0	0	
+
+G 18   2644	*	2551	3419	*	1004	*	*	*	*	*	*	*	*	3691	*	*	*	*	*	18
+       0	*	*	*	*	*	*	2386	0	0	
+
+I 19   *	*	*	*	*	*	*	3092	*	180	*	*	*	*	*	*	*	*	*	*	19
+       0	*	*	*	*	*	*	2386	0	0	
+
+P 20   *	*	*	*	*	*	*	*	*	*	*	3264	374	*	*	*	*	3007	*	*	20
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 21   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	21
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 22   *	*	361	3092	*	*	*	*	*	*	*	*	*	*	*	3264	*	*	*	*	22
+       0	*	*	*	*	*	*	2386	0	0	
+
+P 23   2021	*	3419	881	*	*	*	*	*	*	*	*	3092	*	*	*	*	*	*	*	23
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 24   635	*	*	2382	*	3527	*	*	*	*	*	*	*	3691	*	*	*	*	*	*	24
+       0	*	*	*	*	*	*	2386	0	0	
+
+R 25   *	*	*	*	*	*	*	*	*	*	*	*	*	1406	684	*	*	*	*	*	25
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 26   1096	*	*	*	*	*	*	*	*	3264	*	*	*	*	*	*	2518	1980	*	*	26
+       0	*	*	*	*	*	*	2386	0	0	
+
+R 27   1663	*	*	2350	*	*	*	*	*	*	*	*	*	2021	2049	*	*	*	*	*	27
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 28   1853	*	*	*	*	*	*	*	*	*	*	*	*	*	468	*	*	*	*	*	28
+       0	*	*	*	*	*	*	2386	0	0	
+
+V 29   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	29
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 30   0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	30
+       0	*	*	*	*	*	*	2386	0	0	
+
+H 31   2243	*	*	3264	*	2894	3092	*	*	*	3419	*	*	3605	*	*	2597	3442	*	*	31
+       0	*	*	*	*	*	*	2386	0	0	
+
+H 32   *	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	32
+       0	*	*	*	*	*	*	2386	0	0	
+
+F 33   *	*	*	*	2176	*	*	*	*	361	*	*	*	*	*	*	*	*	*	*	33
+       0	*	*	*	*	*	*	2386	0	0	
+
+S 34   1025	*	*	*	*	3605	*	*	*	*	*	*	*	2169	*	3092	3527	*	*	*	34
+       0	*	*	*	*	*	*	2386	0	0	
+
+R 35   *	*	*	*	*	*	*	*	*	*	*	*	*	3007	192	*	*	*	*	*	35
+       0	*	*	*	*	*	*	2386	0	0	
+
+T 36   *	*	*	*	*	*	*	3007	*	*	*	*	*	*	*	*	192	*	*	*	36
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 37   989	*	*	3007	*	*	*	*	3264	*	*	*	*	*	2430	*	*	3605	*	*	37
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 38   1093	*	*	*	*	*	*	*	*	3092	*	*	*	3264	3007	3442	3419	*	*	*	38
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 39   *	*	*	*	*	*	*	*	*	1126	884	*	*	*	*	*	*	*	*	*	39
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 40   296	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2430	*	*	40
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 41   1331	*	*	2286	*	3264	*	*	*	*	*	*	*	2243	3605	*	*	*	*	*	41
+       0	*	*	*	*	*	*	2386	0	0	
+
+M 42   3442	*	*	*	*	*	*	*	*	520	3092	*	3419	*	*	*	*	*	*	*	42
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 43   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	43
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 44   *	*	3509	1281	*	3264	*	*	*	2243	*	*	*	3442	3419	*	*	*	*	*	44
+       0	*	*	*	*	*	*	2386	0	0	
+
+S 45   1042	*	3527	*	*	*	*	*	*	3419	*	*	*	*	2894	3092	3605	*	*	*	45
+       0	*	*	*	*	*	*	2386	0	0	
+
+V 46   1431	*	*	3442	3509	*	*	*	*	2644	*	*	*	*	*	*	*	1789	*	*	46
+       0	*	*	*	*	*	*	2386	0	0	
+
+P 47   3509	*	2894	*	*	*	*	*	*	*	*	*	363	*	*	*	*	*	*	*	47
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 48   *	*	*	*	*	*	*	*	*	546	1665	*	*	*	*	*	*	*	*	*	48
+       0	*	*	*	*	*	*	2386	0	0	
+
+S 49   2749	*	*	3527	*	2198	3442	*	*	*	*	*	*	*	3509	1929	3264	*	*	*	49
+       0	*	*	*	*	*	*	2386	0	0	
+
+P 50   1690	*	3509	*	*	*	*	*	*	*	*	*	1096	*	*	*	*	2894	*	*	50
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 51   *	*	*	546	*	*	2243	*	*	*	*	*	*	*	*	*	*	*	3264	*	51
+       0	*	*	*	*	*	*	2386	0	0	
+
+S 52   3007	*	804	*	*	*	*	3442	*	3419	*	*	*	*	*	3092	*	*	*	*	52
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 53   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	53
+       0	*	*	*	*	*	*	2386	0	0	
+
+L 54   *	*	*	*	*	*	*	3509	*	1606	*	*	777	*	*	*	*	*	*	*	54
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 55   0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	55
+       0	*	*	*	*	*	*	2386	0	0	
+
+E 56   *	*	*	192	*	3007	*	*	*	*	*	*	*	*	*	*	*	*	*	*	56
+       0	*	*	*	*	*	*	2386	0	0	
+
+I 57   *	*	*	*	*	*	*	1503	*	2539	*	*	*	*	*	*	3007	1511	*	*	57
+       0	*	*	*	*	*	*	2386	0	0	
+
+Y 58   *	*	*	*	1959	*	*	*	*	*	*	*	*	*	*	*	*	*	*	429	58
+       0	*	*	*	*	*	*	2386	0	0	
+
+R 59   3007	1043	*	*	*	*	*	*	3527	*	*	*	*	3264	2326	*	*	*	*	*	59
+       0	*	*	*	*	*	*	2386	0	0	
+
+P 60   *	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	60
+       0	*	*	*	*	*	*	2386	0	0	
+
+A 61   546	3264	*	*	*	*	*	*	*	2243	*	*	*	*	*	*	*	*	*	*	61
+       208	2894	*	0	*	*	*	2386	1079	0	
+
+P 62   3007	*	3527	*	*	*	*	*	*	*	*	*	342	*	*	*	*	*	*	*	62
+       0	*	*	*	*	*	*	2386	0	0	
+
+F 63   *	*	*	*	208	*	*	*	*	*	*	*	*	*	*	*	*	2894	*	*	63
+       144	3394	*	0	*	*	*	2386	1000	0	
+
+P 64   *	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	64
+       0	*	*	*	*	*	*	2341	0	0	
+
+A 65   1398	*	*	*	*	*	*	*	3194	*	*	*	3046	*	*	1797	3287	*	*	*	65
+       0	*	*	*	*	*	*	2272	0	0	
+
+E 66   *	*	*	497	*	2811	*	*	*	*	*	*	*	*	*	2745	*	*	*	*	66
+       0	*	*	*	*	*	*	2159	0	0	
+
+D 67   *	*	295	*	*	*	*	*	*	*	*	2433	*	*	*	*	*	*	*	*	67
+       0	*	*	*	*	*	*	2057	0	0	
+
+I 68   *	*	*	*	*	*	*	1000	*	*	1000	*	*	*	*	*	*	*	*	*	68
+       0	*	*	0	*	*	*	1429	0	0	
+
+//
