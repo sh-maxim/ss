@@ -22,7 +22,7 @@ a rigorously prepared data set, **Set2018** which includes training, validation 
 
 The installer will not disrupt your systemwide or user-specific Python or shell environment or alignment software; instead required Python and its libraries, all 3rd-party software and databases will be installed locally to the SecNet kit directory.
 
-## To unistall SecNet kit:
+## To Unistall SecNet Kit:
 simply run a command: ***rm -rf ./secnet_kit_directory***
 
 ## License
@@ -58,7 +58,7 @@ To predict secondary structure of a single sequence with the 8-label DSSP alphab
 
 ***Note***: Please launch **SecNet** as an executable, i.e. ***./secnet.py3***; do **not** try to execute secnet.py3 with your own python, for example please **avoid** */bin/python secnet.py3*. Your Python may not include required libraries. For the proper execution the first line of secnet.py3 includes a reference to Anaconda Python 3 locally installed to the SecNet kit directory.
 
-## Other examples:
+## Other Examples:
 Please note you need to use double or single quotes around wildcard characters such as '*.seq' or '*.fasta":  
 ***./secnet.py3 --input "input/\*.fasta" --output output/ --label 8***
 
