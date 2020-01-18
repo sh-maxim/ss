@@ -33,7 +33,7 @@ Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercon
 Download a tiny (11KB) **SecNet Kit Installer**. The installer will automatically download, install and configure all required components. Depending on Internet speed between you and our server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
 
 * **SecNet Kit Installer**
-  * from [Github](https://github.com/sh-maxim/ss/install_secnet.bash) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/install_secnet.bash)
+  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet.bash) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/install_secnet.bash)
   * open a terminal window or command prompt
   * change the current directory to the download location, for example *cd /home/user/Downloads*
   * launch the installer with:
@@ -42,10 +42,10 @@ Download a tiny (11KB) **SecNet Kit Installer**. The installer will automaticall
     * watch your favorite TV series for ~1-6 hours and come back :-)
 
 * Download **Set2018** data set which includes training, validation and **Test2018** testing sets
-  * from [Github](https://github.com/sh-maxim/ss/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)
+  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)
 
 * Explore our SecNet Kit file and directory structure
-  * from [Github](https://github.com/sh-maxim/ss/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
+  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
 
 * Access all downloadable files
   * from [Github](https://github.com/sh-maxim/ss) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public)
