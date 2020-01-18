@@ -33,7 +33,7 @@ Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercon
 Download a tiny **SecNet Kit Installer**. The installer will automatically download, install and configure all required components from a server. Depending on Internet speed between you and the server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
 
 * **SecNet Kit Installer**
-  * download any of two \[13KB\] Installers that has a better speed and does not fail
+  * download any of two \[13KB\] Installers; try another if during the installation, the first one has slow speed or fails
     * ***install_secnet_from_github.bash*** gets all data from Github. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
     * ***install_secnet_from_dunbrack.bash*** gets all data from dunbrack.fccc.edu. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
   * open a terminal window or command prompt
