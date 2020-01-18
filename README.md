@@ -26,7 +26,7 @@ The installer will not disrupt your systemwide or user-specific Python or shell 
 simply run a command: *rm -rf ./secnet_kit_directory*
 
 ## License
-Open-source BSD 3-Clause License. <a href="https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet/LICENSE" target="_blank">Full text is here.</a>
+Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet/LICENSE)
 
 ## Download and Installation:
 
