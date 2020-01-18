@@ -34,8 +34,8 @@ Download a tiny **SecNet Kit Installer**. The installer will automatically downl
 
 * **SecNet Kit Installer**
   * download any of two \[13KB\] Installers; try another if during the installation, the first one has slow speed or fails
-    * ***install_secnet_from_github.bash*** gets all data from Github. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
-    * ***install_secnet_from_dunbrack.bash*** gets all data from dunbrack.fccc.edu. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
+    * ***install_secnet_from_github.bash*** gets all data from Github [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
+    * ***install_secnet_from_dunbrack.bash*** gets all data from dunbrack.fccc.edu [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
   * open a terminal window or command prompt
   * change the current directory to the download location, for example *cd /home/user/Downloads*
   * launch the installer with:
