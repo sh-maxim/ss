@@ -30,10 +30,12 @@ Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercon
 
 ## Download and Installation:
 
-Download a tiny (11KB) **SecNet Kit Installer**. The installer will automatically download, install and configure all required components. Depending on Internet speed between you and our server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
+Download a tiny **SecNet Kit Installer**. The installer will automatically download, install and configure all required components from a server. Depending on Internet speed between you and the server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
 
 * **SecNet Kit Installer**
-  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet.bash) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/install_secnet.bash)
+  * download any of two \[13KB\] Installers
+    * *install_secnet_from_github.bash* gets all data from Github. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
+    * *install_secnet_from_dunbrack.bash* gets all data from dunbrack.fccc.edu. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
   * open a terminal window or command prompt
   * change the current directory to the download location, for example *cd /home/user/Downloads*
   * launch the installer with:
