@@ -91,14 +91,6 @@ Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and
 
 ## SecNet Tool Help:
 <pre>
-
-Proper execution of SecNet:
-===========================
-Please launch SecNet as an executable, i.e. ./secnet.py3; do NOT try to execute secnet.py3 with your own
-python, for example please AVOID "/bin/python secnet.py3". Your python may not include required libraries.
-Please execute secnet.py3 as executable, i.e. ./secnet.py3; for the proper execution the first line of
-secnet.py3 includes a reference to Anaconda Python 3 locally installed to the SecNet kit directory.
-
 Usage:
 ======
 # SecNet, Protein secondary structure prediction software
