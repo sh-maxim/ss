@@ -23,7 +23,7 @@ a rigorously prepared data set, **Set2018** which includes training, validation 
 The installer will not disrupt your systemwide or user-specific Python or shell environment or alignment software; instead required Python and its libraries, all 3rd-party software and databases will be installed locally to the SecNet kit directory.
 
 ## To unistall SecNet kit:
-simply run a command: *rm -rf ./secnet_kit_directory*
+simply run a command: ***rm -rf ./secnet_kit_directory***
 
 ## License
 Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet/LICENSE)
@@ -33,14 +33,14 @@ Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercon
 Download a tiny **SecNet Kit Installer**. The installer will automatically download, install and configure all required components from a server. Depending on Internet speed between you and the server, it usually takes between 1 and 6 hours. 95% of downloaded content is the required sequence databases against which the software was trained to guarantee the accuracy stated in our publication.
 
 * **SecNet Kit Installer**
-  * download any of two \[13KB\] Installers
-    * *install_secnet_from_github.bash* gets all data from Github. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
-    * *install_secnet_from_dunbrack.bash* gets all data from dunbrack.fccc.edu. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
+  * download any of two \[13KB\] Installers that has a better speed and does not fail
+    * ***install_secnet_from_github.bash*** gets all data from Github. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_github.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_github.bash)
+    * ***install_secnet_from_dunbrack.bash*** gets all data from dunbrack.fccc.edu. [\[mirror 1\]](https://raw.githubusercontent.com/sh-maxim/ss/master/install_secnet_from_dunbrack.bash) or [\[mirror 2\]](http://dunbrack.fccc.edu/ss/public/install_secnet_from_dunbrack.bash)
   * open a terminal window or command prompt
   * change the current directory to the download location, for example *cd /home/user/Downloads*
   * launch the installer with:
-    * *bash ./install_secnet.bash*
-    * or give executable permission to the downloaded file with *chmod u+ax ./install_secnet.bash* and run with *./install_secnet.bash*
+    * ***bash ./install_secnet.bash***
+    * or give executable permission to the downloaded file with ***chmod u+ax ./install_secnet.bash*** and run with ***./install_secnet.bash***
     * watch your favorite TV series for ~1-6 hours and come back :-)
 
 * Download **Set2018** data set which includes training, validation and **Test2018** testing sets
