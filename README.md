@@ -18,7 +18,7 @@ a rigorously prepared data set, **Set2018** which includes training, validation 
 ## Operating Systems:
 
 * **Unix**, all flavors
-* **macOS** including the recent Catalina 10.15 which dropped support for 32-bit applications
+* **macOS**, all versions including the recent Catalina 10.15 which dropped support for 32-bit applications
 
 The installer will not disrupt your systemwide or user-specific Python or shell environment or alignment software; instead required Python and its libraries, all 3rd-party software and databases will be installed locally to the SecNet kit directory.
 
