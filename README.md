@@ -51,15 +51,44 @@ Download a tiny **SecNet Kit Installer**. The installer will automatically downl
 
 * Access all downloadable files
   * from [Github](https://github.com/sh-maxim/ss/tree/master) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public)
-  
+
+## Quick Start:
+To predict secondary structure of a single sequence with the 8-label DSSP alphabet:  
+***./secnet.py3 --input input/example.fasta --output output/ --label 8***
+
+*Other examples*  
+Please note you need to use double or single quotes around wildcard characters such as '*.seq' or '*.fasta":  
+***./secnet.py3 --input "input/*.fasta" --output output/ --label 8***
+
+If you wish to process all testing entries in Test2018:  
+***./secnet.py3 --input Test2018/input --output Test2018/output --label 3 --rule 1***
+
+To generate all available label sets: {8 labels, 5 labels, 4 labels and 3 labels of both Rule #1 and Rule #2):  
+***./secnet.py3 --input input/5UB3B.fasta --output output/ --label all***
+
+4 labels only:  
+***./secnet.py3 --input input/5UB3B.fasta --output output/ --label 4***
+
+5 labels only:  
+***./secnet.py3 --input input/5UB3B.fasta --output output/ --label 5***
+
+The easier 3 labels of Rule #2:  
+***./secnet.py3 --input input/5UB3B.fasta --output output/ --label 3 --rule 2***
+
+To limit CPU usage to a single core with longer execution time (by default all CPU cores are used):  
+***./secnet.py3 --input "input/*.fasta" --output output/ --label 8 --cpu 1***
+
+If you have 8 cores, you may limit to 4 cores:  
+***./secnet.py3 --input "input/*.fasta" --output output/ --label 8 --cpu 4***
+
+To reduce amount of standard output and only report whether each sequence was successfully processed:  
+***./secnet.py3 --input "input/*.fasta" --output output/ --label 8 --quiet***
+
 ## Preprint:
 Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.PLoS ONE, Submitted. [Manuscript will be available soon.](https://journals.plos.org/plosone/)
 
 ## SecNet Tool Help:
 <pre>
-Quick start:
-============
-Please see included QUICK_START file for a quick reference.
 
 Proper execution of SecNet:
 ===========================
