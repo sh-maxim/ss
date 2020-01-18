@@ -1,0 +1,16 @@
+./nnpython3 ./secnet.py3 --input input/ --output output/ --label all --quiet
+
+# SecNet, Protein secondary structure prediction software
+# 2018-19 (C) Maxim Shapovalov, Roland Dunbrack Lab, Slobodan Vucetic, Fox Chase Cancer Center and Temple University, Philadelphia, PA, USA
+# Version 1.1.4
+# Jan 13, 2020
+
+1 of 5] processing of /home/max/16jF_secnet_ubuntu/input/example.fasta +
+2 of 5] processing of /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta +
+3 of 5] processing of /home/max/16jF_secnet_ubuntu/input/6G44A.fasta +
+4 of 5] processing of /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta +
+5 of 5] processing of /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta +
+
+5 succeeded out of total of 5
+<== ALL TASKS COMPLETED ==>
+

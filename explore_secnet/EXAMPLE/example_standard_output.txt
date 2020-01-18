@@ -1,0 +1,1135 @@
+./nnpython3 ./secnet.py3 --input input/ --output output/ --label all
+
+# SecNet, Protein secondary structure prediction software
+# 2018-19 (C) Maxim Shapovalov, Roland Dunbrack Lab, Slobodan Vucetic, Fox Chase Cancer Center and Temple University, Philadelphia, PA, USA
+# Version 1.1.4
+# Jan 13, 2020
+
+None:
+=====
+If wildcard characters such as * or ? are used to select input sequence files,
+please make sure to quote the input argument
+with either single or double quotes, for example "/my_input_folder/*.fasta" or '*.seq'
+
+INPUT for processing <-- input/
+OUTPUT --> output/
+
+
+1 of 5] processing of /home/max/16jF_secnet_ubuntu/input/example.fasta
+* script: /home/max/16jF_secnet_ubuntu/bin/run_psiblast.py3 /home/max/16jF_secnet_ubuntu/input/example.fasta
+* script: psiblast is set to use 8 CPU cores
+* command: /home/max/16jF_secnet_ubuntu/3rd_software/unix/ncbi-blast-2.6.0+/bin/psiblast -db /home/max/16jF_secnet_ubuntu/3rd_databases/blast/uniref90.fasta -query /home/max/16jF_secnet_ubuntu/input/example.fasta -inclusion_ethresh 0.001 -evalue 10 -save_pssm_after_last_round -out_ascii_pssm /home/max/16jF_secnet_ubuntu/features/psiblast/example.mtx -num_iterations 2 -num_threads 8 -save_each_pssm > /dev/null 2>&1
+* script: /home/max/16jF_secnet_ubuntu/bin/run_hmm.py3 /home/max/16jF_secnet_ubuntu/input/example.fasta
+* command: bash /home/max/16jF_secnet_ubuntu/3rd_software/generic/process_hmm.bash -i /home/max/16jF_secnet_ubuntu/input/example.fasta
+* hhm: number of detected CPU cores is 8
+* hhm: 8 CPU cores will be used
+* hhm: input fasta is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/buildali2.pl /home/max/16jF_secnet_ubuntu/features/temp/example_16589/example.seq -cpu 8 -noss 1>/home/max/16jF_secnet_ubuntu/features/temp/example_16589/example_alignment.output 2>/home/max/16jF_secnet_ubuntu/features/temp/example_16589/example_alignment.error
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/hhmake -i /home/max/16jF_secnet_ubuntu/features/temp/example_16589/example.a3m -o /home/max/16jF_secnet_ubuntu/features/hhm/example.hhm1 1>/home/max/16jF_secnet_ubuntu/features/temp/example_16589/example_hhmake.output 2>/home/max/16jF_secnet_ubuntu/features/temp/example_16589/example_hhmake.error
+* hhm: success
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 8 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 8 labels: H, E, C, T, G, S, B, I
+* predict: label definition: 8 original DSSP labels unchanged (C, S, B, T, I, G, H, E)
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/8label
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/8label/CV1/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/8label/CV2/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/8label/CV3/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/8label/CV4/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/8label/CV5/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/8label/CV6/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/8label/CV7/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/8label/CV8/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/8label/CV9/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/8label/CV10/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* predict: base name of entry is example
+* predict: parsed sequence from the input file is:
+STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+* predict: prediction file will be output/example.ss8
+predict: predicted secondary structure for 10 models
+CCCCCCHHHHHHHHHHHHHHHHSTTGCCCHHHHHHHHHHHHSSCCCHHHHHTCCTEEEEEECTTCEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHSTTTCCCHHHHHHHHHHHHSSCCCHHHHHTCTTEEEEEEETTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHSTTGCCCHHHHHHHHHHHHSSCCCHHHHTTCCSEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHSTTGCCCHHHHHHHHHHHHSSCCCHHHHHTCCTEEEEEECTTEEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHSTTCCCCHHHHHHHHHHHHSSCCCHHHHHTCTTEEEEEEETTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHTSCTGCCCHHHHHHHHHHHHSSCCCHHHHHTCSEEEEEEECTTCEEEEECCCCC
+CCCCCCCCHHHHHHHHHHHHHHSTTTCCCHHHHHHHHHHHHSSCCCHHHHTTCCTEEEEEECTTEEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHSTTCCCCHHHHHHHHHHHHSSCCCHHHHTTCCTEEEEEEETTEEEEEEECCCC
+CCCCCHHHHHHHHHHHHHHHHHSTTTCCCHHHHHHHHHHHHSSCCCHHHHHTCCSEEEEEEETTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHSTTGCCCHHHHHHHHHHHHSSCCCHHHHTTCTTEEEEEECTTEEEEEECCCCC
+predict: major vote:
+CCCCCCHHHHHHHHHHHHHHHHSTTGCCCHHHHHHHHHHHHSSCCCHHHHHTCCTEEEEEECTTEEEEEECCCCC
+* predict: successful (+) prediction at output/example.ss8
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 5 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 5 labels: H, E, C, T, G
+* predict: label definition: (C, S, B) -> C, (H, I) -> H, (E) -> E, (T) -> T, (G) -> G
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/5label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* predict: base name of entry is example
+* predict: parsed sequence from the input file is:
+STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+* predict: prediction file will be output/example.ss5
+predict: predicted secondary structure for 10 models
+CCCCCCCHHHHHHHHHHHHHHHCTTGCCCHHHHHHHHHHHHCCCCCHHHHHTCCTEEEEEECTTCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHTCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCTEEEEEEETTEEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHTTCCEEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHTTCCCEEEEEECTTCEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHHCTTGCCHHHHHHHHHHHHHCCCCCHHHHTTCCCEEEEEEETTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTGCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTEEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCGGGHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCTEEEEEECTTCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHTTCCCEEEEEECTTCEEEEECCCCC
+predict: major vote:
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTEEEEEECCCCC
+* predict: successful (+) prediction at output/example.ss5
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 4 labels: H, E, C, T
+* predict: label definition: (C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/4label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* predict: base name of entry is example
+* predict: parsed sequence from the input file is:
+STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+* predict: prediction file will be output/example.ss4
+predict: predicted secondary structure for 10 models
+CCCCCCCHHHHHHHHHHHHHHHCCTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTCEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCTCCCCHHHHHHHHHHHHTCCCCHHHHHTCCCEEEEEEETTEEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEETTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHTTCCTEEEEEECTTCEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHHCCTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCTEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHTTCCCEEEEEECTTEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCHHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEEETTEEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCCTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCTEEEEEECTTCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCEEEEEEECTTCEEEEECCCCC
+predict: major vote:
+CCCCCCCHHHHHHHHHHHHHHHCTTCCCCHHHHHHHHHHHHCCCCCHHHHHTCCCEEEEEECTTCEEEEECCCCC
+* predict: successful (+) prediction at output/example.ss4
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 1 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #1: H, E, C
+* predict: label definition: (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* predict: base name of entry is example
+* predict: parsed sequence from the input file is:
+STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+* predict: prediction file will be output/example.ss3rule1
+predict: predicted secondary structure for 10 models
+CCCCCCCCHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHHCCCEEEEEECCCCEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHCCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEECCCCC
+CCCCCCCCHHHHHHHHHHHHHCCCCCCCCHHHHHHHHHHHHCCCCCHHHHHHCCCEEEEEEECCEEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHHCCCEEEEEECCCCEEEEECCCCC
+CCCCCCCCHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCCEEEEEECCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEEECCCC
+predict: major vote:
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHHCCCCEEEEEECCCEEEEEECCCCC
+* predict: successful (+) prediction at output/example.ss3rule1
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/example.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #2: H, E, C
+* predict: label definition: (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/example.fasta
+* predict: base name of entry is example
+* predict: parsed sequence from the input file is:
+STGAANKSLSLLSTETMSILQDAPACCLPLFKFIDIYEKKYGHKLNVSDLYKLTDTIAIREQGNGRLVCLLPSNQ
+* predict: prediction file will be output/example.ss3rule2
+predict: predicted secondary structure for 10 models
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCEEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCEEEEEECCCCC
+CCCCCHHHHHHHHHHHHHHHHHCCCCCCCCHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEECCCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCCCCHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCEEEEEECCCCC
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCEEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEEECCCC
+CCCCCCHHHHHHHHHHHHHHHCCCCCCCCHHHHHHHHHHHHCCCCCHCCHCCCCCEEEEEECCCEEEEEECCCCC
+predict: major vote:
+CCCCCCCHHHHHHHHHHHHHHHCCCCCCCHHHHHHHHHHHHCCCCCHHHHCCCCCEEEEEECCCCEEEEECCCCC
+* predict: successful (+) prediction at output/example.ss3rule2
+* predict: returned code is 0 (0 = success, non-zero = failure)
+
+2 of 5] processing of /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* script: /home/max/16jF_secnet_ubuntu/bin/run_psiblast.py3 /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* script: psiblast is set to use 8 CPU cores
+* command: /home/max/16jF_secnet_ubuntu/3rd_software/unix/ncbi-blast-2.6.0+/bin/psiblast -db /home/max/16jF_secnet_ubuntu/3rd_databases/blast/uniref90.fasta -query /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -inclusion_ethresh 0.001 -evalue 10 -save_pssm_after_last_round -out_ascii_pssm /home/max/16jF_secnet_ubuntu/features/psiblast/6D0GA.mtx -num_iterations 2 -num_threads 8 -save_each_pssm > /dev/null 2>&1
+* script: /home/max/16jF_secnet_ubuntu/bin/run_hmm.py3 /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* command: bash /home/max/16jF_secnet_ubuntu/3rd_software/generic/process_hmm.bash -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* hhm: number of detected CPU cores is 8
+* hhm: 8 CPU cores will be used
+* hhm: input fasta is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/buildali2.pl /home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA.seq -cpu 8 -noss 1>/home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA_alignment.output 2>/home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA_alignment.error
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/hhmake -i /home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA.a3m -o /home/max/16jF_secnet_ubuntu/features/hhm/6D0GA.hhm1 1>/home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA_hhmake.output 2>/home/max/16jF_secnet_ubuntu/features/temp/6D0GA_21986/6D0GA_hhmake.error
+* hhm: success
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 8 -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 8 labels: H, E, C, T, G, S, B, I
+* predict: label definition: 8 original DSSP labels unchanged (C, S, B, T, I, G, H, E)
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/8label
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/8label/CV1/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/8label/CV2/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/8label/CV3/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/8label/CV4/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/8label/CV5/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/8label/CV6/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/8label/CV7/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/8label/CV8/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/8label/CV9/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/8label/CV10/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* predict: base name of entry is 6D0GA
+* predict: parsed sequence from the input file is:
+SNAMSNNNDYDISDSKDCEKFANQFIQEFPIRSAEIGQGTVIKRALPSRQKRMIGAWCFLDHAGPVTFPAGNGLDVGPHPHIGLQTFTWMIEGTMMHTDSLGSKQLIRPKQVNLMTAGHGISHTEVAPDTETQMHAAQLWIALPDHKRNMDPKFEHYPDLPVVEKDGLEFTVLVGEYLETTSPVVVHTPLVGVDLIATQDTKTRIPLNPEFEYGFMALDGVAHVNGHELTADNMVVLDTGLNEIEIEVKKGNRVLLIGGEPFETPILLWWNFVARTMDDLKEAREQWVNHDVRFGEIPDYVGARLEAPVLPDQMRASK
+* predict: prediction file will be output/6D0GA.ss8
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCCCCCCHHHHHCCCCCEEEECCCEECTTTTCEEEEECCCTTCCCEEEEEEECCCCCCCCCCTSCCCCCCCCTTSEEEEEEEEESEEEEECTTSCEEEECTTCEEEEECSTCEEEEEECCTTSCCEEEEEEEEEECGGGTTSCCCCCCCCCCCEEEETTEEEEEEESEETTCCCSEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEESCEEETTEECCTTCEEEECTTCSEEEEEECTTCEEEEEESCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCCGCCCCTTCCSCCCCCCCCCCGCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEETTTTCEEEEECTTTTCCCCCEEEEEEEECCSCCCCTSCCCCCCCTTSSCEEEEEEEEEEEEEECTTSCEEEECTTCEEEEECTSEEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCECCCCCCEEEETTEEEEEEEEEETTCECSEEEECCEEEEEEEECTTCEEEEECCTTCEEEEEEEESEEEETTEECCTTCEEEECTTCSEEEEEEETTEEEEEEECCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCCCCCCCTTCCSCCCCCCCCCGGGCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCTTTTCEEEEECCCTTCCCEEEEEEEEECCCCCCCTSSCCCCCCCCCSSEEEEEEEEEEEEEEECTTSCEEEECTTEEEEEECSSCEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEESCCTTCECSEEEEECEEEEEEEECTTCEEEEECCTTCCEEEEEEESCEEETTEEECTTCEEEECTTCSEEEEEECTTEEEEEEESCCCSSCEEEEEEEECSSHHHHHHHHHHHHTTCCTCCCCTTCCSCCCCCCCCCCGCCCCC
+CCCCCCCCCCCCCCCHCCCCCCCCCEEEECCEEECTTTTCEEEEECCCTTCCCEEEEEEEECCCCCCCCTSSSCCCCCCCCCSEEEEEEEEESEEEEECTTSCEEEECTTCEEEEECTSCEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCCCSEEEECSEEEEEEEECTTCEEEEECCTTCEEEEEEEESEEEETTEECCTTCEEEECTTCSEEEEEECTTEEEEEECSCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCCCSCCCTTCCSCCCCCCCCCGGCCCCC
+CCCCCCCCCCCCCCCCHHHHCCCCCEEEECCEEECTTTTCEEEEECCCTTCCCEEEEEEEECCCCCCCCTSCCCCCCCCCCTSEEEEEEEEESEEEEECTTSCEEEECTTCEEEEECSSCEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCECCCEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEESEEEETTEEECTTCEEEECTTCSEEEEEECTTCEEEEEESCCCSSCEEEEEEEECSSHHHHHHHHHHHHHTCGGSCCCTTCCSCCCCCCCCCGGGCCCC
+CCCCCCCCCCCCCCCHHHHHCCCCCEEEECCCCSCTTTTCEEEEECCCTTCCEEEEEEEEECCCCTCCCTTTCCCCCCCCCTSEEEEEEEEESEEEEECTTSCEEEECTTCEEEEEESSCEEEEEECCSTSCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEEECTTTCCCSEEEECCEEEEEEEECTTCEEEEECCTTCEEEEEEEESCEEETTEECCTTCEEEECTTCSEEEEEECTTCEEEEEESCCCSSCEEEEEEEECSSHHHHHHHHHHHHTTCTTSCCCTTCCSCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEETTTTEEEEEECCCSTCCCECEEEEEECCCCSCCCCCSCCECCCCTTSSEEEEEEEEEEEEEEECTTSCEEEECTTCEEEEECSSCEEEEEECCSSSCCEEEEEEEEECCGGGTTSCCCCCECCCCCEEEETTEEEEEEEEECTTEECSEEEECSEEEEEEEECTTCEEEEECCTTCCEEEEEEESEEEETTEECCTTCEEEECTTCSEEEEEECTTEEEEEEECCCCSSCEEEEEEEECSSHHHHHHHHHHHHHTCCTSCCCTTCCSCCCCCCCCCGGCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEECCTTTTCEEEEEECCSSSCCEEEEEEEECCCCSCCCCSSCCCCCCCCCSSEEEEEEEEEEEEEEEETTSCEEEECTTCEEEEECTSEEEEEEECCSSSCCEEEEEEEEEECGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCCCSEEEECSEEEEEEEECTTCEEEEECCTTCCEEEEEEESEEEETTEECCTTCEEEECSTCSEEEEEECSSEEEEEEESSCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCGGCCCCTTCCSCCCCCCCCCGGGCCCC
+CCCCCCCCCCCCCCCCHCCCCCCCCEEEECCCESCTTTTCEEEEECCCTTCCEEEEEEEEECCCCSCCCCCCCCECCCCCTCCCCEEEEEEEEEEEEECTTSCEEEECTTEEEEEEESSCEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCECSEEEECSEEEEEEEECTTCEEEEECCTTCCEEEEEEESEEEETTEEECTTCEEEECTTCSEEEEEEETTEEEEEEESCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCTTCCCCTTCCSCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCHHHHCCCCCCCEEEECCEEEETTTTCEEEEESCCTTSCCEEEEEEEEEECCCCCCTTSCCCCCCCCTSSCEEEEEEEESEEEEECTTSCEEEECTTCEEEEECSSCEEEEEECCTTSCCEEEEEEEEEECGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCECSEEEECSEEEEEEEECTTCEEEEECCTTSCEEEEEEESEEEETTEECCTTCEEEECTTCSEEEEEECSTEEEEEECSCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCCTSCCCTTCCSCCCCCCCCCGGGCCCC
+predict: major vote:
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTCEEEEECCCTTCCCEEEEEEEECCCCCCCCCSSCCCCCCCCCSSEEEEEEEEEEEEEEECTTSCEEEECTTCEEEEECSSCEEEEEECCTTCCCEEEEEEEEECCGGGTTSCCCCCCCCCCCEEEETTEEEEEEEEEETTCECSEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEESEEEETTEECCTTCEEEECTTCSEEEEEECTTEEEEEEESCCCSSCEEEEEEEEESSHHHHHHHHHHHHTTCCTCCCCTTCCSCCCCCCCCCGGCCCCC
+* predict: successful (+) prediction at output/6D0GA.ss8
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 5 -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 5 labels: H, E, C, T, G
+* predict: label definition: (C, S, B) -> C, (H, I) -> H, (E) -> E, (T) -> T, (G) -> G
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/5label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* predict: base name of entry is 6D0GA
+* predict: parsed sequence from the input file is:
+SNAMSNNNDYDISDSKDCEKFANQFIQEFPIRSAEIGQGTVIKRALPSRQKRMIGAWCFLDHAGPVTFPAGNGLDVGPHPHIGLQTFTWMIEGTMMHTDSLGSKQLIRPKQVNLMTAGHGISHTEVAPDTETQMHAAQLWIALPDHKRNMDPKFEHYPDLPVVEKDGLEFTVLVGEYLETTSPVVVHTPLVGVDLIATQDTKTRIPLNPEFEYGFMALDGVAHVNGHELTADNMVVLDTGLNEIEIEVKKGNRVLLIGGEPFETPILLWWNFVARTMDDLKEAREQWVNHDVRFGEIPDYVGARLEAPVLPDQMRASK
+* predict: prediction file will be output/6D0GA.ss5
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCCCCCHHCCCCCCCCCEEEECCCECCTTTTCEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEECTTCCEEEECTTCEEEECCCCCEEEEEECCCCCCCEEEEEEEEEECGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEETTTCECCEEECCCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEEECCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCEEECCCECCTTTCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCTTCCCCEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEEETTCECCCEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEECCCCCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEECCTTTTCEEEECCCCTTCCCEEEEEEECCCCCCCCCCCCCCCCCCCTTCCCEEEEEEEEEEEEEECTTCCEEEECTTEEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEECCCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTTCEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCTTTTCEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEETTCCEEEECTTCEEEEECCCCCEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEEETTCCCCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECCTCCEEEEEECTCEEEEEECCCCCCCCEEEEECEECCCHHHHHHHHHHHHTTCTTCCCCTTCCCCCCCCCCCCGGCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECCTTCEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCECCCCCCEEEETTEEEEEEEECCTTCCCCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECCTEEEEEECCCCCCCCEEEEECCECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCTTTTCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTEEEEECCCCCTCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEEETTCECCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCGCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTCEEEECCCCCCCCCCCCEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCCEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEECCCCCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCGGGCCCC
+CCCCCCCCCCCCCCCHCCCCCCCCCEEEECCCECCTTTCCEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCTCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCEEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCCEECCCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEEECCHHHHHHHHHHHHTTCTTCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEETTTTCEEEECCCCTTCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+predict: major vote:
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCTTTTCEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCGGGTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+* predict: successful (+) prediction at output/6D0GA.ss5
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 4 labels: H, E, C, T
+* predict: label definition: (C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/4label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* predict: base name of entry is 6D0GA
+* predict: parsed sequence from the input file is:
+SNAMSNNNDYDISDSKDCEKFANQFIQEFPIRSAEIGQGTVIKRALPSRQKRMIGAWCFLDHAGPVTFPAGNGLDVGPHPHIGLQTFTWMIEGTMMHTDSLGSKQLIRPKQVNLMTAGHGISHTEVAPDTETQMHAAQLWIALPDHKRNMDPKFEHYPDLPVVEKDGLEFTVLVGEYLETTSPVVVHTPLVGVDLIATQDTKTRIPLNPEFEYGFMALDGVAHVNGHELTADNMVVLDTGLNEIEIEVKKGNRVLLIGGEPFETPILLWWNFVARTMDDLKEAREQWVNHDVRFGEIPDYVGARLEAPVLPDQMRASK
+* predict: prediction file will be output/6D0GA.ss4
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEETTTEEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEEETTCECCEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECCCEEEEEEECCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCTTTTCEEEEECCCTTCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCTCEEEEEECCCTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEECCTTCCCCEEECCCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTCCEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCEECTTTTCEEEECCCCCCCCCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEECCTTCCCCEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECCEEETTEEECTTCEEEECTTCCEEEEEECCCCEEEEECCCCCCCCEEEEEEECCCCHHHHHHHHHHHHHTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCHCCCCCCCCEEEECCEEECTTTTCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCTTCCCEEEEEEEEEEEEEEETTCCEEEECTTCEEEEECCCEEEEEEECCCCCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEECCTTTTCEEEEECCCTTCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCECCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECTTCEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHHTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEETTTCCEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCECCCCTTCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTTEEEEEECCCCCCCCEEEEEEECCCCHHHHHHHHHHHHHTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTCEEEEECCCTTCCCCCEEEECCCCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCECCEEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECTTCEEEEECCCCCCCCEEEEEEECCCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCEECTTTTCEEEEECCCCCCCCCCCEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCCCCCTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCCEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECCTCCEEEEEECTCCEEEEECCCCCCCCEEEEEEEEECCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEECTTTEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCCEEECCCEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEECCTTCEEEECTTCCEEEEEECTCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHHTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTCEEEEECCCCCCCCCCCEEECCCCCCCCCCCCCCCCCCCCTTCCCCEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCTTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEECCTTCCCCCEECCCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+predict: major vote:
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECTTTTCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECTTCCEEEECTTCEEEEECCCCEEEEEECCCTCCCEEEEEEEEECCCCCTTCCCCCCCCCCCCEEEETTEEEEEEEEECTTCCCCEEEECCEEEEEEEECTTCEEEEECCTTCCEEEEEEECEEEETTEEECTTCEEEECTTCCEEEEEECTCCEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHTTCCCCCCCTTCCCCCCCCCCCCCCCCCCC
+* predict: successful (+) prediction at output/6D0GA.ss4
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 1 -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #1: H, E, C
+* predict: label definition: (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* predict: base name of entry is 6D0GA
+* predict: parsed sequence from the input file is:
+SNAMSNNNDYDISDSKDCEKFANQFIQEFPIRSAEIGQGTVIKRALPSRQKRMIGAWCFLDHAGPVTFPAGNGLDVGPHPHIGLQTFTWMIEGTMMHTDSLGSKQLIRPKQVNLMTAGHGISHTEVAPDTETQMHAAQLWIALPDHKRNMDPKFEHYPDLPVVEKDGLEFTVLVGEYLETTSPVVVHTPLVGVDLIATQDTKTRIPLNPEFEYGFMALDGVAHVNGHELTADNMVVLDTGLNEIEIEVKKGNRVLLIGGEPFETPILLWWNFVARTMDDLKEAREQWVNHDVRFGEIPDYVGARLEAPVLPDQMRASK
+* predict: prediction file will be output/6D0GA.ss3rule1
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEECCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEECCCCEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCECCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCCEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEEECCCCCCEEECCCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEEECCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECCCCCCEEEEECCCCCCCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEEECHHHHCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCEEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEEECCCCCEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCHEEEEEEECEEEEECCCCCCEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCECCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCHHHHCCCCEEEECCCCCCCCCCEEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCCEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCHCCCC
+CCCCCCCCCCCCCCHHHCCCCCCCCEEEECCEEECCCCCEEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCCEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCCEEEEECCCCCCCCEEEEEECCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCHCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCEEECCEEEECCCCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCECCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEEECHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCECCCCCCCCCCCCC
+CCCCCCCCCCCCCHHHCCCCCCCCCEEEECCEECCCCCCCEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCECCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCEEEEEEECCEEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEEECCCCCCCEEEEEEECCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+predict: major vote:
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEECCCCCCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCHHHCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+* predict: successful (+) prediction at output/6D0GA.ss3rule1
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #2: H, E, C
+* predict: label definition: (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6D0GA.fasta
+* predict: base name of entry is 6D0GA
+* predict: parsed sequence from the input file is:
+SNAMSNNNDYDISDSKDCEKFANQFIQEFPIRSAEIGQGTVIKRALPSRQKRMIGAWCFLDHAGPVTFPAGNGLDVGPHPHIGLQTFTWMIEGTMMHTDSLGSKQLIRPKQVNLMTAGHGISHTEVAPDTETQMHAAQLWIALPDHKRNMDPKFEHYPDLPVVEKDGLEFTVLVGEYLETTSPVVVHTPLVGVDLIATQDTKTRIPLNPEFEYGFMALDGVAHVNGHELTADNMVVLDTGLNEIEIEVKKGNRVLLIGGEPFETPILLWWNFVARTMDDLKEAREQWVNHDVRFGEIPDYVGARLEAPVLPDQMRASK
+* predict: prediction file will be output/6D0GA.ss3rule2
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCCCCCCHCCCCCCCCCEEEECCEEEECCCCCEEEECCCCCCCCCEEEEEECCCCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEECCCCCEEEECCCCEEEECCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCEEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCEEECCCCCCEEEECCCCCCCCCCCCEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEEEECCCECCCEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCCCCCEEEEEECCCCCCCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCCEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCCEEEECCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCCCCCCEEEEECCCCCCCCEEEEEECCCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCEEEEEECCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCCCCCCEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCEEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCCCCCCCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEECCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCEECCCCCCEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEECCCCCCCEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCCEEEEEEEECCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCEECCCCCCEEEECCCCCCCCCECCCEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEECCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEECCCCCCCCCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCCCCCCEEEECCCCCCCCCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEEECCCCCCCCCCCCCCCCCCEEEECCEEEEEEEEECCCCCCCEEEECCEEEEEEEECCCCEEEEECCCCCCEEEEEEECCEEECCEEECCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+predict: major vote:
+CCCCCCCCCCCCCCCCCCCCCCCCCEEEECCCECCCCCCCEEEECCCCCCCCCECEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEEEEECCCCCEEEECCCCEEEEECCCCEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCEEEEEEEECCCCCCCCEEEECCCEEEEEEECCCCEEEEECCCCCCEEEEEEECEEEECCEECCCCCEEEECCCCCEEEEEECCCEEEEEECCCCCCCCEEEEEEEECCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+* predict: successful (+) prediction at output/6D0GA.ss3rule2
+* predict: returned code is 0 (0 = success, non-zero = failure)
+
+3 of 5] processing of /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* script: /home/max/16jF_secnet_ubuntu/bin/run_psiblast.py3 /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* script: psiblast is set to use 8 CPU cores
+* command: /home/max/16jF_secnet_ubuntu/3rd_software/unix/ncbi-blast-2.6.0+/bin/psiblast -db /home/max/16jF_secnet_ubuntu/3rd_databases/blast/uniref90.fasta -query /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -inclusion_ethresh 0.001 -evalue 10 -save_pssm_after_last_round -out_ascii_pssm /home/max/16jF_secnet_ubuntu/features/psiblast/6G44A.mtx -num_iterations 2 -num_threads 8 -save_each_pssm > /dev/null 2>&1
+* script: /home/max/16jF_secnet_ubuntu/bin/run_hmm.py3 /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* command: bash /home/max/16jF_secnet_ubuntu/3rd_software/generic/process_hmm.bash -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* hhm: number of detected CPU cores is 8
+* hhm: 8 CPU cores will be used
+* hhm: input fasta is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/buildali2.pl /home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A.seq -cpu 8 -noss 1>/home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A_alignment.output 2>/home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A_alignment.error
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/hhmake -i /home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A.a3m -o /home/max/16jF_secnet_ubuntu/features/hhm/6G44A.hhm1 1>/home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A_hhmake.output 2>/home/max/16jF_secnet_ubuntu/features/temp/6G44A_25074/6G44A_hhmake.error
+* hhm: success
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 8 -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 8 labels: H, E, C, T, G, S, B, I
+* predict: label definition: 8 original DSSP labels unchanged (C, S, B, T, I, G, H, E)
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/8label
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/8label/CV1/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/8label/CV2/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/8label/CV3/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/8label/CV4/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/8label/CV5/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/8label/CV6/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/8label/CV7/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/8label/CV8/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/8label/CV9/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/8label/CV10/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* predict: base name of entry is 6G44A
+* predict: parsed sequence from the input file is:
+GAMGMNTPPELDTVLQAPYAYNWPTSKNVKIASRIGIPYSTFQTIQPVSDAPNNGIGQITFNQPLGNLTGGAPRLRVSFTAEIKNILADSSLKDQIGLKSFPVNRSIPVAVINMNGKTFTSYPAQLIKLHQYNADPLELALLSPCSDVDEYNKIKAVSMNNPYRQGTESTDSRMSRGLGCNYAYYIHPRAAGSTSVKIDFVVDEALVANPTQYKNIKDPVPFRNLNTFKVILDGQFKPENMIGIADDVKLVAGKADFEVDITGFKINMLVQNWVAPLEIGDIPKTIIYNTPLISLEGNISSMCLNTKDPYGIPGERNKHILTTHSMAMNNVPSMFAVMVSQETPTKKFAPDQLAGIIGLEIKVDSDVGIFRELEQQQLYELSSSNGYNKRFSCFSGALANGLTVADPAVAAGNKFKEAIFGAGSVIFFRPSDLGLKDYNVMANANKSINMQVQATFVTPEAAGTGAHYKLEVFSIRDNLTYSFEDGTFMDDLTLYTPDQLLRSPLKLTDDNNKLMRVMGG
+* predict: prediction file will be output/6G44A.ss8
+predict: predicted secondary structure for 10 models
+CCCCCCCCCHHHHHHCCCCEECCCCCHHHHHHHHTTCCGEEEEEEEECCSCTTCCEEEEEESSCCECCCTCCCEEEEEEEEEHHHHHHHHHHHHHTCCCCCCCCCCCCEEEEETTTCEEEECHHHHHHHHHTTCCHHHHHHHSCCCCHHHHHHHHHHHHTCTTCCCCCCHHHHHCCCCCCEEEEEEECCCTSCEEEEEEEEEEEEEHSCGGGGGCTCSCCCCEEEEEEEEEETTEECGGGEEEHHHHHHHHHTSEEEEEEETTEEEEEEEEEECCCCCGTCCCSEEEEECCEEEEEECHHHHHHECCCTTCCCCCCCEEEEEEHHHHHTCCCHEHHHEHECSCCTCCCCHHHHEEEEEEEEEEETTTTEEEHHHHHHHHHHHHTTTCEEEEEEEEHHHHTTCEECCHHHHHHHHHHHEEETTTEEEEECGGGTTCCCEEEEEEEEEEEEEEEEEEEECCTGCTSSCEEEEEEEEEETTEEEEETTTEEEEEEEEECHHHHECSCCEECCTTHHHHHHHCC
+CCCCCCCCCCHHHHHTSCGEECCCCCHHHHHHHHTTCCGGEEEEEEECCCCCTTCEEEEEEESCCECCTSCCCEEEEEEEEEEEEEEECHHHHHHHCCCCSCCCTEECEEEEETTSCEEEEECHHHEHHHHTTCCHHHHHEESCCCSHHHHHHHHHEEECCCCCCCCCCCCCCCCCCCCCEEEEEECCCETTCEEEEEEEEEEEEEECCGGGHTTCTSCCCEEEEEEEEEEEETEECGGGEEEEHHEEEEHHTSEEEEEEETTEEEEEEEEEECCCCCETCCCEEEEEEEEEEEEEECEEEEHHECSCTTCCCCCCCEEEEEEEEEEETTCCEEEEEEEEECCCTCCCCCCEEEEEEEEEEEECTTTCEEEEHHHHHHHHHHHTTTCHEEEEEEEEEEETTCEEECHHHHHHHHHHHHHHTTTEEEEECGGGTTCCCEEEEEEEEEEEEEEEEEEEECCCCTTTTCEEEEEEEEEETEEEEEETTTEEEEEEEEECHHHHHTSCCECCCTTCCEEEECCC
+CCCCCCCCCCHHHHHTSCEEECCCCCCCHHHHHHTTCCHGGEEEEEECCCCTTCCEEEEEEESCCCCCTSCCCEEEEEEEEEEEEEECHHHHHHHHTCCCSCCCTCSCEEEEETTTCEEEECCHHHHHHHHHTCCHHHHHHECCCSCHHHHHHHHHHHHCCCCCCCCCCCCHCCCCCCCCEEEEEECECCTTCEEEEEEEEEEEEEHSCGGGHHTCCSCCCCEETEEEEEEEETECCGGGEEHHHHHHEEEETEEEEEEEEETEEEEEEEEEECCCCCGTCCCEEEEEEEEEEEEESCHHHHHHCCCCTTCCCTCCCEEEEEEEEEECTCCCEEEEEEEECSSCCCCCCHHHEEEEEEEEEEEETTTTEEEEEHHHHHHHHHHHTTHEEEEEEEHHHHHTTCEEECHHHHHHHHEEEEEECTTEEEEECGGGGTCCCEEEEEEEEEEEEEEEEEEEECCGGTTSSEEEEEEEEEEETEEEEEETTTEEEEEEEEECHHHHHCSCEEEECTTHHHHEECCC
+CCCCCCCCCHHHHHHHCCEEEECCCHHHHHHHHHTTCCGGGEEEEEECCCCCTTCEEEEEEESCCECCESCCCEEEEEEEEEEEEEEEHHHHHHHTCCCGSCCCSCCCEEEEETTSCEEEECCHHHEEHHHTTSCHHHHHHECCCSCGGGHHHHHHHHTTCCCCCCCCCCCCCCCCCCCEEEEEEECCCSTSCEEEEEEEEEEEHHHHCGGGCCCTSSCCCCGEEEEEEEEETTEECGGGHEEEEHEEEEEETEEEEEEEETHHEEEEEEEEECCCCCTTCCCSEEEEECCEEEEESCEEEEEEECCCTTCCCTCHHHEEEEHEEEEETCHCHEEEEEEESSCCCCCCCHHHHHHEEEEEEEEETTTHEEEEHHHHHHHHHHHTTSCEEEEEEEEHHHHTTCEEECHHHHHHHHHHHEHHTTTEEEEECGGGGTCCHHEEEEETTSEEEEEEEEEEECCCGTTSSCEEEEEEEEEETTEEEEEETTEEEEEEEECCHHHHHCSCCCECCTTHHHEEECCC
+CCCCCCCCCHHHHHHTSCEEECCCCHHHHHHHHHHTCCGGEEEEEEECCCCCCCCEEEEEEEECCCCCTTCCCEEEEEEEEEEEHHHHHHHHHHHHCCCCSCCCCCCCEEEEETTSCEEEECHHHHHHHHHHCCCHHHHHHHSCCCCHHHHHHHHHHHHCCCCCCCCCCCCHHCCCCEEEEEEEEECCCSTSEEEEEEEEEEEEHHHSCGGGGTTCCSCCCEEEEEEEEEEETTECCGGGHHHHHHHHHHHHTEEEEEEEETTHEEEEEEEHHSCCCCGTCCCEEEEEECCEEEEEHHHHHHHHHCCCTTCCCCCCCEEEEEEEEEECCCCCEEEEEEEEHCCCTCCCCCHHHEEEEEEEEEECTTTHHHHHHHHHHHHHHHHHTTCCEEEEEEHEEEETTEEECCHHHHHHHHHHHHETTTTEEEEECGGGGTCCHHHHEEEEEEEEEEEEEEEEECCTGTTSSCEEEEEEEEEETTEEEEEETTCEEEEEEEECHHHHHTSCEEEECTTCCEEEEECC
+CCCCCCCCCCHHHHHTSCEEEECCCHHHHHHHHHHTCCGGGEEEEEECCCCCTCCEEEEEEEECCCCECTSCCEEEEEEEEEEHHHHHHHHHHHHHTCCTSCCCTTECEEEEETTSCEEEEECHHHHHHHHHHCCHHHHHHTSCCCGHHHHHHHHHHHHTCCTCCCCCCCCHCCCCCCEEEEEEEECCCCTTCEEEEEEEEEEHHEHSCGGGCCCTTSCCCCEEEEEEEEEEEEEECGGGEEEEHHHHEHHEEEEEEEEEETTEEEEEEEEEESCCCCGTCCCSEEEEECEEEEEESCEEEEEEETSCTTCCCCCCCEEEEEEEEEEETTCCEEEEEEEECSCCCCCCCHHHHHTEEEEEEEEETTEHEEHHHHHHHHEEEHHTTTCCEEEEEECHHHHTTCCECCHHHHHHHHHHHHHTTTTEEEEECGGGGTCCCEEEEEETTSEEEEEEEEEEECCCCTTSSCEEEEEEEEEETTEEEEEETTCEEEEEEEECHHHHHTSCEEEECTTCCEEEECCC
+CCCCCCCCCCHHHHHTCCEEECCCCCCCHHHHHHTTCCGGGEEEEEECGGSCTTCEEEEEESSCCCCCCTCCCEEEEEEEEEEEEEEHHHHHHHHHCCCCCCCCTTSCEEEEETTSCEEEECHHHHHHHHHHTCCHHHHHHHSCCCCHHHHHHHHHHHHCCTTCCCCCCCCCCCCCCCCCEEEEEEECCSTTCEEEEEEEEEEEEEHSCGGGCCTTCSCCCEEEEEEEEEEETTEECGGGHEEEEEHHEEEETEEEEEEEETTEEEEEEEEEECSCCCGTCCCEEEEEEECEEEEESCEEEEEEECSCTTCCCTCCCEEEEEEEEECCTSCCEEHHHHHECSCCCCCCCCCHHEEEEEEEEEEETTEEEEEHHHHHHHHHHHHTTTCCEEEEEECHHHHTTCEECCHHHHHHHHHHHHHHTTTEEEEECGGGGTCCCEEEEETSTEEEEEEEEEEEECGGGTTSSEEEEEEEEEECTTEEEEEETTEEEEEEEEECHHHHCCSCCEECCTTHHHEEEHCC
+CCCCCCCCCHHHHHHHSCEEECCCCHHHHHHHHHTTCCHHEEEEEEECCCCCTTCEEEEEEESCCCCCTTCCCEEEEEEEEEEEHHHHHHHHHHHHCCCCCCCCTCSCEEEEETTTCEEEECHHHHHHHHHHTCCHHHHHHHSCCSCHHHHHHHHHHHHCCTTCCCCCCCCCCCCCCCCCEEEEEECCCCTTCEEEEEEEEEEHHHHSCHGGHHTCCCCCCCEECEEEEEEETTEECGGGHHEHHHHHEEHTTEEEEEEEETTHEEEEEEEEECCCCCGGGCCSEEEEECCEEEEESHHHHHHHECCCTTCCCTCCCEEEEEEEEEECTCCCHHHHHEEHCCCCCCCCCHHHHHHHHEEEEEEETTTHHHHHHHHHHHHHHHHHTTCEEEEEEEEEEHHTTCEHHCHHHHHHHHHHHHHTTTTEEEEECGGGGTCCHHHHHHHTTEEEEEEEEEEEECCCCTTTTCEEEEEEEEEETTEEEEEETTEEEEEEEEECHGGHEESCCEEECTTCCEEEECCC
+CCCCCCCCCCCCEHETCCEEECCCTTCCEEEHHHTTCCGGEEEEEEECCCCCTCEEEEEEEESCCGCCTTSCCEEEEEEEEEEHHHHHHHHHHHHHTCCGCCCCTTCCEEEEETTTCEEEECCHEHEHHHHHCCCHHHHHHHSCCCCHHHHHHHHHEHTCCTTCCCCCCHCHHHCHCCCCEEEEEECCTCCSCCEEEEEEEEEEEEHHCGGGHTTTTCCCCCCEEEEEEEEEETEECGGGEEEEHHHHHEHHTEEEEEEEETTEEEEEEEEEECCCCCGTCCCEEEEEECEEEEEEEEEHHHEEEECCTTCCTCCCCEEEEEEEEECCTTCCEEEEEEEECCCCCCCCCHHEEEEEEEEEEEEETTTCEEEEHHHHHHHHHHHTTTCEEEEEEEESHHHTTCEEHCHHHHHHHHHHHEEETTTEEEEECGGGTTCCCEEEEEEETSEEEEEEEEEEECCTGTTTSCEEEEEEEEEETTEEEEETTSEEEEEEEECCHHHHHTSCCEECCTTSCEEEEECC
+CCCCCCCCHHHHHHHTSCEEECCCCCHHHHHHHHTTCCGGGEEEEEECCSSCTCSEEEEEEESCCGCCTTCCCEEEEEEEEEEEEEHHHHHHHHHHCCCCSCCCTTCCEEEEEETTEEEEEHHHHHHHHHHTTCCHHHHHHECCCCCHHHHHHHHHHCCCCCCCCCCCCHCCCCCCCCCCCEEEEEECCCTTCCEEEEEEEEEEEEHSCGGGHHTTTSCCCEEEEEEEEEEETTEECGGGHEEEHHHEEEEHTEEEEEEEEEEEEEEEEEEEECCCCCGTCCCSEEEEECEEEEEEHHHHHHHHCCCCTTCCCTCCCEEEEEEEEEECTSCCEEEEEEEEESCCCCCCCHHHHHTEEEEEEEEETTTHHHHHHHHHHHHHHHHTTSCEEHEEEHHHHHHTTCCECCHHHHHHHHHHHHHHTTTCEEEECGGGGTCCHHHHHHHHCEEEEEEEEEEEECCGGTTSSEEEEEEEEEEETTEEEEETTTCEEEEEEEECHHHHECSCCEECCTTCCEEEECCC
+predict: major vote:
+CCCCCCCCCCHHHHHTSCEEECCCCCHHHHHHHHTTCCGGEEEEEEECCCCCTCCEEEEEEESCCCCCTTCCCEEEEEEEEEEEEEHHHHHHHHHHCCCCSCCCTCCCEEEEETTSCEEEECCHHHHHHHHHTCCHHHHHHHSCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCTTCEEEEEEEEEEEEEHSCGGGHCTTCSCCCCEEEEEEEEEETTEECGGGEEEEHHHHEEHHTEEEEEEEETTEEEEEEEEEECCCCCGTCCCEEEEEECCEEEEESCEHHHHHECCCTTCCCCCCCEEEEEEEEEECTCCCEEEEEEEECSCCCCCCCHHHHEEEEEEEEEEETTTHEEEHHHHHHHHHHHHTTTCEEEEEEEEHHHHTTCEECCHHHHHHHHHHHHHHTTTEEEEECGGGGTCCCEEEEEEETEEEEEEEEEEEECCCGTTSSCEEEEEEEEEETTEEEEEETTEEEEEEEEECHHHHHCSCCEECCTTCCEEEECCC
+* predict: successful (+) prediction at output/6G44A.ss8
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 5 -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 5 labels: H, E, C, T, G
+* predict: label definition: (C, S, B) -> C, (H, I) -> H, (E) -> E, (T) -> T, (G) -> G
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/5label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* predict: base name of entry is 6G44A
+* predict: parsed sequence from the input file is:
+GAMGMNTPPELDTVLQAPYAYNWPTSKNVKIASRIGIPYSTFQTIQPVSDAPNNGIGQITFNQPLGNLTGGAPRLRVSFTAEIKNILADSSLKDQIGLKSFPVNRSIPVAVINMNGKTFTSYPAQLIKLHQYNADPLELALLSPCSDVDEYNKIKAVSMNNPYRQGTESTDSRMSRGLGCNYAYYIHPRAAGSTSVKIDFVVDEALVANPTQYKNIKDPVPFRNLNTFKVILDGQFKPENMIGIADDVKLVAGKADFEVDITGFKINMLVQNWVAPLEIGDIPKTIIYNTPLISLEGNISSMCLNTKDPYGIPGERNKHILTTHSMAMNNVPSMFAVMVSQETPTKKFAPDQLAGIIGLEIKVDSDVGIFRELEQQQLYELSSSNGYNKRFSCFSGALANGLTVADPAVAAGNKFKEAIFGAGSVIFFRPSDLGLKDYNVMANANKSINMQVQATFVTPEAAGTGAHYKLEVFSIRDNLTYSFEDGTFMDDLTLYTPDQLLRSPLKLTDDNNKLMRVMGG
+* predict: prediction file will be output/6G44A.ss5
+predict: predicted secondary structure for 10 models
+CCCCCCCCCHHHHHHTCCCEECCCCCHHHHHHHHTTCCGGEEEEEEECCCCCTCCCEEEEECCCCCCCCCCCCEEEEEEEEEEEHHECCHHHHHHTCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHTCCHHHHHHHCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCTTCCEEEEEEEEEEEECCCGGGCCCCCCCCCCEEEEEEEEEETTECCGGGEEEEHHHHHHHHTCEEEEEEETTHEEEEEEEECCCCCCCCCCCEEEEEECCEEEEECCHHHHHHCCCCTTCCCCCCCCEEEEEECCCCCCCCEEEEEEEECCCCCCCCCHHEEEEEEEEEEEECTTTCEEEEHHHHHHEEEHCTTCCCEEEEEECHHHCTTCEECCHHHHHHHHHHHHHHCCCEEEEECGGGCCCCCEEEEECCCCEEEEEEEEEEECCCCCTCCCEEEEEEEEECTTEEEEEETTEEEEEEEECCHHHHHCCCCCCCCTCCHHHHHHCC
+CCCCCCCCCCHHHHHHCCCEECCCCCCHHHHHHHTTCCGGGEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEHHCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEECCHHHHHHHHHHTCCHHHHHHHCCCCCCGHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCGGGCCCCCCCCCCEECCEEEEEETCECCGGGEEEEHCCEEEEEEEEEEEEEETTEEEEEEEEECCCCCCECCCCCEEEECCCEEEEECCHEEEEECCCCTTCCCCCCCCEEEEEEEHHHTCCCHHEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTTCEEEHHHHHHHHHEHCTTCCCEEEEEECCHHHTTCEECCHHHHHHHHEHHHHHCCCEEEEECGGGTTCCCEEEEEECCEEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEETTCEEEEEEEECCHHHHCCCCCCCCCTTCCEEECCCC
+CCCCCCCCCCHHHHHHCCCEECCCCCCCHHEHHHTTCCGGGEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEEECCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECCHHHHHHHHTCCCHHHHHHHCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCHHHHHEEEECCCCCCCCEEEEEEEEEECCCCCHHHHTTCCCCCCCEECEEEEEEETTECCGGGHHHHHHHHHHHHEEEEEEEEETTEEEEEEEEECCCCCCGCCCCCEEEECCCEEEEECCHHHHEEECCCTTCCCCCCCCEEEEEEEEECTCCCEEEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTTEEEEEEHHHHHHHHHHTTCCEEEEEECCHHHHTTCEECCHHHHHHHHHEHEECCTCCEEEECGGGGTCCCEEEEEECCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETTEEEEEETTEEEEEEEECCHHHHHCCCEEECCTTCCEEEECCC
+CCCCCCCCCHHHHHHTCCCEECCCCCHHHHHHHHTTCCGGGEEEEEECCCCCTCCEEEEEEECCCCCCCCCCCEEEEEEEEEEEEEHHCHHHHHHHCCCCCCCCCCCCEEEEEETTEEEEECHHHHHHHHHTCCCHHHHHHTCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCTCCEEEEEEEEECCHCCCGGGHHTCCCCCCCCCCEEEEEEEETEECGGGEEEEEHHHEHHHTCCEEEEEETTEEEEEEEEECCCCCCGTCCCCEEEEECCEEEEECCHHHHHHCCCCTTCCCCCCCCEEEEEEEEECTTCCCEEEEEEECCCCCCCCCCCHEEEEEEEEEEECTTTCCEEHHHHHHHHHHHHTTCCCEEEEECCCCHHTTCEECCHHHHHHHHHHHHHTCTTCEEEECGGGGTCCCHEEEEECCCEEEEEEEEEEECCCCTTCCCEEEEEEEEEETTEEEEETTTEEEEEEEECCHHHHHCCCEEEECTTCHHEEECCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCHHHHHHHHTTCCGGGEEEEEECCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHHCCCCCCCCCCCEEEEEETTCCEEECCCHHHHHHHHTTCCHHHHHHHCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCTTCCEEEEEEEEEEHHHCCGGGCCCCCCCCCEEECEEEEEEETTCCCGGGEEEECHHHHHHHTCCEEEEEETHHEEEEEEEECCCCCCGTCCCCEEEECCCEEEEECCHHHHHHCCCCTTCCCCCCCCEEEEECCCCCCCCCHHHEHHHHCCCCCCCCCCHCCEEEEEEEEEECTTTCEEEHHHHHHHHHHHHHTCCEEEEEEEEEEHHTTCEEHCHHHHTHHHHHHHHCCCCEEEEECGGGCTCCCHHHHHCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETTEEEEETTCCEEEEEEECCHGGCCCCCEEEECTTCCEEEEECC
+CCCCCCCCCHHHHHHCCCCEECCCCCCHHHHHHHTTCCGGGEEEECCCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEHHHHHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHTCCHHHHHHHCCCCCHHHHHHHHHHHTCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCTTCCEEEEEEEECCHHHCCGGGCCCCCCCCCCEECEEEEEEETTECCCGCEEEEEHHHEEEETCEEEEEEETCCEEEEEEEEECCCCCCCCCCCEEEECCCEEEEECCEEEEEECCCCTTCCCCCCCCEEEEEEEEECCCCCEEEEEEEECCCCCCCCCCCEEEEEEEEEEEECTTCCEEEHHHHHHHHHHHHHTCCCEEEEECHHHHHHTCCHCCHHHHHHHHHHHHHTTCEEEEEECGGGTCCCCEEEEECCCCCEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEEETTEEEEEEEECCHHHHCCCCCCCCCCCHHHHHCCCC
+CCCCCCCCCCCHHHHHCCEEECCCCCHHHHHHHHTTCCGGGEEECECCCCCCTCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEEHHHCHHHHHHCCCCCCCCCCCCEEEEEETTCCEEECCCHHHHHHHHHTCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCHHHHCCCCCCCCEEEEECCCCCCCCEEEEEEEEEEECCCCGGGCHTCCCCCCCEEEEEEEEEEETEECGGGHEEEHHHHHHHHTEEEEEEEETTEEEEEEEEECCCCCCGCCCCEEEEECCCEEEEECCHHHHHECCCCTTCCCCCCCCEEEEEEEEECCCCCHHHHEEEECCCCCCCCCCCCEEEEEEEEEEECTTCCHHEHHHHHHHHHHHHTTCCCHHHHHHHHHHHHTCCCCCHHHHHHHHHHHHHTCCCEEEEECGGGCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETTEEEEEETTEEEEEEEEECCHHHHCCCEEECCTTCCCEECCCC
+CCCCCCCCCHHHHHHHCCCCCCCCCCCHHHHHHHTTCCGGGEEEEEECCCCCTCCEEEEEEECCCCCCCCCCCEEEEEEEEEHHEECCCHHHHHHHCCCCCCCCCCCCEEEEEETTCEEEECCHHHHHHHHHTCCHHHHHHHCCCCCHHHHHHHHHHHHCCTTCCCCCCCCCCCCCCCCCCEEEEECCCCTTCCEEEEEEEEEEEHHCCGGGCCCCCCCCCCEEEEEEEEEEECECCGGGEEEEEHHHHHHHTCCEEEEEETCCEEEEEEEECCCCCCGCCCCCEEEEECCEEEEEECEEHHEECCCCTTCCCCCCCCEEEECCCCCCCCCCHEEHHHHECCCCCCCCCCHHHEEEEEEEEEEETTCCEEEEEHHHHHHHHHHTTCCCEEEEECCCHHHTTCEECCHHHHHHHHHHHEECCCCEEEEECGGGTTCCCHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEETTCCEEEEEEEECHHHHCCCCCEECCTTCCEEEECCC
+CCCCCCCCCHHHHHHHCCCCCCCCCCHHHHHHHHTTCCGGGEEEEECCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEHHHHHCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHCCCHHHHHHHCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCCEEEEEEEECHHHHHCGGGCCCCCCCCCCECCEEEEEEEECECCGGGHEEEHHHHEEHETEEEEEEEETTEEEEEEEEECCCCCCCTCCCCEEEECCCCCEEECCEEEEEECCCCTTCCCCCCCCEEEEEECCCCCCCCEEEEEEEECCCCTCCCCCCCEHHHEEEEEEECTTCCEEEEEHHHHHHHHHHTTCCCEEEEECCCHHHTCCEECCHHHHHHHHHHHHHHCCCEEEEECGGGTCCCCEEEEECCCEEEEEEEEEEEECCCCCTCCCEEEEEEEEECTTEEEEEETTEEEEEEEEECHHHHHCCCCECCCCTCEEEHHCCC
+CCCCCCCCCHHHHHHCCCEEECCCCCHHHHHHHHTTCCGGGEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCEEEEEEEEEEEHHCCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHHHCCCCCCCCCCHHHHCCCCHCCHHEEEECCCCTCCCEEEEEEEEECHHCCCGGGCCCCCCCCCCEECEEEEEEETTCCCGGGHHHHHHHHHEHETCCEEEEEECTEEEEEEEEECCCCCCGGCCCCEEEEECCEEEEECCHHHHHCCCCCTTCCCCCCCCEEEEECCCCCCCCCCEEEEEEECCCCCCCCCCCCEEEEEEEEEEECTTCCEEEEHHHHEEEHHHHTTCCCEEEEEECCCECTTCEECCHHHHHHHHHHHHHHCCCEEEEECGGGCTCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETTEEEEETTTEEEEEEEECCHHHHCCCCCECCCTTCEEEEECCC
+predict: major vote:
+CCCCCCCCCHHHHHHHCCCEECCCCCHHHHHHHHTTCCGGGEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEHHCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHTCCHHHHHHHCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEEEHHCCCGGGCCCCCCCCCCEECEEEEEEETTECCGGGEEEEHHHHHHHHTCEEEEEEETTEEEEEEEEECCCCCCGCCCCCEEEECCCEEEEECCHHHHEECCCCTTCCCCCCCCEEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCEEEEEEEEEEECTTCCEEEEHHHHHHHHHHHTTCCCEEEEECCCHHHTTCEECCHHHHHHHHHHHHHHCCCEEEEECGGGCTCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEEETTEEEEEEEECCHHHHCCCCCECCCTTCCEEEECCC
+* predict: successful (+) prediction at output/6G44A.ss5
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 4 labels: H, E, C, T
+* predict: label definition: (C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/4label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* predict: base name of entry is 6G44A
+* predict: parsed sequence from the input file is:
+GAMGMNTPPELDTVLQAPYAYNWPTSKNVKIASRIGIPYSTFQTIQPVSDAPNNGIGQITFNQPLGNLTGGAPRLRVSFTAEIKNILADSSLKDQIGLKSFPVNRSIPVAVINMNGKTFTSYPAQLIKLHQYNADPLELALLSPCSDVDEYNKIKAVSMNNPYRQGTESTDSRMSRGLGCNYAYYIHPRAAGSTSVKIDFVVDEALVANPTQYKNIKDPVPFRNLNTFKVILDGQFKPENMIGIADDVKLVAGKADFEVDITGFKINMLVQNWVAPLEIGDIPKTIIYNTPLISLEGNISSMCLNTKDPYGIPGERNKHILTTHSMAMNNVPSMFAVMVSQETPTKKFAPDQLAGIIGLEIKVDSDVGIFRELEQQQLYELSSSNGYNKRFSCFSGALANGLTVADPAVAAGNKFKEAIFGAGSVIFFRPSDLGLKDYNVMANANKSINMQVQATFVTPEAAGTGAHYKLEVFSIRDNLTYSFEDGTFMDDLTLYTPDQLLRSPLKLTDDNNKLMRVMGG
+* predict: prediction file will be output/6G44A.ss4
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCHHHHHHCCCCCCCCCCHHHHHHHHTTCCCCCEEEEEECCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEHHHHHHHHHHHHCTCCCCCCCCCCCCEEEEEETTEEEECCCHHHHHHHHHTCCHHHHHHHCCCCCHHHHHHHHHHCCCCCCCCCCCCCCHHCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCHHCCCCCCCCCCCCCCCCCCEEEEEETTEECCCCEEHHHHHHEEEEEEEEEEEEETTEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCEEEEEECCCCTTCCCCCCCCEEEECCCCCCCCCCEEEEEEEEECCCCCCCCCCCHHEEEEEEEEEETTCCEEEHHHHHHHHHHHHTTCCCEEEEEECCCHHTTCEEECHHHHHHHHHEEEECCTCEEEEECCCCCCCCCHHEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEEETTEEEEEEEECCHHHHHCCCCEECCTCHHHHHHCCC
+CCCCCCCCCHHHHHHTCCCCCCCCCCHHHHHHHHTTCCCEEEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEEHCHHHHHHHHCCCCCCCCCCCCEEEEEETTEEEEECHHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHTCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCTTCCEEEEEEEEECCCCCCCCCCCCCCCCCCEEECTEEEEEETTECCCCCHEEHHHHHHHHHTCCEEEEEETTEEEEEEEEEECCCCCCCCCCCEEEECCCEEEEECCEEEEEEECCCTTCCCCCCCEEEEEEECCCCTCCCHEEEEEEECCCCCCCCCCCCCEEEEEEEEEEETTTCEEEEEHHHHHHHHHCTTCCCEEEECCCCCCCTTCEECCHHHHHTHHEEEEECCTCEEEEECCCCCCCCCHHHHHHCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETCEEEEEETTEEEEEEEECCCHCHCCCCCEECCTTCCEEEECCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCHHHHHHHHTTCCCCCEEEEECCCCCCCCCEEEEEEECCCCCCCCCCCEEEEEEEEEEEEECCHHHHHHHHCCCCCCCCCCCCEEEEETTTEEEEECCHHHHHHHHTCCCHHHHHHHCCCCCCCCHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCHCCCCCCCCCCCCCCEEEEEEEEEEEETEECCCCEEEECCCHEHHECCCEEEEEETCEEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCHHHHEEECCCTTCCCCCCCCEEEEEEECCCCCCCEEEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTCCEEEEHHHHHHHHHHCCTCCCCEEEEEECEECTTCEECCHHHHHHHHHHHHHCCCCEEEEECCCCCTCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTCEEEEEETTEEEEEEEEECHHHHHCCCCECCCTCCCCECCCCC
+CCCCCCCCCHHHHHHHCCCCECCCCCCHHHHHHHTTCCCCCEEEEEECCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECHHHHHHHHHHCCCHHHHHHHCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCEEEEEEEEEECCHHCCCCCCCCCCCCCCCCCEEEEEEEETTECCCCCEEEEEHHHEEEETCEEEEEEETTEEEEEEEEEECCCCCCCCCCCEEEECCCEEEEEHHHHHHHHCCCCTTCCCTCCCEEEEEEEEHHHTCCCEEEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTTCEEEHHHHHHHEEHHHTTCCCCCECCCCCHHHTTCECCCHHHHHHHHHHHHHCCTCEEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTCEEEEEETTEEEEEEEECCHHHHHHCCCCCCCCCCCEEECCCC
+CCCCCCCCCCHHHHHCCCEEECCCCCCHHHHHHHTTCCCCCEEEEECCCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEECCCHHHHHHTCCCCCCCCCCEEEEEEEETTEEEEECHHHHHHHHHCCCCHHHHHHCCCCCCCHHHHHHHHHHHCCCCCCCCCCCHHHCCCCCHHHHHHEECCCCCTCCEEEEEEEEECCCCCCCCCCCCCCCCCCEEEECEEEEEETTEECCCCHHHHHHHHHHHEEEEEEEEEETTEEEEEEEEEECCCCCCCCCCCEEEECCCEEEEEHHHHHHHHCCCCTTCCCCCCCCEEEECCCCCCCCCCHHHHHHHHCCCCCCCCCCHHHEEEEEEEEEEETCCCCEEEHHHHHHHHHHHHTCCCEEEEECCHHHHTTCEEECHHHHHTHHHHHEEECTTCEEEECCCCCCCCHEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTCEEEEETTCCEEEEEEECCHHHHHCCCEEEECTTCHEEEECCC
+CCCCCCCCCHHHHHHTCCCEECCCCCCCHHHHHHTTCCCCCEEEEEECCCCCTCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEEECCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECCHEHHHHHHHHCCHHHHHHCCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEEECCCCCCCCCCCCCCCCCCECCCEEEEEEETECCCCCEEHHHHHEEEEETCEEEEEEETTEEEEEEEEEECCCCCCCCCCCEEEECCCEEEEECCCEEEEECCCCTTCCCCCCCCEEEEEECCCCCCCCHEEEEEEECCCCCCCCCHHHHETEEEEEEEECTCCCCEEHHHHHHHHHHHHTTCCCEEEEECCCHHHHHEEECCHHHHHHHHHEEEEECCCEEEEECCCCCCCCCCEEEHCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETCEEEEEETTEEEEEEEECCHHHHCCCCEEECCTTCCEEEECCC
+CCCCCCCCHHHHHHHHCCCCCCCCCCCHHHHHHHTTCCCCCEEEEEECCCCCCCCEEEEEEECCCCCCCCCCCEEEEEEEEEHHHHHHHHHHHHHHCCCCCCCCCCCEEEEEETTTCEEEECCHHHHHHHHHCCCHHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCHCCCCCCCCCEEEEECCCCCTCCEEEEEEEECCCCHCCCCCCCCCCCCCCCCCCEEEEEEETTCCCCCCHHEHCHHHEEHEEEEEEEEEETTEEEEEEEEEECCCCCCCCCCCEEEEECCEEEEECCEEEEEECCCCTTCCCCCCCCEEEEEECCCCTCCCHHEEEEEECCCCCCCCCCCCCEEEEEEEEEEETTTCEEEEECHHHHEEECCTTCCEEEEEECHHHHHTTCEECCHHHHHHHHHHHHHHCCCCEEEECCCCCTCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEETTCCEEEEEEEECHHCCCCCCCEECCTTCCEEEHCCC
+CCCCCCCCCCHHHHHHCCCCCCCCCCCHHHHHHHTTCCCCHEEEEEECCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEHHHHHHHHHHHCCCCCCCCCCCCEEEEEETTCEEEECCHHHHHHHHTCCCHHHHHHHCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCEEEEEEEECCCCCTCCEEEEEEEEECCCHCCCCCCCCCCCCCCCEEEEEEEEEETTEECCCCHHEHHHHHHHHHEECEEEEEETTEEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCEEEHHHCCCCTTCCCCCCCCEEEEEECCCCCCCCCEEEEEEECCCCCCCCCCCCCEEEEEEEEEEETTTCEEEEHHHHHHHHHHHTTCCCHHEEHHHHHHHTTCCHCCHHHHHHHHHHHHHHCCEEEEEECCCCCTCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEETCEEEEETTCEEEEEEEECCHHHHCCCCCEEECTTCCEEECCCC
+CCCCCCCCHHHHHHHHCCCECCCCCCCCHHHHHHTTCCCCCEEEEECCCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHHCCCCCCCCCCCCEEEEETTCCEEEECCEEEEHHHHHCCCHHHHHHCCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCECCEEEEEEETCCCCCCEEEEEEHHHHHHTCEEEEEEETTEEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCHHHHHHCCCCTTCCCCCCCEEEEEEEECCCCCCCEEEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTTEEEEEEHHHEEEEEHCTTCCCEEEEEEEEHHHTTCECCCHHHHHHHHHHHHHCCTCCEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTCEEEEETTTEEEEEEEEECHHCHCCCCCEECCTTCCEEEEECC
+CCCCCCCCCHHHHHHHCCCCCCCCCCCCEEHHHHTTCCCCCEEEECCCCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHTCCCCCCCCCCCCEEEEETTCCEEEECCEHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHHHCCCCCCCCCCHHHHHHCCCCCEEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCEEEHHHHHHHHHEEEEEEEEETTEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCCCCCEECCCCTTCCCCCCCCEEEEECCCCCCCCCHEEEEEHECCCCCCCCCCCEEEEEEEEEEEECTTCCCEHHHHHHHHHHHHCTTCCEEEEEEECCCCCTCCCECCCCCHCHHHHHHHHHCCCEEEEECCCCCTCCCCEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTTEEEEETTCCEEEEEEEECHHHHHCCCCCCCCTCCHHHHCCCC
+predict: major vote:
+CCCCCCCCCHHHHHHHCCCCCCCCCCCHHHHHHHTTCCCCCEEEEEECCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEEECCCHHHHHHHCCCCCCCCCCCCEEEEETTTCEEEECCHHHHHHHHHCCCHHHHHHCCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEETTECCCCCEEEHHHHHEHHEECEEEEEEETTEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCEEEHEECCCCTTCCCCCCCCEEEEEECCCCCCCCHEEEEEEECCCCCCCCCCCCEEEEEEEEEEEETTCCEEEEHHHHHHHHHHCTTCCCEEEEECCCHHHTTCEECCHHHHHHHHHHHHHCCCCEEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECTCEEEEEETTEEEEEEEECCHHHHCCCCCEECCTTCCEEECCCC
+* predict: successful (+) prediction at output/6G44A.ss4
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 1 -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #1: H, E, C
+* predict: label definition: (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* predict: base name of entry is 6G44A
+* predict: parsed sequence from the input file is:
+GAMGMNTPPELDTVLQAPYAYNWPTSKNVKIASRIGIPYSTFQTIQPVSDAPNNGIGQITFNQPLGNLTGGAPRLRVSFTAEIKNILADSSLKDQIGLKSFPVNRSIPVAVINMNGKTFTSYPAQLIKLHQYNADPLELALLSPCSDVDEYNKIKAVSMNNPYRQGTESTDSRMSRGLGCNYAYYIHPRAAGSTSVKIDFVVDEALVANPTQYKNIKDPVPFRNLNTFKVILDGQFKPENMIGIADDVKLVAGKADFEVDITGFKINMLVQNWVAPLEIGDIPKTIIYNTPLISLEGNISSMCLNTKDPYGIPGERNKHILTTHSMAMNNVPSMFAVMVSQETPTKKFAPDQLAGIIGLEIKVDSDVGIFRELEQQQLYELSSSNGYNKRFSCFSGALANGLTVADPAVAAGNKFKEAIFGAGSVIFFRPSDLGLKDYNVMANANKSINMQVQATFVTPEAAGTGAHYKLEVFSIRDNLTYSFEDGTFMDDLTLYTPDQLLRSPLKLTDDNNKLMRVMGG
+* predict: prediction file will be output/6G44A.ss3rule1
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCHHHHCCCCCECCCCCCHHHHHHHHCCCCHHHEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEECCCCHHHHHCCCCCCCCCCCCCEEEEEECCEEEEECCHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCHHEEECCCCCCCCEEEEEEEECCCCCCCHHHHCCCCCCCCCCCCCEEEEEECCECCCHHEEEEHHHHEEECCCEEEEEEECCEEEEEEEECCCCCCCHCCCCCEEEECCCEEEEECCHHHHHHCCCCCCCCCCCCCCEEEEECCCCCCCCCHHEEEEEECCCCCCCCCCHHEEEEEEEEEEECCCCCHEEHHHHHHHHHHHHCCCCCEEEECCCCCCCCCCEECCHHHHHHHHHHHHHCCCCEEEEECHHHCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCHHCCCCCCECCCCCCCEEEECCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCCCHHHHHHHCCCHHHEEEEECCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEEEHHCCHHHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHHCCCHHHHHHCCCCCCCCHCCHHEEEECCCCCCCCCCCCCCCCCCCCCCEHHEEECCCCCCCCEEEEEEEEECCHHCCHHHHHCCCCCCCCEECCEEEEEEECCCCHHHEEHHHHHHHHECCEEEEEEEECCCEEEEEEEECCCCCCECCCCCEEEECCCEEEEECCCEEEEEECCCCCCCCCCCCCEEEECCCHHHCCCCCEEEEEECCCCCCCCCCCCHHEEEEEEEEEECCCCCCEEECCHHHHHHHHCCCCCCEEEEEEEHHHCCCCCCCCHHHHHHHHEEHHCCCCCCEEEECHHHCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCHHHHCCCCCEECCCCCCEEEECCC
+CCCCCCCCCCHHHHHCCCCEECCCCCCCEEHHHHHCCCHHHHEEEEECCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEEEEECCHHHHHHCCCCCCCCCCCCEEEEEECCCCEEEECHHHHHHHHHHCCCHHHEEECCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCHCCCHHHHHCCCCCCCCECCCEEEEEECCEECCHHHEEHHHHHHHHCCEEEEEEEECCCEEEEEEEEECCCCCCCCCCCEEEECCCEEEEECCEEEEEECCCCCCCCCCCCCCEEEEEEECCCCCCCEEEEEEEEECCCCCCCCCCCEEEEEEEEEEECCCCCHEHHHHHHHHHHECCCCCCCHEEEECCCCCCCCEEECCHHHHHHHHHHHHHCCCCCEEEECHHHHCCCCEEEEEECCCEEEEEEEEEEECHHHCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCHHHHCCCCCEECCCCCCEEEECCC
+CCCCCCCCCCHHHHHCCCCECCCCCCHHHHHHHHHCCCCCEEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEHHHHHCHHHHHHHCCCCCCCCCCCEEEEEEECCCEEEECCHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCEEEEEEEEECCCCCCHHHHHCCCCCCCCCCCCEEEEEECCCCCHHHEEEEEHHHEEHECCEEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEECCCEEEECCCHHHHHHCCCCCCCCCCCCCCEEEEEEECCCCCCCEEEEEEEECCCCCCCCCCHHHEEEEEEEEEECCCCCEEEECCHHHHHHHHHCCCCCCEEEECCHHHHCCCCECCHHHHHHHHHHHHHCCCCCEEEECHHHHCCCCHEEEECCCCCEEEEEEEEEECCCHCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCHHHHCCCCEEECCCCHHHHEECCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCHHHHHHHHCCCCHHHEEEEECCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHHCCCCCCCCCCCCEEEEECCCCEEEECCHEHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCHHEEEECCCCCCCCEEEEEEEEECCCCCCCHHHHCCCCCCCCEECCEEEEEEECEECCCCEEEEEEEEEEEECCEEEEEECCCCEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCHHHHEECCCCCCCCCCCCCCEEEEEEEHHHCCCCEEEEEEEECCCCCCCCCCHHEEEEEEEEEEECCCCCEEEEEHHHHHHHHHHCCCCEEEEEEECCCCCCCCEECCHHHHHHHHHHHHHCCCCEEEEECHHHCCCCHHEEECCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCHHHCCCCCCCCCCCCCEEEECCC
+CCCCCCCCCCHCHHHCCCCCCCCCCHHHHHHHHHHCCCHHHEEEECCCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEHHHCCHHHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHCCCCCCCCCCCCHHHHHCCCCCCCEEEEEEECCCCCCCEEEEEEEEEHHECCCHHHHHHCCCCCCCCCCCEEEEEEECEECCHHCEEEECHHEEEECCEEEEEEECCCEEEEEEEHCCCCHHHCCCCHEEEEECCEEEECCCCEEEEECCCCCCCCCCCCCHHEEEEEEEECCCCCEEEEEEECCCCCCCCCCCCCECEEEEEEEEEECCCCHEEHHHHHHHHHHCCCCCCEEEEEECCCCHHCCCEECCHHHHHHHHHHHHHCCCCEEEEECHHHCCCCCEEEECCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEECCEEEEECCCCEEECEEECCCHHHCCCCCCCCCCCHHHHHHCCC
+CCCCCCCCCHHHHHHCCCCCCCCCCHHHHHHHHHCCCCHHHEEEEEECCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEEHHHHHHHHHCCCCCCCCCCCCEEEEEEECCCEEEECCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCEEEEEEEEECCCCCCHHHHHCCCCCCCCCCCCEEEEEEECCCCCCCHHHHHHHHHHHCCCCEEEEEECCCEEEEEEECCCCCCCHCCCCCEEEECCCEEEEECCEEEEEEECCCCCCCCCCCCCEEEEEECCCCCCCCEEEEEEEECCCCCCCCCHHHHCCEEEEEEEECCCCCEEEEHHHHHHHHHHHCCCCEEEEEECCCCCCCCCEECCHHHHHHHHHHHECCCCCEEEEECHHHCCCCHHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCHHHHCCCCCEEECCCCHHEECCCC
+CCCCCCCCCHHHHHHCCCCCCCCCCCCCHHHHHHCCCCHHHEEECCCCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEHHHHHCHHHHHHHHCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCHEEEECCCCCCCCEEEEEEEEEHHHHCCHHHHHCCCCCCCCCCCCEEEEEEECCCCCHHEEEEEEEEHHHCCCCEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCHHHHHCCCCCCCCCCCCCCCEEEEEEEHHCCCCCHHHEEHHHCCCCCCCCCCHHCCEEEEEEEEECCCCHHHHHHHHHHHHHHHHCCCCCEEEEEEECHHHCCCEECCHHHHHHHHHHHHHCCCCCEEEECHHHCCCCCHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEECCCHHHHHCCCCCECCCHHHHHHHCCC
+CCCCCCCCCHHHHHHHCCCCCCCCCCCCHHHHHHCCCCHHHEEECCCCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEHHHHHHHHHHHHCCCCCCCCCCCCCEEEEEECCCEEEECHHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCCEEEEEEEEECCCCCCHHHHCCCCCCCCCECCCEEEEEEECCCCCCCEEEEEEEEEEEECEEEEEEEECCEEEEEEEEECCCCCCHCCCCCEEEECCCEEEECCCHHHHHHCCCCCCCCCCCCCCEEEEEEECCCCCCCHHHHHEEECCCCCCCCCCHHHHCEEEEEEEECCCCCEEEECCHHHEEEEECCCCCEEEEEECHHHHHHCCCCCCHHHHHCHHHHHHCCCCCEEEEECHHHCCCCHHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEEECCEEEEECCCCEEEEEEECCCHHHCCCCEEECCCCCCEEEECCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCHHHHHHHHCCCCHHHHEEEECCCCCCCCCCEEEEECCCCCHCCCCCCEEEEEEEEEEEEECCCCHHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCEEEEEEEEECCHHCCHHHHHCCCCCCCCCCCCEEEEEEECCCCHHHHHHHHHHHHHHHCCEEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCHHHEECCCCCCCCCCCCCCCEEEEECCECCCCCCHEEEEEEECCCCCCCCCCHHEEEEEEEEEEECCCCCHEEEHHHHHHHHHHHCCCCCCEEEECCCCCCCCCECCCHHHHHHCEEEECCCCCCCEEEECHHHHCCCCCHEECCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCCHCCCCCCEECCCCCHHHHCCCC
+predict: major vote:
+CCCCCCCCCCHHHHHCCCCCCCCCCCHHHHHHHHCCCCHHHEEEEECCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEEHHCCHHHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCEEEEEEEEECCCCCCHHHHHCCCCCCCCCCCCEEEEEEECCCCCHHEEEEEHHHEEECCCEEEEEEECCCEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCHHHEEECCCCCCCCCCCCCCEEEEEEECCCCCCCEEEEEEEECCCCCCCCCCHHEEEEEEEEEEECCCCCHEEEHHHHHHHHHHHCCCCCEEEEECCCCCCCCCEECCHHHHHHHHHHHHHCCCCCEEEECHHHCCCCCHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCHHHCCCCCEECCCCCCEEEECCC
+* predict: successful (+) prediction at output/6G44A.ss3rule1
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/6G44A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #2: H, E, C
+* predict: label definition: (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/6G44A.fasta
+* predict: base name of entry is 6G44A
+* predict: parsed sequence from the input file is:
+GAMGMNTPPELDTVLQAPYAYNWPTSKNVKIASRIGIPYSTFQTIQPVSDAPNNGIGQITFNQPLGNLTGGAPRLRVSFTAEIKNILADSSLKDQIGLKSFPVNRSIPVAVINMNGKTFTSYPAQLIKLHQYNADPLELALLSPCSDVDEYNKIKAVSMNNPYRQGTESTDSRMSRGLGCNYAYYIHPRAAGSTSVKIDFVVDEALVANPTQYKNIKDPVPFRNLNTFKVILDGQFKPENMIGIADDVKLVAGKADFEVDITGFKINMLVQNWVAPLEIGDIPKTIIYNTPLISLEGNISSMCLNTKDPYGIPGERNKHILTTHSMAMNNVPSMFAVMVSQETPTKKFAPDQLAGIIGLEIKVDSDVGIFRELEQQQLYELSSSNGYNKRFSCFSGALANGLTVADPAVAAGNKFKEAIFGAGSVIFFRPSDLGLKDYNVMANANKSINMQVQATFVTPEAAGTGAHYKLEVFSIRDNLTYSFEDGTFMDDLTLYTPDQLLRSPLKLTDDNNKLMRVMGG
+* predict: prediction file will be output/6G44A.ss3rule2
+predict: predicted secondary structure for 10 models
+CCCCCCCCCCHHHHCCCCCEECCCCCCHHHHHHHCCCCCCCCEEECCCCCCCCCCEEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCEEEECCHHHHHHHHCCCCHHHHHCCCCCCCHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCEEECCCCCCCCCEEEEEEEEEEEECCCCCCCCCCCCCCCCCCCEEEEEEECCECCCCCCHHHHHHHHHECCEEEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCCCCCCCCCCCCCCCCCCCCCEEEEECEEECCCCCEEEEEEEECCCCCCCCCCCCECEEEEEEEEECCCCCEEEHHHHHHHHHECCCCCCEEEEEEECCEECCCCECCCHHHHHCHHHHHHCCCCCCEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCEEEEEEEECCCCCCCCCCCECCCCCCCEEHHCCC
+CCCCCCCCCCHCCCCCCCCCCCCCCCCCHEEHHHCCCCCCCCEEEEECCCCCCCCCCEEECCCCCCCCCCCCCEEEEEEEEEEEECCCCCCHHCCCCCCCCCCCCCCCEEEEEECCCEEECCCHHHHHHHCCCCCHHHHHCCCCCCCCCCCCCHHHHHCCCCCCCCCCCCCCCCCCCCCCCHHHEECCCCCCCCEEEEEEEECCCCHCCCCCCCCCCCCCCCCCCEEEEEEEECECCCCCCCCCCCHHHHHCCCCEEEEECCCCEEEEEEECCCCCCCCCCCCCEEEECCCCEEECCCCCEEEECCCCCCCCCCCCCCEEECCCCCCCCCCCCEEEEEEECCCCCCCCCCCCCCCEEEEEEEECCCCCCCCCCCHHHHHHHCCCCCCCCEEECCCCCCCCCCECCCHHHHHHHHHHHHCCCCCCEEEECCCCCCCCCCEECCCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEECCCCEEEEECCCEEEEEEEECCHHHHCCCCCCCCCCCCCCHCCCCC
+CCCCCCCCCHHHHHHHCCCCCCCCCCCHHHHHHHCCCCCCCEEEEECCCCCCCCCCEEEEEECCCCCCCCCCCEEEEEEEEEEEECCCCCCHHHHCCCCCCCCCCCEEEEEEECCCCEEECCCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEECCHHHCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCHHHHHHHHHHHHCCCEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCHHHHHECCCCCCCCCCCCCCEEEEECCCCCCCCCCEEEEEECCCCCCCCCCCCCCCCEEEEEEEECCCCCEEEECCHHEEEEEECCCCCCEEEECCCCCCCCCEEECCCHHHCCHHHHHHHCCCCEEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEEECHHHHCCCCCCECCCCCCEEEECCC
+CCCCCCCCCHHHHHHCCCCCCCCCCCCCCEHHHHCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCCCCCCEEEEEEHHHHHHHHCHHHHHHCCCCCCCCCCCEEEEEEECCCCEEEECCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCCEEHHCCHEHHCCCEEEEEECCCHEHEHHHECCCCCCCCCCCCCEEEECCCEEEEECCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEEEHCCCCCCCCCCCCCCCEEEEEEEECCCCCHEHHHHHHHHHHHHHCCCCCCCEECCCCCCCCCCCECCHHHHHHHHHHHHCCCCCCEEEECCCCCCCCCCCEECCCCCCEEEEEEEEEECCCCCCCCCEEEEEEEECCCCEEEECCCCCEEEEEEECCCCCCCCCCCEECCCCCCEEEECCC
+CCCCCCCCCCCCHHCCCCCCCCCCCCHHHHHHHHCCCCCCCEEEEEECCCCCCCCCCEEEECCCCCCCCCCCCEEEEEEEEEEEECCCCHHHHHHCCCCCCCCCCCCCEEEEEECCCEEEECCCCEEEEHCCCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCEEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCCEEEECCEEEECCEEEEEEEECCEEEEEEEEEECCCCCCCCCCEEEEEECCEEEECCCHHHHHECCCCCCCCCCCCCCEEEEEECECCCCCCHHEEEEEECCCCCCCCCCCCCCEEEEEEEEECCCCCCEEEHHHHHHHHHHCCCCCCCEEECCCCCCCCCCCCCCHHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEECCCCEEEECCCCCEEECEECCCCCCCCCCCEEECCCCCCEEEEECC
+CCCCCCCCCCHHHHCCCCCCCCCCCCHHHHHHHHCCCCCCCHEEEECCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEHHHHHCCCHHCCCCCCCCCCCCCCEEEEEECCCCEEEECCHHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCEEEEEEEECEECCCCEEEEHCCHHHHCCCEEEEEEECCCEEEEEEEHCCCCCCCCCCCEEEEECCCEEEECCCEEEHHECCCCCCCCCCCCCCEEEEECCCCCCCCCEEEEEHEECCCCCCCCCCCCCCCEEEEEEEECCCCCHEHHHHHHHHHHHHCCCCCCEEEEECCCCHHCCCCCCCHHHHHHHHHHHHCCCCCEEEEECCCCCCCCCEEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCCCCCCCCCCCCCCCCHEEEECCC
+CCCCCCCCHHHHHHHHCCCCCCCCCCCCHHHHHHCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEHCHCCCHHHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCCHHHHHHHHCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCHHHHHHHHHHHHCCCEEEEECCCCEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCCCCCCCCCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEEEECCCCCCCCCCCCCCCEEEEEEEECCCCCEEEECCHHHHHHHCCCCCCCCEEEECCCCCCCCCEECCHHHHHHHHHHHHHCCCCCEEEECCCCCCCCCEEEECCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEECCCCCEEEEEEECCHHHHCCCCCCCCCCCCCHHHHCCC
+CCCCCCCCHHHHHHHCCCCEECCCCCCCHEHHHHCCCCCCCEEEEECCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEECCCCCHHHHHHCCCCCCCCCCCCEEEEEEECCCEEEECCCEEEHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHHCCCCCCCCCCCCCHCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEEECECCCCCCEEHEHHEEEECCCEEEEEEECCCEEEEEEEECCCCCCCCCCCCEEEEECCEEEEECCCCEEEEECCCCCCCCCCCCCEEEECCCCCCCCCCEEEEEEEECCCCCCCCCCCCCCCEEEEEEEECCCCCCEEHHHHHHHHHHHCCCCCCEEEEEECCCCCCCEEECCHHHHCHHHHHHHHCCCCCEEEECCCCCCCCCCEEECCCCCCEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEECCCCCEEEEEEECCCCHHCCCCCEECCCCCCEEECCCC
+CCCCCCCCCCHHHHHCCCCCCCCCCCCCHHHHHHCCCCCCCEEEECECCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEEECCCCCCHHHHCCCCCCCCCCCCEEEEEEECCCEEEECCCEEEEHCCCCCCCCCHCCCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCEEEEEEECCCCCCCCEEEEEEEECCCHHCCCCCCCCCCCCCCCCEEEEEEEEECCCCCCCCCEHHHHHHHHHHCCCEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEECCCCEEEECCHHHEEECCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEEEECCCCCCCCCCCCCCCEEEEEEEECCCCCCEEECCHHHHEHHHCCCCCEEEEEEECCCCCCCCCCCCHHHHHCHHEEEECCCCCEEEEECCCCCCCCCCCCCCCCCCCEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEEECHHHHCCCCCECCCCCCHHHHCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCHHHHHHHCCCCCCCEEEECCCCCCCCCCEEEEEECCCCCCCCCCCCEEEEEEEEEEEECHCCCCHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCCCHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCHEEHHHHHHHHECCEEEEEECCCEEEEEEEEECCCCCCCCCCCCEEEEECCEEEECCCCCCEEECCCCCCCCCCCCCCEEECCCCCCCCCCHHHEEEEEECCCCCCCCCCCCCEEEEEEEEEECCCCCHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCCECCCCHHHCCCCEEEECCCCCEEEEECCCCCCCCCHEEEECCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCCCCCCCCCCCCCCCCCEEEEECC
+predict: major vote:
+CCCCCCCCCCHHHHCCCCCCCCCCCCCCHHHHHHCCCCCCCEEEECCCCCCCCCCCEEEEECCCCCCCCCCCCEEEEEEEEEEEECCCCCCHHHHCCCCCCCCCCCCCEEEEECCCCEEEECCCHHHHHHHCCCCHHHHHHCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCCCCEEEEECCCCCCCCEEEEEEEEECCCCCCCCCCCCCCCCCCCCCCCEEEEEECCCCCCCCCEEHHHHHHHHCCCEEEEEEECCEEEEEEEEECCCCCCCCCCCCEEEECCCEEEEECCCCCEEECCCCCCCCCCCCCCEEEECCCCCCCCCCCEEEEEEECCCCCCCCCCCCCCCEEEEEEEECCCCCCEEHHHHHHHHHHHCCCCCCEEEEECCCCCCCCCECCCHHHHHHHHHHHHCCCCCCEEEECCCCCCCCCCEEECCCCCEEEEEEEEEEECCCCCCCCCEEEEEEEEECCCEEEEECCCCEEEEEEECCCCCCCCCCCCCCCCCCCEEEECCC
+* predict: successful (+) prediction at output/6G44A.ss3rule2
+* predict: returned code is 0 (0 = success, non-zero = failure)
+
+4 of 5] processing of /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* script: /home/max/16jF_secnet_ubuntu/bin/run_psiblast.py3 /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* script: psiblast is set to use 8 CPU cores
+* command: /home/max/16jF_secnet_ubuntu/3rd_software/unix/ncbi-blast-2.6.0+/bin/psiblast -db /home/max/16jF_secnet_ubuntu/3rd_databases/blast/uniref90.fasta -query /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -inclusion_ethresh 0.001 -evalue 10 -save_pssm_after_last_round -out_ascii_pssm /home/max/16jF_secnet_ubuntu/features/psiblast/5YH1A.mtx -num_iterations 2 -num_threads 8 -save_each_pssm > /dev/null 2>&1
+* script: /home/max/16jF_secnet_ubuntu/bin/run_hmm.py3 /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* command: bash /home/max/16jF_secnet_ubuntu/3rd_software/generic/process_hmm.bash -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* hhm: number of detected CPU cores is 8
+* hhm: 8 CPU cores will be used
+* hhm: input fasta is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/buildali2.pl /home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A.seq -cpu 8 -noss 1>/home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A_alignment.output 2>/home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A_alignment.error
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/hhmake -i /home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A.a3m -o /home/max/16jF_secnet_ubuntu/features/hhm/5YH1A.hhm1 1>/home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A_hhmake.output 2>/home/max/16jF_secnet_ubuntu/features/temp/5YH1A_10887/5YH1A_hhmake.error
+* hhm: success
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 8 -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 8 labels: H, E, C, T, G, S, B, I
+* predict: label definition: 8 original DSSP labels unchanged (C, S, B, T, I, G, H, E)
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/8label
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/8label/CV1/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/8label/CV2/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/8label/CV3/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/8label/CV4/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/8label/CV5/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/8label/CV6/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/8label/CV7/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/8label/CV8/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/8label/CV9/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/8label/CV10/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* predict: base name of entry is 5YH1A
+* predict: parsed sequence from the input file is:
+PGSHMAEVKRKIEEELDRRAQPSDVGFLVKSEVLEALKPKIMKAAFMIRRAIFEGRPIILRHHADTDGYTAGVALETAIIPLIEKVAPDPEARWHLFKRRPSRAPFYELEDVLKDIIFMMEDHMRFGDELPLVVIVDNGGTTEDIPAYKRLKAYGVKIVVIDHHDPRDWISEDKAKVDEYVDVHVNPHHVKRGYYELTAGMLATEVARYINPEVEDRIKHLPAIAGTGDRSKAPEFYQYLEYAKEKGLDEEDLKKIAEVIDHEAFYWKFMDGRGIIEEILLITGNLQRHRMLVEGIYPEVKEKQEKVLKAVLPHVKSVVLPNGIRFNTIDVELYAPKFEYPSPGKLSGIIHDHFKEQYGEDSPILTLAYGPDFAVVRASDGMAKYNFDLNKIVKILAEKLPDAGVEGGGHSYAGSIKFFEGKRKEVLEAFAKEVLKLKAGE
+* predict: prediction file will be output/5YH1A.ss8
+predict: predicted secondary structure for 10 models
+CCHHHHHHHHHHHHHHHHHHCCCCCCGGGTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGTGHHHHHHHHHHTCCEEEEESSCCCCCCCTGGCEECTTCCEEECTTTTTSSCHHHHHHHHHHHHHHHHCTTHHHHHTTSCEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHHCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGTEEEEECTTSCEEEEEEHHHHTTTCCCCCHHHHHHHHHHHHHHHHCSSSCEEEEEEETTEEEEEECSCCCTTCCCHHHHHHHHHHHCTTSCEEECCCSTEEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCGCCCCGGGCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSSCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGTGHHHHHHHHHTTCCEEEEESCCCCGGCCTTCCEECTTCCEEECTTGTTSCHHHHHHHHHHHHHHHHHCTGGHHHHTTCHEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHTCHHHHHHHHHTCTSCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCTTCCEEEEEEETSEEEEEECTSCCTTTCCHHHHHHHHHHHCTTCEEEECCCSSEEEEEEETTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCGCGGGGTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCSSCCCCHHHHHHHHHHHHHHHHHHTCCCEEEEEECCTCCTTGHHHHHHHHHTTCCEEEEECCCCCSCCCTTCCEECTTCCCECCTTCCCTTGHHHHHHHHHHHHHHHHCTTGHHHHTTHHHEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHTCTCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCTTCCEEEEEECTSEEEEEECSCCCTTCCCHHHHHHHHHHHCTTSCEEECCCSEEEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCSSCCCCHHHHHHHHHHHHHHHHHHTSCCCEEEEECCCCCTGGHHHHHHHHHTTCSEEEEESCCCCGCCCTTCEEECTTCCEECCGGGTTSTCHHHHHHHHHHHHHHHHCGGGGGGGTTSHHEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHHCHHHHHHHHHTCTSCHHHHHHHHHHHHHHHHHHHHHHHHHHGTTEEEEECTTSCEEEEEEHHHHTTTCCCCCHHHHHHHHHHHHHHHHCSSSCEEEEEECTTEEEEEECSCHHTTTCCHHHHHHHHHHHCTTCEEEECCCSTTCEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHHCCCCCCCHHCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCSCTTCCEEEEEECCCSSCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEEESCCCCGCCCTTCCCCCTTCCEECCTGGCTTCCHHHHHHHHHHHHHHHHCTTHHHHHTTHHHHEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHHTTTCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCSTSCEEEEEEETTEEEEEECHHHHTTCCCHHHHHHHHHHHCTTCCEEECCCSSCEEEEECTTGHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCGGGGCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCEEEEEEECCTSCCTTCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGGGHHHHHHHHHHTCCEEEEESCCCCSCCCTTCCEECTTCCEECCTTGCCCCGHHHHHHHHHHHHHHHHCHHHHHHHTTSCEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHTCHHHHHHHHHTTTSCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHGTTCCCCCHHHHHHHHHHHHHHHHCSTCCEEEEEECTTEEEEEECSCHHTTCCCHHHHHHHHHHHCTTCEEEEEECTTEEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCGGGGCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSSCCCCHHHHHHHHHHHHHHHHHHTCCCEEEEEEECTCCGGGHHHHHHHHHTTCSEEEEECCCCCGCCCTCCCEECTTCCEEECTTGTTTTCHHHHHHHHHHHHHHHHCTTHHHHHHTSHEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHTCTTCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCSSSCEEEEEEETSEEEEEECTTHHTTTCCHHHHHHHHHHHCTTCCEECECCTTTEEEEEETTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCGCCCHGGCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSSCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCTCCGGGHHHHHHHHHTTCCEEEEECCCCCGCCCTTCCEECTTCCEEECTTGTTTTCHHHHHHHHHHHHHHHHCTHHHHHGGGSCEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGTEEEEEETTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCTSSCEEEEEECTSEEEEEECSCCCTTTCCHHHHHHHHHHHCTTCEEEEECCSTCEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCGGGTSHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGGGHHHHHHHHHHTCSEEEEESCCCCSCCCTTCCEECTTCCEECCGTGTTTTCHHHHHHHHHHHHHHHHCTTHHHHHHTSCEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHTCHHHHHHHHHHTTSCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEEETTSCEEEEEECGGTCTTCCCCCHHHHHHHHHHHHHHHHCSSSCEEEEEEETTEEEEEECTTHHTTTCCHHHHHHHHHHHCTTTEECCCSCSSEEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCGGGCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTGCEEEEEECCCSSCCCCHHHHHHHHHHHHHHHHHHTCCCEEEEEECCCCCGGGHHHHHHHHHHTCCEEEEESSCCCGGCCTTGCECCTTCCEEECTTTTTSTHHHHHHHHHHHHHHHHHCHHHHHHHTTHHHHHHHHTCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHHTCSCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEECHGHCTTCCCCCHHHHHHHHHHHHHHHHCSCCCEEEEEEETSEEEEEECSCCCCTTCCHHHHHHHHHHHCTTCCECCCCCSSEEEEEECTTCHHHHHHHHHHHHHHHHCCC
+predict: major vote:
+CCHHHHHHHHHHHHHHHHHCCCCCCCGGGGCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECSSHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTSSCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEEESCCCCGCCCTTCCEECTTCCEECCTTGTTTTCHHHHHHHHHHHHHHHHCTTHHHHHTTSHEEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHSCHHHHHHHHHTCTSCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTSCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCSSSCEEEEEEETSEEEEEECSCCCTTTCCHHHHHHHHHHHCTTCCEEECCCSTEEEEEECTTCHHHHHHHHHHHHHHHHCCC
+* predict: successful (+) prediction at output/5YH1A.ss8
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 5 -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 5 labels: H, E, C, T, G
+* predict: label definition: (C, S, B) -> C, (H, I) -> H, (E) -> E, (T) -> T, (G) -> G
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/5label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* predict: base name of entry is 5YH1A
+* predict: parsed sequence from the input file is:
+PGSHMAEVKRKIEEELDRRAQPSDVGFLVKSEVLEALKPKIMKAAFMIRRAIFEGRPIILRHHADTDGYTAGVALETAIIPLIEKVAPDPEARWHLFKRRPSRAPFYELEDVLKDIIFMMEDHMRFGDELPLVVIVDNGGTTEDIPAYKRLKAYGVKIVVIDHHDPRDWISEDKAKVDEYVDVHVNPHHVKRGYYELTAGMLATEVARYINPEVEDRIKHLPAIAGTGDRSKAPEFYQYLEYAKEKGLDEEDLKKIAEVIDHEAFYWKFMDGRGIIEEILLITGNLQRHRMLVEGIYPEVKEKQEKVLKAVLPHVKSVVLPNGIRFNTIDVELYAPKFEYPSPGKLSGIIHDHFKEQYGEDSPILTLAYGPDFAVVRASDGMAKYNFDLNKIVKILAEKLPDAGVEGGGHSYAGSIKFFEGKRKEVLEAFAKEVLKLKAGE
+* predict: prediction file will be output/5YH1A.ss5
+predict: predicted secondary structure for 10 models
+CCCHHHHHHHHHHHHHHHHCCCCCCCHCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCCHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGGGHHHHHHHHHTTCCEEEEECCCCCCCCCTCCCCCCTTCCCCCCTTCCCCCCHHHHHHHHHHHHHHHHCTHHHHHHHTHHHHHHHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEEETTCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCTCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCECCCCCCTTTEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCTCCGGGHHHHHHHHHTTCCEEEECCCCCCCCCCTCCCCCCTTCCEECCTTCCCCCCHHHHHHHHHHHHHHHHCTTHHHHHTTCCEEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGTEEEEECTTCCEEEEEEGGGCCTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTTCCHHHHHHHHHHHCTTCCEEEECCCTEEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCHHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGGGHHHHHHHHHTTCCEEEEECCCCCHHCCTCCCEECTTCCEECCTTCCCCCCHHHHHHHHHHHHHHHHCGTHHHHHHTCCHEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEEETTCCEEEEEEHHHHGGGCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEEEECCCCECCEEECTTCHHHHHHHHHHHHHHHHCCC
+CHHHHHHHHHHHHHHHHHHCCCCCCCHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCGGGHHHHHHHHHTTCCEEEECCCCCCCCCCTCCCCCCTTCCCCCCTTCCCCCCHHHHHHHHHHHHHHHHCTTHHHHHTTCCEEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGTTEEEEECTTCCEEEEEEHHHHCTCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECTTEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEEECCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCHHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEEECCCCCCCCCTTCCEECTTCCEECCTTCCCCCCCHHHHHHHHHHHHHHHCTTHHHHHHTCHHHHHHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEEETTCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEEECCCCTTEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHGCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEECCCCCCCCCCTCCCEECTTCCCCCCGGCCCCCCCCHHHHHHHHHHHHHHCTTHHGHGGTHHHHHEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGTEEEEECTTCCEEEEEECGGCTTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECTTEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEEECCCCTCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGTGHHHHHHHHHTTCCEEEEECCCCCCCCCTCCCEECTTCCCECCTTTCCCCCCHHHHHHHHHHHHHHHCTTHHHHHHHHHHHHHHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEEETTCCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECTTEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCCEEECCCCCCCCEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCHHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCTCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEEECCCCCCCCCCCCCCCCTTCCCCCCTTCTCCCCHHHHHHHHHHHHHHHHCTTHHHHHGTCCEEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTCCEEEEEEHHHHTTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCHHHTCCCHHHHHHHHHHHCTTCCEECCCCCTCEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCEEEEEEECCCCGGGHHHHHHHHHTTCCEEEEECCCCCCHCCTCCCEECTTCCCCCCTTHCCCCCHHHHHHHHHHHHHHHHCTTHHHHHTTCHEEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGCEEEECTTCCEEEEEECGGCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEEECCCCCCEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCGGGCHHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCTGGHHHHHHHHHTTCCEEEEECCCCCCCCCTCCEEECTTCCEECCCTGCCCCCHHHHHHHHHHHHHHHHCHHHHHHHTHHHHHHHHHCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTCCEEEEEECGGTGTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCCEEEECCCCCCCEEECTTCHHHHHHHHHHHHHHHCCCC
+predict: major vote:
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCGGGHHHHHHHHHTTCCEEEEECCCCCCCCCTCCCEECTTCCCCCCTTCCCCCCHHHHHHHHHHHHHHHHCTTHHHHHHTCHHEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHGGGEEEEECTTCCEEEEEEHHHHCTTCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCCEEECCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+* predict: successful (+) prediction at output/5YH1A.ss5
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 4 labels: H, E, C, T
+* predict: label definition: (C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/4label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* predict: base name of entry is 5YH1A
+* predict: parsed sequence from the input file is:
+PGSHMAEVKRKIEEELDRRAQPSDVGFLVKSEVLEALKPKIMKAAFMIRRAIFEGRPIILRHHADTDGYTAGVALETAIIPLIEKVAPDPEARWHLFKRRPSRAPFYELEDVLKDIIFMMEDHMRFGDELPLVVIVDNGGTTEDIPAYKRLKAYGVKIVVIDHHDPRDWISEDKAKVDEYVDVHVNPHHVKRGYYELTAGMLATEVARYINPEVEDRIKHLPAIAGTGDRSKAPEFYQYLEYAKEKGLDEEDLKKIAEVIDHEAFYWKFMDGRGIIEEILLITGNLQRHRMLVEGIYPEVKEKQEKVLKAVLPHVKSVVLPNGIRFNTIDVELYAPKFEYPSPGKLSGIIHDHFKEQYGEDSPILTLAYGPDFAVVRASDGMAKYNFDLNKIVKILAEKLPDAGVEGGGHSYAGSIKFFEGKRKEVLEAFAKEVLKLKAGE
+* predict: prediction file will be output/5YH1A.ss4
+predict: predicted secondary structure for 10 models
+CCHHHHHHHHHHHHHHHHHHCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCCCCHHHHHHHHHTTCCEEEEECCCCCCCCCCCCCCCCTTCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCTTHHHHHHTCHHHEECCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCTCCCHHHHHHHHHHHCTTCEEECCCCTTTCCEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCCCCTTCCCECCCCCCCCCCHHHHHHHHHHHHHHHHCTTCHHHCTTCCEEEECCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCTEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCEECCCCCCCCEEEEETTCHHHHHHHHHHHHHHCCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCCHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEEECCCCCCCCCCCCCCCCTTCCEEECCCCCCCCCHHHHHHHHHHHHHHHHCTTCCCCCCCCCEEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCEEEECCTTTCEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCECCTTCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCTTCCCHHTTCHHHHHHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHTCTCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCTEEEEECTTCCEEEEEECHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCEEECCCCCCCCEEEECTTCHHHHHHHHHHHHHHCCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCTCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCEECTTCCCECCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHTCHHEEEEECCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECTCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCEEECCCCCCEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCCCCTTCCEECCCCCCCCCCHHHHHHHHHHHHHHHHCCCCHHHHTTCHHHHEHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCEEEEECCCTEEEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEEECCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCCCCTTCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHCTTCCHHHHTCHHEEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHTCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCECCCCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHTCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEEECCCCHHHCCTCCCEECTTCCCCCCCCCCTCCCHHHHHHHHHHHHHHHHCTTCHHHHTHHHHHHHHCCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCTEEEEECTTCCEEEEEECCHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCCCCCCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEEECCCCCCCCCTCCCECCTTCCCECCCCCCCCCCCHHHHHHHHHHHHHHHCTTCCCCCTTCHHHHHHHCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHHCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECTCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCEEEECCCTCEEEEECTTCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCCHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCTCCCCCCTTCCCCCCCCCCTCCCHHHHHHHHHHHHHHHHCTCCHHHCTTCCHHHEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCTEEEEECTTCCEEEEEECHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCEEECCCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+predict: major vote:
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHTTCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCTTCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHTTCCEEEECCCCCCCCCCCCCCCCCTTCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCTTCHHHHTTCHHHEEECCCCCCHHHHHHHHHHHHTTCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHTCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECTTCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCTTCCEECCCCCCCCEEEECTTCHHHHHHHHHHHHHHHCCCC
+* predict: successful (+) prediction at output/5YH1A.ss4
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 1 -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #1: H, E, C
+* predict: label definition: (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* predict: base name of entry is 5YH1A
+* predict: parsed sequence from the input file is:
+PGSHMAEVKRKIEEELDRRAQPSDVGFLVKSEVLEALKPKIMKAAFMIRRAIFEGRPIILRHHADTDGYTAGVALETAIIPLIEKVAPDPEARWHLFKRRPSRAPFYELEDVLKDIIFMMEDHMRFGDELPLVVIVDNGGTTEDIPAYKRLKAYGVKIVVIDHHDPRDWISEDKAKVDEYVDVHVNPHHVKRGYYELTAGMLATEVARYINPEVEDRIKHLPAIAGTGDRSKAPEFYQYLEYAKEKGLDEEDLKKIAEVIDHEAFYWKFMDGRGIIEEILLITGNLQRHRMLVEGIYPEVKEKQEKVLKAVLPHVKSVVLPNGIRFNTIDVELYAPKFEYPSPGKLSGIIHDHFKEQYGEDSPILTLAYGPDFAVVRASDGMAKYNFDLNKIVKILAEKLPDAGVEGGGHSYAGSIKFFEGKRKEVLEAFAKEVLKLKAGE
+* predict: prediction file will be output/5YH1A.ss3rule1
+predict: predicted secondary structure for 10 models
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHCCCHHHEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEEHHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCEEEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHHCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCCECCCCCCECCCCCCCCCHHHHHHHHHHHHHHHHHCHHHHHHHCCCCEEEEEECCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEEEECCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCHCCCCCCCEECCCCCEECCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHHCHHEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCCCCEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEECCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCCHHHHHHHHHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEEECCCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEECCCCCCCEEEEEECCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEECCCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHCHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHCHHHHHHHHCCCEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHCEEEEEECCCCEEEEEEHHHHCCCCCCCCCHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCEEEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCEEECCCCCCCCHHHHHHHHHHHHHHHHHCHHHHHHHCCCHEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHCEEEEEECCCCEEEEEEHHHHHCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEEECCCCCCEEEEECCCHHHHHHHHHHHHHHHHCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCECCCCCCEECCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHHHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHCEEEEEECCCCEEEEEEHHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEECCCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCCHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCECCCCHCCCCHHHHHHHHHHHHHHHHCCHHHHHHHHHHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHCEEEEECCCCCEEEEEECHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEECCCCCCEEEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCCHHHHHHHHHHHHHHHHCCHHHCHHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEECCCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHHHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEECHHCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCCHHHHHHHHHHHHHHHHCCCCCCHHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCHHHHHHHHHHHHCCCCEEEEECCCCCHCCCCCCCEECCCCCCECCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHCCCCEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCEEEEEEECCCHHHHHHHHHHHHHHHHCCC
+predict: major vote:
+CCHHHHHHHHHHHHHHHHHCCCCCCCHHHCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCHHHHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCECCCCCCCCCCHHHHHHHHHHHHHHHHCHHHHHHHHCCHHEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHEEEEECCCCCEEEEEEHHHHCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+* predict: successful (+) prediction at output/5YH1A.ss3rule1
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #2: H, E, C
+* predict: label definition: (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5YH1A.fasta
+* predict: base name of entry is 5YH1A
+* predict: parsed sequence from the input file is:
+PGSHMAEVKRKIEEELDRRAQPSDVGFLVKSEVLEALKPKIMKAAFMIRRAIFEGRPIILRHHADTDGYTAGVALETAIIPLIEKVAPDPEARWHLFKRRPSRAPFYELEDVLKDIIFMMEDHMRFGDELPLVVIVDNGGTTEDIPAYKRLKAYGVKIVVIDHHDPRDWISEDKAKVDEYVDVHVNPHHVKRGYYELTAGMLATEVARYINPEVEDRIKHLPAIAGTGDRSKAPEFYQYLEYAKEKGLDEEDLKKIAEVIDHEAFYWKFMDGRGIIEEILLITGNLQRHRMLVEGIYPEVKEKQEKVLKAVLPHVKSVVLPNGIRFNTIDVELYAPKFEYPSPGKLSGIIHDHFKEQYGEDSPILTLAYGPDFAVVRASDGMAKYNFDLNKIVKILAEKLPDAGVEGGGHSYAGSIKFFEGKRKEVLEAFAKEVLKLKAGE
+* predict: prediction file will be output/5YH1A.ss3rule2
+predict: predicted secondary structure for 10 models
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCECCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHCCCCCCCCCCCCCEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEEECCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCECCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHCCCCHCCCCCCCHHHEECCCCCCCHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECCCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEEECCCCCCEEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCECCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHCCCCHCCCCCHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEECCCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHCCCCCCCCCCCCHHEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECCCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEECCCCCCCEEEEEECCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHCCCCHCCCCCCCEEEECCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEEECCCCCCEEEECCCCHHHHHHHHHHHHHHCCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHCHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCHCCCCCCCCHEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECCCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCECCCCCCCCCCEEECCCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHCCCCCHCHCCCCCEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEEECCCCCCEEEECCCCHHHHHHHHHHHHHHCCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCHCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHCCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEECCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHECCCCCCCCHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEEEECCCCEEEEEECCCCHHHHHHHHHHHHHHHCCCC
+CCCHHHHHHHHHHHHHHHHCCCCCCCCHCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHCCCCCCCCCCHHHHHHHCCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHCCCCCHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEECCCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCCCEEEEECCCHHHHHHHHHHHHHHHCCCC
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEEECCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEEECCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCEECCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHCCCCCCCCCCCCEEEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCEEEECCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+predict: major vote:
+CCHHHHHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHCCCCEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCCCCEEEEECCCCCCCCCCHHHHHHHHHHHHHHHHHHCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCEEEEECCCCCCCCCCCCCECCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHCCCCCCCCCCCCHHEEECCCCCCHHHHHHHHHHHHCCCCHHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHCCCEEEEEECCCCEEEEEECCCCCCCCCCCCHHHHHHHHHHHHHHHHCCCCCEEEEEECCCEEEEEECCCCCCCCCCHHHHHHHHHHHCCCCCEEECCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCCC
+* predict: successful (+) prediction at output/5YH1A.ss3rule2
+* predict: returned code is 0 (0 = success, non-zero = failure)
+
+5 of 5] processing of /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* script: /home/max/16jF_secnet_ubuntu/bin/run_psiblast.py3 /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* script: psiblast is set to use 8 CPU cores
+* command: /home/max/16jF_secnet_ubuntu/3rd_software/unix/ncbi-blast-2.6.0+/bin/psiblast -db /home/max/16jF_secnet_ubuntu/3rd_databases/blast/uniref90.fasta -query /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -inclusion_ethresh 0.001 -evalue 10 -save_pssm_after_last_round -out_ascii_pssm /home/max/16jF_secnet_ubuntu/features/psiblast/5UB3B.mtx -num_iterations 2 -num_threads 8 -save_each_pssm > /dev/null 2>&1
+* script: /home/max/16jF_secnet_ubuntu/bin/run_hmm.py3 /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* command: bash /home/max/16jF_secnet_ubuntu/3rd_software/generic/process_hmm.bash -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* hhm: number of detected CPU cores is 8
+* hhm: 8 CPU cores will be used
+* hhm: input fasta is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/buildali2.pl /home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B.seq -cpu 8 -noss 1>/home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B_alignment.output 2>/home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B_alignment.error
+* hhm: /home/max/16jF_secnet_ubuntu/3rd_software/unix/hh/hh/hhmake -i /home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B.a3m -o /home/max/16jF_secnet_ubuntu/features/hhm/5UB3B.hhm1 1>/home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B_hhmake.output 2>/home/max/16jF_secnet_ubuntu/features/temp/5UB3B_28911/5UB3B_hhmake.error
+* hhm: success
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 8 -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 8 labels: H, E, C, T, G, S, B, I
+* predict: label definition: 8 original DSSP labels unchanged (C, S, B, T, I, G, H, E)
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/8label
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/8label/CV1/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/8label/CV2/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/8label/CV3/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/8label/CV4/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/8label/CV5/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/8label/CV6/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/8label/CV7/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/8label/CV8/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/8label/CV9/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/8label/CV10/model_config_weights_state_best_eps.hdf5 is 18.32 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* predict: base name of entry is 5UB3B
+* predict: parsed sequence from the input file is:
+MSSVLVLGRISDDPASHYEQLKPLLDYVVPRMREVGIRRGEILMAPDARQMSSYLRRGRVDWVSETTGAAMLLEQRGSAHPLLMTERGGLRDFHTLFFVRRDSPIHSLSQLRGHTLALQNASSTSGYLLPMLELLRNGIACDVLLSADDTPARGSAGYLMVGSKLNVAAFVHKHLIDVGALSNVDWDDERHMPPVFKRDFRIVHRTAPVPRAVEMVRTGMDPAVEQRLRVVLLQAASDPKAGPALKRFFDTTGFRPLDPTSRRRLQELSAGVQRVRDHVE
+* predict: prediction file will be output/5UB3B.ss8
+predict: predicted secondary structure for 10 models
+CCCEEEEEECCSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSCCCSGGGGTTCEEEECCTTCTHHHHHHHHHHHHTTCCHGGCCCTTSCCCTTCEEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHHTEEEEEECSCCCSEEEEECTTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCSGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCGHHHCCTTCCCCTTCCEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHTSCHHHHHHEEEEEECCCCCSCEEEEETTSCHHHHHHHHHHHHHHTTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSSCCSGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCGGGHCCTTSCCCTTCCEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHTTEEEEEECCCCCSCEEEEETTSCHHHHHHHHHHHHHHHTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECSSHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSCCCSGGGGTTCEEEESCTTCTHHTHHHHHHHHHTTCCHHGCCCTTCCCCTTCEEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHTSCHHHHHTEEEEEEESCCCSEEEEEETTSCHHHHHHHHHHHHHGGTSHHHHHHHHHHHTCTCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEEEHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCSGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCHHHHCCTTCCCCTTCEEEEEESSHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHHTEEEEEEECCCCSCEEEEETTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEECCSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCSGGGGTTCEEEEECTTCTHHHHHHHHHHHHTTCCHHHHHCTTCCCCTTCEEEEEESCHHHHHHHHHTTSSSEEEEEHHHHHHHHHSCHHHHHTEEEEEECCCCCCCEEEEETTSCHHHHHHHHHHHHHHTTSHHHHHHHHHHHTCTCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSCCCSGGGGTTCEEEEECTTCHHHHHHHHHHHHHTTCCGGGCCCTTCCCCTTCCEEEEESCHHHHHHHHHTTSSSEEEECHHHHHHHHTSCHHHHHTEEEEEECSCCCSCEEEEETTSCHHHHHHHHHHHHHHHTSHHHHHHHHHHHTCTTCEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCCEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSSCCSGGGGTTCEEEESCTTCHHHHHHHHHHHHHTTCCGGGHCCTTCCCCTTCEEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHTTEEEEEEECCCESCEEEEETTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTCEECCGGGHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEEEHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSCCCSGGGGTTCEEEEECTTCTTHHHHHHHHHHHTTCCGGGCCCTTSCCCTTCEEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHTSCHHHHHTEEEEEECCCCCSCEEEEETTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCCEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCSGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCGGGCCCTTCCCCTTCCEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHHTEEEEEECCCCCSEEEEEETTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHCC
+predict: major vote:
+CCCEEEEEEECSCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEESSHHHHHHHHHTTSCSEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTSCCCSGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCGGGCCCTTCCCCTTCEEEEEESCHHHHHHHHHTTSCSEEEEEHHHHHHHHHSCHHHHHTEEEEEECCCCCSCEEEEETTSCHHHHHHHHHHHHHHGTSHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHCC
+* predict: successful (+) prediction at output/5UB3B.ss8
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 5 -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 5 labels: H, E, C, T, G
+* predict: label definition: (C, S, B) -> C, (H, I) -> H, (E) -> E, (T) -> T, (G) -> G
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/5label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/5label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.26 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* predict: base name of entry is 5UB3B
+* predict: parsed sequence from the input file is:
+MSSVLVLGRISDDPASHYEQLKPLLDYVVPRMREVGIRRGEILMAPDARQMSSYLRRGRVDWVSETTGAAMLLEQRGSAHPLLMTERGGLRDFHTLFFVRRDSPIHSLSQLRGHTLALQNASSTSGYLLPMLELLRNGIACDVLLSADDTPARGSAGYLMVGSKLNVAAFVHKHLIDVGALSNVDWDDERHMPPVFKRDFRIVHRTAPVPRAVEMVRTGMDPAVEQRLRVVLLQAASDPKAGPALKRFFDTTGFRPLDPTSRRRLQELSAGVQRVRDHVE
+* predict: prediction file will be output/5UB3B.ss5
+predict: predicted secondary structure for 10 models
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCTHHHHHHHHHHHHTTCCCGGCCCTTCCCCCCCCEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCTCEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCGGGCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHHCCHHHHTTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEEECTTCTHHHHHHHHHHHHTTCCHGHHCCTTCCCCTTCEEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHTCCHHHHHTEEEEEEECCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCTHHHHHHHHHHHHTTCCHHHCCCTTCCCCTTCEEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHHCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEEECTTCTHHHHHHHHHHHHTTCCGGGCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHTTCHHHHHHHHHHHTCTCCEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCCEEEEECCCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCCHHHHHHHHHHHHTTCCCGGCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHTTCHHHHHHHHHHHTCTCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHCCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEEECTTCHHHHHHHHHHHHHTTCCCGGCCCTTCCCCTTCEEEEECCCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHTTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCHHHHHHHHHHHHHTTCCCHHCCCTTCCCCTCCEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCTTEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCCHHHHHHHHHHHHTTCCTHHCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHTCCHHHHTTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCCEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEEECTTCTTHHHHHHHHHHHTTCCGGGCCCTTCCCCTCCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+predict: major vote:
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCGGGGTTCEEEECCTTCTHHHHHHHHHHHHTTCCCGGCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+* predict: successful (+) prediction at output/5UB3B.ss5
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 4 -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 4 labels: H, E, C, T
+* predict: label definition: (C, S, B, G) -> C, (H, I) -> H, (E) -> E, (T) -> T
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/4label_practical
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV1/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV2/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV3/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV4/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV5/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV6/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV7/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV8/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV9/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/4label_practical/CV10/model_config_weights_state_best_eps.hdf5 is 18.24 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* predict: base name of entry is 5UB3B
+* predict: parsed sequence from the input file is:
+MSSVLVLGRISDDPASHYEQLKPLLDYVVPRMREVGIRRGEILMAPDARQMSSYLRRGRVDWVSETTGAAMLLEQRGSAHPLLMTERGGLRDFHTLFFVRRDSPIHSLSQLRGHTLALQNASSTSGYLLPMLELLRNGIACDVLLSADDTPARGSAGYLMVGSKLNVAAFVHKHLIDVGALSNVDWDDERHMPPVFKRDFRIVHRTAPVPRAVEMVRTGMDPAVEQRLRVVLLQAASDPKAGPALKRFFDTTGFRPLDPTSRRRLQELSAGVQRVRDHVE
+* predict: prediction file will be output/5UB3B.ss4
+predict: predicted secondary structure for 10 models
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCCCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTCEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHHCCHHHHHTEEEEEECCCCCCCCEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCTTCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCTCCEEEEECCHHHHHHHHHTTCCCEEEECHHCHHHHHTCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCTTCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCCCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCTTHHHHHHHHHHHTTCCCCCCCCCCCCCCCTCEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCTTCCEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHHCCHHHHHTEEEEEEECCCCCCEEEECTTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHTCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCTTCEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHHEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEEECTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCCCEEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHTCCHHHHHTEEEEEEECCCCCCEEEEETTCCHHHHHHHHHHHHHHCTCHHHHHHHHHHHTCTCEEECCHHHHHHHHHHHHHHHHHHHHHC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCCCEEEEEECCHHHHHHHHHTTCCCEEEEEHHHHHHHHTCCHHHHHHEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCCEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCHCHCCTTCCCCCCCEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHCCHHHHHTEEEEEECCCCCCCEEEECTTCCHHHHHHHHHHHHHHCTCHHHHHHHHHHHTCCCCEECCHHHHHHHHHHHHHHHHHHHHHC
+predict: major vote:
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHTTCEEEEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHHHHCCEEEEEEEETTEEEEEEEEEEETTCCCCCCCCCTTCEEEECCTTCCHHHHHHHHHHHHTTCCCCCCCCTTCCCCCCCCEEEEECCHHHHHHHHHTTCCCEEEECHHHHHHHHTCCHHHHHTEEEEEECCCCCCCEEEEETTCCHHHHHHHHHHHHHHHTCHHHHHHHHHHHTCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+* predict: successful (+) prediction at output/5UB3B.ss4
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 1 -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #1: H, E, C
+* predict: label definition: (C, S, T) -> C, (H, I, G) -> H, (E, B) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule1_harder/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* predict: base name of entry is 5UB3B
+* predict: parsed sequence from the input file is:
+MSSVLVLGRISDDPASHYEQLKPLLDYVVPRMREVGIRRGEILMAPDARQMSSYLRRGRVDWVSETTGAAMLLEQRGSAHPLLMTERGGLRDFHTLFFVRRDSPIHSLSQLRGHTLALQNASSTSGYLLPMLELLRNGIACDVLLSADDTPARGSAGYLMVGSKLNVAAFVHKHLIDVGALSNVDWDDERHMPPVFKRDFRIVHRTAPVPRAVEMVRTGMDPAVEQRLRVVLLQAASDPKAGPALKRFFDTTGFRPLDPTSRRRLQELSAGVQRVRDHVE
+* predict: prediction file will be output/5UB3B.ss3rule1
+predict: predicted secondary structure for 10 models
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEECCCHHHHHHHHHCCCCCEEEECHHHHHHHHHHHCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEECHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEECCCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHCCCCCCCCCCCCCEEEECCCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHCEEEEEECCCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEEECCCCCCCHHHHHHHHHHCCCCHHHCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHHEEEEEECCCCCCCCEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHCCCHHHHHHEEEEEECCCCCCCEEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEEECCCCCHHHHHHHHHHHHCCCCHHHHCCCCCCCCCCCEEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHCEEEEEECCCCCCCEEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHHCCCCCCCCCCCCEEEECCCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEEECCCCCHHHHHHHHHHHHCCCCCHHCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEECCCHHHHHHHHHCCCCCEEEECHHHHHHHHHCCHHHHHHEEEEEEECCCCCCEEEEECCCCHHHHHHHHHHHHHHHHCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHHCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHHCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+predict: major vote:
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCHHHHCCCEEEECCCCCCHHHHHHHHHHHHCCCCHHHCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHHEEEEEECCCCCCCEEEEECCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+* predict: successful (+) prediction at output/5UB3B.ss3rule1
+* predict: returned code is 0 (0 = success, non-zero = failure)
+* predict: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 of Version 1.16.4
+* predict: application command: /home/max/16jF_secnet_ubuntu/bin/ss_nn_load_and_predict.py3 -l 3 -r 2 -i /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta -o output/
+* predict: kit directory: /home/max/16jF_secnet_ubuntu
+* predict: python version: 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  2 2016, 17:53:06) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+* predict: labels for prediction: 3 labels of Rule #2: H, E, C
+* predict: label definition: (C, S, B, T, I, G) -> C, (H) -> H, (E) -> E
+Using Theano backend.
+* theano: 0.8.2
+* keras: 1.1.2
+* neural network calculations will use 8 CPU cores
+* predict: loading 10 model from /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier
+* predict: loading model #1, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV1/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #2, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV2/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #3, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV3/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #4, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV4/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #5, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV5/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #6, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV6/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #7, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV7/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #8, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV8/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #9, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV9/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: loading model #10, /home/max/16jF_secnet_ubuntu/models/3label_rule2_easier/CV10/model_config_weights_state_best_eps.hdf5 is 18.22 MB
+* predict: FASTA-formatted sequence file is /home/max/16jF_secnet_ubuntu/input/5UB3B.fasta
+* predict: base name of entry is 5UB3B
+* predict: parsed sequence from the input file is:
+MSSVLVLGRISDDPASHYEQLKPLLDYVVPRMREVGIRRGEILMAPDARQMSSYLRRGRVDWVSETTGAAMLLEQRGSAHPLLMTERGGLRDFHTLFFVRRDSPIHSLSQLRGHTLALQNASSTSGYLLPMLELLRNGIACDVLLSADDTPARGSAGYLMVGSKLNVAAFVHKHLIDVGALSNVDWDDERHMPPVFKRDFRIVHRTAPVPRAVEMVRTGMDPAVEQRLRVVLLQAASDPKAGPALKRFFDTTGFRPLDPTSRRRLQELSAGVQRVRDHVE
+* predict: prediction file will be output/5UB3B.ss3rule2
+predict: predicted secondary structure for 10 models
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEEECCCCCCHCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHHCCHHHHHCEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHHCEEEEEEEEECCEEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEECCHHHHHHHHHCCCCCEEEEECHHHHHHHCCCHHHHHCEEEEEEECCCCCCCEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCEEECCCCHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHCCHHHHHCEEEEEEECCECCCEEEECCCCCHHHHHHHHHHHHHHHCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHCCCHHHHHCEEEEEECCCCCCCCEEEECCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHCCCHHHHHCEEEEEECCCCCCCEEEEECCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHHCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHCCHHHHHCEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCEEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCCCCCCCCEEEEECCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEECCHHHHHHHHHCCCCCEEEECCHHHHHHHHCCHHHHHCEEEEEECCCCCCCCEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEECCCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEECCCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCEEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCHHCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHCCCHHHHHCEEEEEEECCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCCEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEECCCHHHHHHHHHCCCCCEEEECHHHHHHHHHHHCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCCEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHCCCHHHHHCEEEEEEECCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHCCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCHHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEECHHHHHHHHCCHHHHHHEEEEEEECCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+predict: major vote:
+CCCEEEEEEECCCHHHHHHHHHHHHHHHHHHHHHCCCEEEEEEEECCHHHHHHHHHCCCCCEEEECHHHHHHHHHHCCCEEEEEEEECCCEEEEEEEEEECCCCCCCCCCCCCCEEEECCCCCCCCCHHHHHHHHHCCCCCCCCCCCCCCCCCCCCEEEEECCHHHHHHHHHCCCCCEEEEEHHHHHHHHCCCHHHHHCEEEEEECCCCCCCEEEECCCCCHHHHHHHHHHHHHHCCCHHHHHHHHHHHCCCCCEECCHHHHHHHHHHHHHHHHHHHHCC
+* predict: successful (+) prediction at output/5UB3B.ss3rule2
+* predict: returned code is 0 (0 = success, non-zero = failure)
+
+5 succeeded out of total of 5
+<== ALL TASKS COMPLETED ==>
+
