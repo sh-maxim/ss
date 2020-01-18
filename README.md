@@ -45,10 +45,10 @@ Download a tiny (11KB) **SecNet Kit Installer**. The installer will automaticall
   * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)
 
 * Explore our SecNet Kit file and directory structure
-  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
+  * from [Github](https://github.com/sh-maxim/ss/tree/master/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
 
 * Access all downloadable files
-  * from [Github](https://github.com/sh-maxim/ss) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public)
+  * from [Github](https://github.com/sh-maxim/ss/tree/master) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public)
   
 ## Preprint:
 Shapovalov MV, Dunbrack RL Jr., Vucetic S. Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.PLoS ONE, Submitted. [Manuscript will be available soon.](https://journals.plos.org/plosone/)
