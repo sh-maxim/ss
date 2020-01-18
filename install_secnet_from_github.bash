@@ -14,7 +14,7 @@
 # Version
 # #######
 # Installer of 'SecNet', template-free protein secondary structure prediction software
-InstallerVersion=1.0.20
+InstallerVersion=1.0.21
 
 # ########
 # Platform
@@ -303,10 +303,10 @@ sleep 5
 for i in {0..7}
 do
 sleep 7
-for j in {1..5}
+for j in {1..10}
 do
    if [ $j -ge 2 ]; then
-      echo "Attempt $j of 5"
+      echo "Attempt $j of 10"
    fi
    URL_NR70_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr70.%02d.tar.gz" $i`
    LOCAL_NR70_TAR_GZ=`printf "download/nr70.%02d.tar.gz" $i`
@@ -335,10 +335,10 @@ sleep 5
 for i in {0..13}
 do
 sleep 7
-for j in {1..5}
+for j in {1..10}
 do
    if [ $j -ge 2 ]; then
-      echo "Attempt $j of 5"
+      echo "Attempt $j of 10"
    fi
    URL_NR90_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr90.%02d.tar.gz" $i`
    LOCAL_NR90_TAR_GZ=`printf "download/nr90.%02d.tar.gz" $i`
@@ -367,10 +367,10 @@ sleep 5
 for i in {0..19}
 do
 sleep 7
-for j in {1..5}
+for j in {1..10}
 do
    if [ $j -ge 2 ]; then
-      echo "Attempt $j of 5"
+      echo "Attempt $j of 10"
    fi
    URL_BLAST_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/uniref90.%02d.tar.gz" $i`
    LOCAL_BLAST_TAR_GZ=`printf "download/uniref90.%02d.tar.gz" $i`
