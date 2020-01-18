@@ -56,7 +56,7 @@ Download a tiny **SecNet Kit Installer**. The installer will automatically downl
 To predict secondary structure of a single sequence with the 8-label DSSP alphabet:  
 ***./secnet.py3 --input input/example.fasta --output output/ --label 8***
 
-***Note***: Please launch **SecNet** as an executable, i.e. ***./secnet.py3***; do **NOT** try to execute secnet.py3 with your own python, for example please **AVOID** **/bin/python secnet.py3**. Your Python may not include required libraries. For the proper execution the first line of **secnet.py3** includes a reference to Anaconda Python 3 locally installed to the SecNet kit directory.
+***Note***: Please launch **SecNet** as an executable, i.e. ***./secnet.py3***; do **not** try to execute secnet.py3 with your own python, for example please **avoid** */bin/python secnet.py3*. Your Python may not include required libraries. For the proper execution the first line of secnet.py3 includes a reference to Anaconda Python 3 locally installed to the SecNet kit directory.
 
 ## Other examples:
 Please note you need to use double or single quotes around wildcard characters such as '*.seq' or '*.fasta":  
