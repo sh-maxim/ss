@@ -147,7 +147,7 @@ cd $InstallDir
 mkdir "$InstallDir/download"
 
 
-if false; then
+if true; then
 echo ""
 echo "* 1 of 15: downloading secnet directory structure"
 echo "*************************************************"
@@ -169,7 +169,7 @@ rm $LOCAL_ROOT_DIR_TAR_GZ
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 3 of 15: downloading trained models"
 echo "*************************************"
@@ -191,7 +191,7 @@ rm $LOCAL_MODELS_TAR_GZ
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 5 of 15: downloading third-party software"
 echo "*******************************************"
@@ -213,7 +213,7 @@ rm $LOCAL_3RD_SOFTWARE_TAR_GZ
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 7 of 15: downloading Anaconda3 of version 4.2.0 with Python 3.5.2"
 echo "*******************************************************************"
@@ -241,7 +241,7 @@ rm $ANACONDA_LOCAL_FILENAME
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 9 of 15: downloading current execution code"
 echo "*********************************************"
@@ -263,7 +263,7 @@ rm $LOCAL_CODE_TAR_GZ
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 11 of 15: configuring local paths in downloaded execution code"
 echo "****************************************************************"
@@ -283,7 +283,7 @@ chmod a+x ./bin/ss_nn_load_and_predict.py3
 fi
 
 
-if false; then
+if true; then
 echo ""
 echo "* 12 of 15: executing configuration and installation of required libraries in Python3 installed locally in the SecNet kit directory, $ANACONDA3_DIR"
 echo "***************************************************************************************************************************************************"
