@@ -1,0 +1,173 @@
+HHsearch 1.5
+NAME  5Z08D
+FAM   
+FILE  5Z08D
+COM   /app/bin2bin/3rd_software/unix/hh/hh/hhmake -i /app/bin2bin/features/temp/5Z08D_13710/5Z08D.a3m -o /app/bin2bin/features/hhm/5Z08D.hhm1 
+DATE  Sat Jan 11 06:05:42 2020
+LENG  45 match states, 45 columns in multiple alignment
+FILT  80 out of 80 sequences passed filter (-id 90 -cov 0 -qid 0 -qsc -20.00 -diff 100)
+NEFF  2.9 
+SEQ
+>Consensus
+xexexkxsrxrwxxmKgvaSaiVvgSGvDWAxDxxLxxlVLDxed
+>5Z08D
+HEAEMKSNRRRWRIMKGAASAIVAGSGIDWVRDERLRDLVLDLPD
+>gi|636747597|ref|XP_008075972.1|(207-250:254) hypothetical protein GLAREA_08820 [Glarea lozoyensis ATCC 20868]   gi|512207840|gb|EPE36657.1| hypothetical protein GLAREA_08820 [Glarea lozoyensis ATCC 20868]  E=4e-11 s/c=1.63 id=49% cov=100%
+-DQKVKSIRQTWRIMKGTASGTIVGSGVDWARDPELLEIVLDNDE
+>gi|83767725|dbj|BAE57864.1|(223-266:267) unnamed protein product [Aspergillus oryzae RIB40]   E=6e-11 s/c=1.62 id=47% cov=100%
+-KADHKRSKAKWETMKSITSAIVVGSGVNWAEDEELVALVLDDSD
+>gi|330923150|ref|XP_003300123.1|(226-269:269) hypothetical protein PTT_11279 [Pyrenophora teres f. teres 0-1]   gi|311325918|gb|EFQ91801.1| hypothetical protein PTT_11279 [Pyrenophora teres f. teres 0-1]  E=4e-10 s/c=1.55 id=49% cov=100%
+-EKEVKESRRRVRTVRGMLSAMVVGSGINWAADEALTELVMDDEE
+>gi|748506340|ref|XP_011111717.1|(210-253:254) hypothetical protein H072_5911 [Dactylellina haptotyla CBS 200.50]   gi|526199333|gb|EPS40281.1| hypothetical protein H072_5911 [Dactylellina haptotyla CBS 200.50]  E=1e-09 s/c=1.52 id=44% cov=100%
+-KAEMMKEQRRCQTLKGVVQGIIVGSGVNWAEDETLRRLVLECGD
+>gi|759231133|gb|KIW08105.1|(220-263:268) hypothetical protein PV09_01043 [Verruconis gallopava]   E=1e-08 s/c=1.45 id=40% cov=100%
+-DAEVRRAAKEWRVWKSVAGAVVVASGIDWAEDPELLEIVMDEED
+>gi|748555051|dbj|GAM39728.1|(199-242:242) hypothetical protein TCE0_034f11509 [Talaromyces cellulolyticus]   E=3e-08 s/c=1.42 id=51% cov=100%
+-EQEYKKTRAQRDTTKSVISALVVGSGVDWARDDRLRNLVLDELD
+>gi|607892199|gb|EZF31660.1|(197-240:291) hypothetical protein H101_04741 [Trichophyton interdigitale H6]   gi|633050894|gb|KDB26797.1| hypothetical protein H109_01403 [Trichophyton interdigitale MR816]  E=5e-07 s/c=1.32 id=40% cov=100%
+-KSENKQKKAQWTRIKRIVSASIAASGVDWASDENLERLVLDDDE
+>gi|549047786|emb|CCX32223.1|(222-261:266) Protein of unknown function [Pyronema omphalodes CBS 100304]   E=6e-07 s/c=1.46 id=44% cov=91%
+-EEAYKAAKRKWDVTSGVTRAIVVESGVDWARDEGLRVVVV----
+>gi|667832808|ref|XP_007780573.1|(199-242:245) hypothetical protein W97_04493 [Coniosporium apollinis CBS 100218]   gi|494828444|gb|EON65256.1| hypothetical protein W97_04493 [Coniosporium apollinis CBS 100218]  E=3e-12 s/c=1.72 id=49% cov=100%
+-DAQIRASRREWRTMKGITAAVIAGSGVDWARDDALRGLVMDDEE
+#
+NULL   3706	5728	4211	4064	4839	3729	4763	4308	4069	3323	5509	4640	4464	4937	4285	4423	3815	3783	6325	4665	
+HMM    A	C	D	E	F	G	H	I	K	L	M	N	P	Q	R	S	T	V	W	Y	
+       M->M	M->I	M->D	I->M	I->I	D->M	D->D	Neff	Neff_I	Neff_D
+       0	*	*	0	*	0	*	*	*	*	
+H 1    *	*	*	*	*	*	1000	*	*	*	*	*	*	1000	*	*	*	*	*	*	1
+       0	*	*	*	*	*	*	1442	0	0	
+
+E 2    *	*	2913	599	*	*	*	*	2616	*	*	*	*	4510	*	*	*	*	*	*	2
+       0	*	*	*	*	*	*	2903	0	0	
+
+A 3    1535	*	3938	4450	*	3560	*	*	2853	*	*	5290	*	3691	3646	3987	3941	6693	*	*	3
+       0	*	*	*	*	*	*	2902	0	0	
+
+E 4    3192	*	2974	1074	*	5574	*	*	3548	*	*	*	*	2784	6608	6534	5999	*	*	*	4
+       0	*	*	*	*	*	*	2912	0	0	
+
+M 5    *	6264	*	*	6094	*	4765	6327	*	1852	3043	4401	*	5437	4911	*	4103	1738	*	3985	5
+       0	*	*	*	*	*	*	2926	0	0	
+
+K 6    4003	*	*	*	*	*	*	*	587	*	5030	*	*	3929	2510	*	*	*	*	*	6
+       0	*	*	*	*	*	*	2926	0	0	
+
+S 7    1483	*	5435	3900	6296	7009	5605	6094	2825	6700	*	4514	*	4549	4108	3426	4216	4426	*	6974	7
+       0	*	*	*	*	*	*	2926	0	0	
+
+N 8    3195	6101	*	3714	*	*	*	6176	5348	*	*	6756	*	6018	3978	634	5112	*	*	*	8
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 9    5549	*	*	*	*	*	*	*	2049	*	*	*	*	3476	628	*	*	*	*	*	9
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 10   2382	*	5455	*	*	6468	5641	*	4500	*	*	*	*	1350	1853	5945	6172	6550	*	*	10
+       22	*	6018	*	*	*	*	2926	0	0	
+
+R 11   *	*	5541	4131	*	*	*	*	2086	*	*	5361	*	3793	827	6412	6134	*	*	*	11
+       0	*	*	*	*	0	*	2920	0	1000	
+
+W 12   5105	4030	*	*	*	*	*	*	5791	6568	*	*	*	*	5827	*	*	4607	361	4502	12
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 13   *	*	3604	3146	*	*	*	*	2046	6094	5455	*	*	5924	1302	*	4438	4131	*	*	13
+       0	*	*	*	*	*	*	2926	0	0	
+
+I 14   5605	*	*	*	*	*	*	2862	*	4423	5477	*	*	*	5348	*	1352	1487	*	*	14
+       0	*	*	*	*	*	*	2926	0	0	
+
+M 15   *	*	*	*	*	*	*	2324	*	2799	952	*	*	*	*	*	4424	3806	5549	*	15
+       0	*	*	*	*	*	*	2926	0	0	
+
+K 16   *	*	*	*	*	*	*	*	118	*	*	*	*	5709	5030	5109	*	*	*	*	16
+       0	*	*	*	*	*	*	2926	0	0	
+
+G 17   6198	*	*	5477	*	550	*	*	*	*	*	3621	*	*	3259	3393	*	*	*	*	17
+       0	*	*	*	*	*	*	2926	0	0	
+
+A 18   3519	*	*	*	*	*	*	2031	*	6423	5939	*	*	*	*	*	1986	1367	*	*	18
+       0	*	*	*	*	*	*	2926	0	0	
+
+A 19   796	*	*	*	*	*	*	4683	*	2944	*	*	*	*	*	*	3069	2880	*	*	19
+       0	*	*	*	*	*	*	2926	0	0	
+
+S 20   4582	*	*	*	*	4185	*	*	*	*	*	*	*	4030	5109	299	*	*	*	*	20
+       0	*	*	*	*	*	*	2926	0	0	
+
+A 21   638	*	*	*	*	1561	*	*	*	*	*	*	*	*	*	*	*	5751	*	*	21
+       0	*	*	*	*	*	*	2926	0	0	
+
+I 22   4183	*	*	*	*	*	*	1249	*	3623	3034	*	*	*	*	4447	5123	2021	*	*	22
+       0	*	*	*	*	*	*	2926	0	0	
+
+V 23   *	*	*	*	*	*	*	1108	*	*	*	*	*	*	*	*	*	899	*	*	23
+       0	*	*	*	*	*	*	2926	0	0	
+
+A 24   1362	*	*	*	5988	*	*	*	*	*	*	*	*	*	*	5393	*	808	*	*	24
+       0	*	*	*	*	*	*	2926	0	0	
+
+G 25   2755	*	*	4336	*	348	*	*	*	*	*	*	*	*	*	5916	*	*	*	*	25
+       0	*	*	*	*	*	*	2926	0	0	
+
+S 26   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	30	5601	*	*	*	26
+       0	*	*	*	*	*	*	2926	0	0	
+
+G 27   *	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	27
+       0	*	*	*	*	*	*	2926	0	0	
+
+I 28   6072	*	*	*	*	*	*	1680	*	3748	*	*	*	*	*	*	*	740	*	*	28
+       0	*	*	*	*	*	*	2926	0	0	
+
+D 29   4850	*	370	*	*	*	5791	*	*	*	*	2527	*	*	*	*	*	*	*	*	29
+       0	*	*	*	*	*	*	2926	0	0	
+
+W 30   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	30
+       0	*	*	*	*	*	*	2926	0	0	
+
+V 31   346	*	*	*	*	*	*	*	*	*	*	*	*	*	*	4492	5052	2852	*	*	31
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 32   2832	*	4705	2771	*	5147	6695	*	5122	*	*	5179	*	5032	1170	3247	*	*	*	*	32
+       0	*	*	*	*	*	*	2926	0	0	
+
+D 33   *	*	107	5533	*	*	*	*	*	*	*	5065	*	*	*	*	*	5641	*	*	33
+       0	*	*	*	*	*	*	2926	0	0	
+
+E 34   4271	*	1929	1255	*	5253	*	*	5641	*	*	*	2512	5425	*	*	*	5533	*	*	34
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 35   2896	*	3988	1969	*	3257	*	*	3001	*	*	5348	*	4821	3238	5973	3536	4334	*	*	35
+       0	*	*	*	*	*	*	2926	0	0	
+
+L 36   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	36
+       0	*	*	*	*	*	*	2926	0	0	
+
+R 37   *	4520	*	5292	*	*	*	*	6145	2413	6085	*	*	4919	1038	3831	3146	6518	*	*	37
+       0	*	*	*	*	*	*	2923	0	0	
+
+D 38   2881	*	2053	1674	*	4955	*	*	4856	5464	*	4399	*	*	4034	5045	5388	5164	6627	5654	38
+       0	*	*	*	*	*	*	2988	0	0	
+
+L 39   6058	*	*	*	*	*	*	2078	*	880	3837	*	*	*	*	*	*	2890	*	*	39
+       0	*	*	*	*	*	*	2988	0	0	
+
+V 40   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	40
+       0	*	*	*	*	*	*	2988	0	0	
+
+L 41   *	*	*	*	*	*	*	5943	*	381	2852	*	*	*	*	*	*	3696	*	*	41
+       0	*	*	*	*	*	*	2988	0	0	
+
+D 42   *	*	321	2449	*	5912	*	*	*	*	*	*	*	*	*	*	*	*	*	*	42
+       0	*	*	*	*	*	*	2960	0	0	
+
+L 43   *	3786	2222	2318	*	5389	*	6109	5905	4978	6074	5084	1529	*	*	4834	*	*	*	*	43
+       0	*	*	*	*	*	*	2976	0	0	
+
+P 44   *	*	2622	934	*	3786	*	*	*	4134	*	*	4210	*	*	2938	*	*	*	*	44
+       0	*	*	*	*	*	*	2976	0	0	
+
+D 45   *	*	555	2091	*	*	*	*	*	*	*	3566	*	*	*	*	*	*	*	*	45
+       0	*	*	0	*	*	*	2792	0	0	
+
+//
