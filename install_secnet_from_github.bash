@@ -14,7 +14,7 @@
 # Version
 # #######
 # Installer of 'SecNet', template-free protein secondary structure prediction software
-InstallerVersion=1.0.19
+InstallerVersion=1.0.20
 
 # ########
 # Platform
@@ -147,7 +147,7 @@ cd $InstallDir
 mkdir "$InstallDir/download"
 
 
-if true; then
+if false; then
 echo ""
 echo "* 1 of 15: downloading secnet directory structure"
 echo "*************************************************"
@@ -169,7 +169,7 @@ rm $LOCAL_ROOT_DIR_TAR_GZ
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 3 of 15: downloading trained models"
 echo "*************************************"
@@ -191,7 +191,7 @@ rm $LOCAL_MODELS_TAR_GZ
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 5 of 15: downloading third-party software"
 echo "*******************************************"
@@ -213,7 +213,7 @@ rm $LOCAL_3RD_SOFTWARE_TAR_GZ
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 7 of 15: downloading Anaconda3 of version 4.2.0 with Python 3.5.2"
 echo "*******************************************************************"
@@ -241,7 +241,7 @@ rm $ANACONDA_LOCAL_FILENAME
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 9 of 15: downloading current execution code"
 echo "*********************************************"
@@ -263,7 +263,7 @@ rm $LOCAL_CODE_TAR_GZ
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 11 of 15: configuring local paths in downloaded execution code"
 echo "****************************************************************"
@@ -283,7 +283,7 @@ chmod a+x ./bin/ss_nn_load_and_predict.py3
 fi
 
 
-if true; then
+if false; then
 echo ""
 echo "* 12 of 15: executing configuration and installation of required libraries in Python3 installed locally in the SecNet kit directory, $ANACONDA3_DIR"
 echo "***************************************************************************************************************************************************"
@@ -302,15 +302,26 @@ echo ""
 sleep 5
 for i in {0..7}
 do
-URL_NR70_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr70.%02d.tar.gz" $i`
-LOCAL_NR70_TAR_GZ=`printf "download/nr70.%02d.tar.gz" $i`
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_NR70_TAR_GZ -O $LOCAL_NR70_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_NR70_TAR_GZ -L -o $LOCAL_NR70_TAR_GZ
-fi
-tar -xvzf $LOCAL_NR70_TAR_GZ --directory $InstallDir/3rd_databases/hmm
-rm $LOCAL_NR70_TAR_GZ
+sleep 7
+for j in {1..5}
+do
+   if [ $j -ge 2 ]; then
+      echo "Attempt $j of 5"
+   fi
+   URL_NR70_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr70.%02d.tar.gz" $i`
+   LOCAL_NR70_TAR_GZ=`printf "download/nr70.%02d.tar.gz" $i`
+   if [ "$OS_TYPE" == "unix" ] ; then
+      wget $URL_NR70_TAR_GZ -O $LOCAL_NR70_TAR_GZ
+   elif [ "$OS_TYPE" == 'mac' ] ; then
+      curl $URL_NR70_TAR_GZ -L -o $LOCAL_NR70_TAR_GZ
+   fi
+   if [ $? == 0 ]; then
+      tar -xvzf $LOCAL_NR70_TAR_GZ --directory $InstallDir/3rd_databases/hmm
+      rm $LOCAL_NR70_TAR_GZ
+      break
+   fi
+   sleep 15
+done
 done
 fi
 
@@ -323,15 +334,26 @@ echo ""
 sleep 5
 for i in {0..13}
 do
-URL_NR90_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr90.%02d.tar.gz" $i`
-LOCAL_NR90_TAR_GZ=`printf "download/nr90.%02d.tar.gz" $i`
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_NR90_TAR_GZ -O $LOCAL_NR90_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_NR90_TAR_GZ -L -o $LOCAL_NR90_TAR_GZ
-fi
-tar -xvzf $LOCAL_NR90_TAR_GZ --directory $InstallDir/3rd_databases/hmm
-rm $LOCAL_NR90_TAR_GZ
+sleep 7
+for j in {1..5}
+do
+   if [ $j -ge 2 ]; then
+      echo "Attempt $j of 5"
+   fi
+   URL_NR90_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr90.%02d.tar.gz" $i`
+   LOCAL_NR90_TAR_GZ=`printf "download/nr90.%02d.tar.gz" $i`
+   if [ "$OS_TYPE" == "unix" ] ; then
+      wget $URL_NR90_TAR_GZ -O $LOCAL_NR90_TAR_GZ
+   elif [ "$OS_TYPE" == 'mac' ] ; then
+      curl $URL_NR90_TAR_GZ -L -o $LOCAL_NR90_TAR_GZ
+   fi
+   if [ $? == 0 ]; then
+      tar -xvzf $LOCAL_NR90_TAR_GZ --directory $InstallDir/3rd_databases/hmm
+      rm $LOCAL_NR90_TAR_GZ
+      break
+   fi
+   sleep 15
+done
 done
 fi
 
@@ -344,15 +366,26 @@ echo ""
 sleep 5
 for i in {0..19}
 do
-URL_BLAST_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/uniref90.%02d.tar.gz" $i`
-LOCAL_BLAST_TAR_GZ=`printf "download/uniref90.%02d.tar.gz" $i`
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_BLAST_TAR_GZ -O $LOCAL_BLAST_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_BLAST_TAR_GZ -L -o $LOCAL_BLAST_TAR_GZ
-fi
-tar -xvzf $LOCAL_BLAST_TAR_GZ --directory $InstallDir/3rd_databases/blast
-rm $LOCAL_BLAST_TAR_GZ
+sleep 7
+for j in {1..5}
+do
+   if [ $j -ge 2 ]; then
+      echo "Attempt $j of 5"
+   fi
+   URL_BLAST_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/uniref90.%02d.tar.gz" $i`
+   LOCAL_BLAST_TAR_GZ=`printf "download/uniref90.%02d.tar.gz" $i`
+   if [ "$OS_TYPE" == "unix" ] ; then
+      wget $URL_BLAST_TAR_GZ -O $LOCAL_BLAST_TAR_GZ
+   elif [ "$OS_TYPE" == 'mac' ] ; then
+      curl $URL_BLAST_TAR_GZ -L -o $LOCAL_BLAST_TAR_GZ
+   fi
+   if [ $? == 0 ]; then
+      tar -xvzf $LOCAL_BLAST_TAR_GZ --directory $InstallDir/3rd_databases/blast
+      rm $LOCAL_BLAST_TAR_GZ
+      break
+   fi
+   sleep 15
+done
 done
 fi
 
