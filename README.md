@@ -1,5 +1,7 @@
 # *SecNet*, template-free protein secondary structure prediction software
 
+## Similar content may be accessed from [dunbrack.fccc.edu/ss](http://dunbrack.fccc.edu/ss)
+
 Copyright (c) 2018-2019, Maxim Shapovalov<sup>†,‡</sup>, Roland L. Dunbrack, Jr.<sup>†,*</sup>, Slobodan Vucetic<sup>‡,\*</sup>  
 All rights reserved.  
 † Fox Chase Cancer Center, 333 Cottman Avenue, Philadelphia PA 19111, USA  
@@ -24,7 +26,7 @@ The installer will not disrupt your systemwide or user-specific Python or shell 
 simply run a command: *rm -rf ./secnet_kit_directory*
 
 ## License
-Open-source BSD 3-Clause License. [Full text is here.](https://github.com/sh-maxim/ss/explore_secnet/LICENSE)
+Open-source BSD 3-Clause License. [Full text is here.](https://raw.githubusercontent.com/sh-maxim/ss/master/explore_secnet/LICENSE)
 
 ## Download and Installation:
 
