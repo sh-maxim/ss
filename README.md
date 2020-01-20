@@ -86,7 +86,7 @@ If you have 8 cores, you may limit to 4 cores:
 To reduce amount of standard output and only report whether each sequence was successfully processed:  
 ***./secnet.py3 --input "input/\*.fasta" --output output/ --label 8 --quiet***
 
-## Preprint:
+## Preprint on bioRxiv:
 [**Shapovalov MV, Dunbrack RL Jr., Vucetic S.** *Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.*](https://doi.org/10.1101/2020.01.17.911065)
 
 ## SecNet Tool Help:
