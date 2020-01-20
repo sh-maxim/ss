@@ -87,7 +87,7 @@ To reduce amount of standard output and only report whether each sequence was su
 ***./secnet.py3 --input "input/\*.fasta" --output output/ --label 8 --quiet***
 
 ## Preprint:
-**Shapovalov MV, Dunbrack RL Jr., Vucetic S.** *Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.* [bioRxiv preprint will be available in 1-2 days.](https://www.biorxiv.org/)
+[**Shapovalov MV, Dunbrack RL Jr., Vucetic S.** *Multifaceted analysis of training and testing convolutional neural networks for protein secondary structure prediction.*](https://doi.org/10.1101/2020.01.17.911065)
 
 ## SecNet Tool Help:
 <pre>
