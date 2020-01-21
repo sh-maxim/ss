@@ -14,7 +14,7 @@
 # Version
 # #######
 # Installer of 'SecNet', template-free protein secondary structure prediction software
-InstallerVersion=1.0.21
+InstallerVersion=1.0.22
 
 # ########
 # Platform
@@ -114,6 +114,7 @@ fi
 
 echo "* installing SecNet kit to $InstallDir"
 echo "* installation started at `date`"
+sleep 5
 PARENT_OF_INSTALL_DIR=`dirname $InstallDir`
 if [ ! -d $PARENT_OF_INSTALL_DIR ]; then
    echo ""
@@ -139,127 +140,218 @@ if [[ $FREE -lt 75 ]]; then
 fi;
 
 
-sleep 5
 InstallDir="$(cd $InstallDir > /dev/null 2>&1 && pwd)"
 InstallDir=${InstallDir%/}
 echo "* full path of SecNet kit is $InstallDir"
+sleep 5
 cd $InstallDir
 mkdir "$InstallDir/download"
 
 
 if true; then
-echo ""
-echo "* 1 of 15: downloading secnet directory structure"
-echo "*************************************************"
-echo ""
-sleep 5
-URL_ROOT_DIR_TAR_GZ='http://github.com/sh-maxim/databases/releases/download/current/secnet_root.tar.gz'
-LOCAL_ROOT_DIR_TAR_GZ='download/secnet_root.tar.gz'
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_ROOT_DIR_TAR_GZ -O $LOCAL_ROOT_DIR_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_ROOT_DIR_TAR_GZ -L -o $LOCAL_ROOT_DIR_TAR_GZ
-fi
-echo ""
-echo "* 2 of 15: extracting secnet directory structure"
-echo "************************************************"
-echo ""
-tar -xvzf $LOCAL_ROOT_DIR_TAR_GZ --directory $InstallDir
-rm $LOCAL_ROOT_DIR_TAR_GZ
-fi
-
-
-if true; then
-echo ""
-echo "* 3 of 15: downloading trained models"
-echo "*************************************"
-echo ""
-sleep 5
-URL_MODELS_TAR_GZ='http://github.com/sh-maxim/databases/releases/download/current/models.tar.gz'
-LOCAL_MODELS_TAR_GZ='download/models.tar.gz'
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_MODELS_TAR_GZ -O $LOCAL_MODELS_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_MODELS_TAR_GZ -L -o $LOCAL_MODELS_TAR_GZ
-fi
-echo ""
-echo "* 4 of 15: extracting trained models"
-echo "************************************"
-echo ""
-tar -xvzf $LOCAL_MODELS_TAR_GZ --directory $InstallDir
-rm $LOCAL_MODELS_TAR_GZ
+   echo ""
+   echo "* 1 of 15: downloading secnet directory structure"
+   echo "*************************************************"
+   echo ""
+   sleep 5
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD='http://github.com/sh-maxim/databases/releases/download/current/secnet_root.tar.gz'
+      LOCAL_DOWNLOADED_FILE='download/secnet_root.tar.gz'
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
+   fi
+   echo ""
+   echo "* 2 of 15: extracting secnet directory structure"
+   echo "************************************************"
+   echo ""
+   sleep 5
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir
+   rm $LOCAL_DOWNLOADED_FILE
 fi
 
 
 if true; then
-echo ""
-echo "* 5 of 15: downloading third-party software"
-echo "*******************************************"
-echo ""
-sleep 5
-URL_3RD_SOFTWARE_TAR_GZ='http://github.com/sh-maxim/databases/releases/download/current/3rd_software.tar.gz'
-LOCAL_3RD_SOFTWARE_TAR_GZ='download/3rd_software.tar.gz'
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_3RD_SOFTWARE_TAR_GZ -O $LOCAL_3RD_SOFTWARE_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_3RD_SOFTWARE_TAR_GZ -L -o $LOCAL_3RD_SOFTWARE_TAR_GZ
+   echo ""
+   echo "* 3 of 15: downloading trained models"
+   echo "*************************************"
+   echo ""
+   sleep 5
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD='http://github.com/sh-maxim/databases/releases/download/current/models.tar.gz'
+      LOCAL_DOWNLOADED_FILE='download/models.tar.gz'
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
+   fi
+   echo ""
+   echo "* 4 of 15: extracting trained models"
+   echo "************************************"
+   echo ""
+   sleep 5
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir
+   rm $LOCAL_DOWNLOADED_FILE
 fi
-echo ""
-echo "* 6 of 15: extracting third-party software"
-echo "******************************************"
-echo ""
-tar -xvzf $LOCAL_3RD_SOFTWARE_TAR_GZ --directory $InstallDir
-rm $LOCAL_3RD_SOFTWARE_TAR_GZ
+
+
+
+if true; then
+   echo ""
+   echo "* 5 of 15: downloading third-party software"
+   echo "*******************************************"
+   echo ""
+   sleep 5
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD='http://github.com/sh-maxim/databases/releases/download/current/3rd_software.tar.gz'
+      LOCAL_DOWNLOADED_FILE='download/3rd_software.tar.gz'
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
+   fi
+   echo ""
+   echo "* 6 of 15: extracting third-party software"
+   echo "******************************************"
+   echo ""
+   sleep 5
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir
+   rm $LOCAL_DOWNLOADED_FILE
 fi
 
 
 if true; then
-echo ""
-echo "* 7 of 15: downloading Anaconda3 of version 4.2.0 with Python 3.5.2"
-echo "*******************************************************************"
-echo ""
-sleep 5
-if [ "$OS_TYPE" == "unix" ] ; then
-   URL_ANACONDA3="http://github.com/sh-maxim/databases/releases/download/current/Anaconda3-4.2.0-Linux-x86_64.sh"
-   ANACONDA_LOCAL_FILENAME="download/Anaconda3-4.2.0-Linux-x86_64.sh"
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   URL_ANACONDA3="http://github.com/sh-maxim/databases/releases/download/current/Anaconda3-4.2.0-MacOSX-x86_64.sh"
-   ANACONDA_LOCAL_FILENAME="download/Anaconda3-4.2.0-MacOSX-x86_64.sh"
-fi
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_ANACONDA3 -O $ANACONDA_LOCAL_FILENAME
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_ANACONDA3 -L -o $ANACONDA_LOCAL_FILENAME
-fi
-ANACONDA3_DIR="$InstallDir/anaconda3"
-echo ""
-echo "* 8 of 15: installing Anaconda3 of version 4.2.0 with Python 3.5.2 as standalone to the local SecNet kit directory, to $ANACONDA3_DIR"
-echo "*************************************************************************************************************************************"
-echo ""
-bash $ANACONDA_LOCAL_FILENAME -b -p $ANACONDA3_DIR
-rm $ANACONDA_LOCAL_FILENAME
+   echo ""
+   echo "* 7 of 15: downloading Anaconda3 of version 4.2.0 with Python 3.5.2"
+   echo "*******************************************************************"
+   echo ""
+   sleep 5
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      if [ "$OS_TYPE" == "unix" ] ; then
+         URL_TO_DOWNLOAD="http://github.com/sh-maxim/databases/releases/download/current/Anaconda3-4.2.0-Linux-x86_64.sh"
+         LOCAL_DOWNLOADED_FILE="download/Anaconda3-4.2.0-Linux-x86_64.sh"
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         URL_TO_DOWNLOAD="http://github.com/sh-maxim/databases/releases/download/current/Anaconda3-4.2.0-MacOSX-x86_64.sh"
+         LOCAL_DOWNLOADED_FILE="download/Anaconda3-4.2.0-MacOSX-x86_64.sh"
+      fi
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
+   fi
+   echo ""
+   echo "* 8 of 15: installing Anaconda3 of version 4.2.0 with Python 3.5.2 as standalone to the local SecNet kit directory, to $ANACONDA3_DIR"
+   echo "*************************************************************************************************************************************"
+   echo ""
+   sleep 5
+   ANACONDA3_DIR="$InstallDir/anaconda3"
+   bash $LOCAL_DOWNLOADED_FILE -b -p $ANACONDA3_DIR
+   rm $LOCAL_DOWNLOADED_FILE
 fi
 
 
 if true; then
-echo ""
-echo "* 9 of 15: downloading current execution code"
-echo "*********************************************"
-echo ""
-sleep 5
-URL_CODE_TAR_GZ='http://github.com/sh-maxim/databases/releases/download/current/source.tar.gz'
-LOCAL_CODE_TAR_GZ='download/source.tar.gz'
-if [ "$OS_TYPE" == "unix" ] ; then
-   wget $URL_CODE_TAR_GZ -O $LOCAL_CODE_TAR_GZ
-elif [ "$OS_TYPE" == 'mac' ] ; then
-   curl $URL_CODE_TAR_GZ -L -o $LOCAL_CODE_TAR_GZ
-fi
-echo ""
-echo "* 10 of 15: exctacting current execution code"
-echo "*********************************************"
-echo ""
-tar -xvzf $LOCAL_CODE_TAR_GZ --directory $InstallDir
-rm $LOCAL_CODE_TAR_GZ
+   echo ""
+   echo "* 9 of 15: downloading current execution code"
+   echo "*********************************************"
+   echo ""
+   sleep 5
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD='http://github.com/sh-maxim/databases/releases/download/current/source.tar.gz'
+      LOCAL_DOWNLOADED_FILE='download/source.tar.gz'
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
+   fi
+   echo ""
+   echo "* 10 of 15: exctacting current execution code"
+   echo "*********************************************"
+   echo ""
+   sleep 5
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir
+   rm $LOCAL_DOWNLOADED_FILE
 fi
 
 
@@ -297,63 +389,78 @@ fi
 if true; then
 echo ""
 echo "* 13 of 15: downloading and extracting hmm database #1 of 2"
-echo "**************************************************************"
+echo "***********************************************************"
 echo ""
 sleep 5
 for i in {0..7}
 do
-sleep 7
-for j in {1..10}
-do
-   if [ $j -ge 2 ]; then
-      echo "Attempt $j of 10"
+   sleep 7
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr70.%02d.tar.gz" $i`
+      LOCAL_DOWNLOADED_FILE=`printf "download/nr70.%02d.tar.gz" $i`
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
    fi
-   URL_NR70_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr70.%02d.tar.gz" $i`
-   LOCAL_NR70_TAR_GZ=`printf "download/nr70.%02d.tar.gz" $i`
-   if [ "$OS_TYPE" == "unix" ] ; then
-      wget $URL_NR70_TAR_GZ -O $LOCAL_NR70_TAR_GZ
-   elif [ "$OS_TYPE" == 'mac' ] ; then
-      curl $URL_NR70_TAR_GZ -L -o $LOCAL_NR70_TAR_GZ
-   fi
-   if [ $? == 0 ]; then
-      tar -xvzf $LOCAL_NR70_TAR_GZ --directory $InstallDir/3rd_databases/hmm
-      rm $LOCAL_NR70_TAR_GZ
-      break
-   fi
-   sleep 15
-done
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir/3rd_databases/hmm
+   rm $LOCAL_DOWNLOADED_FILE
 done
 fi
+
+
 
 
 if true; then
 echo ""
 echo "* 14 of 15: downloading and extracting hmm database #2 of 2"
-echo "**************************************************************"
+echo "***********************************************************"
 echo ""
-sleep 5
 for i in {0..13}
 do
-sleep 7
-for j in {1..10}
-do
-   if [ $j -ge 2 ]; then
-      echo "Attempt $j of 10"
+   sleep 7
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "* installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr90.%02d.tar.gz" $i`
+      LOCAL_DOWNLOADED_FILE=`printf "download/nr90.%02d.tar.gz" $i`
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
    fi
-   URL_NR90_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/nr90.%02d.tar.gz" $i`
-   LOCAL_NR90_TAR_GZ=`printf "download/nr90.%02d.tar.gz" $i`
-   if [ "$OS_TYPE" == "unix" ] ; then
-      wget $URL_NR90_TAR_GZ -O $LOCAL_NR90_TAR_GZ
-   elif [ "$OS_TYPE" == 'mac' ] ; then
-      curl $URL_NR90_TAR_GZ -L -o $LOCAL_NR90_TAR_GZ
-   fi
-   if [ $? == 0 ]; then
-      tar -xvzf $LOCAL_NR90_TAR_GZ --directory $InstallDir/3rd_databases/hmm
-      rm $LOCAL_NR90_TAR_GZ
-      break
-   fi
-   sleep 15
-done
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir/3rd_databases/hmm
+   rm $LOCAL_DOWNLOADED_FILE
 done
 fi
 
@@ -361,31 +468,38 @@ fi
 if true; then
 echo ""
 echo "* 15 of 15: downloading and extracting psiblast database"
-echo "***********************************************************"
+echo "********************************************************"
 echo ""
 sleep 5
 for i in {0..19}
 do
-sleep 7
-for j in {1..10}
-do
-   if [ $j -ge 2 ]; then
-      echo "Attempt $j of 10"
+   sleep 7
+   SUCCESS=0
+   for j in {1..10}
+   do
+      if [ $j -ge 2 ]; then
+         echo "installer: download attempt $j of 10"
+      fi
+      URL_TO_DOWNLOAD=`printf "http://github.com/sh-maxim/databases/releases/download/current/uniref90.%02d.tar.gz" $i`
+      LOCAL_DOWNLOADED_FILE=`printf "download/uniref90.%02d.tar.gz" $i`
+      if [ "$OS_TYPE" == "unix" ] ; then
+         wget $URL_TO_DOWNLOAD -O $LOCAL_DOWNLOADED_FILE
+      elif [ "$OS_TYPE" == 'mac' ] ; then
+         curl $URL_TO_DOWNLOAD -L -o $LOCAL_DOWNLOADED_FILE
+      fi
+      if [ $? == 0 ]; then
+         SUCCESS=1
+         break
+      fi
+      sleep 15
+   done
+   if [ $SUCCESS == 1 ]; then
+      echo "* installer: successfully downloaded $URL_TO_DOWNLOAD"
+   else
+      echo "* installer: failed to download $URL_TO_DOWNLOAD"
    fi
-   URL_BLAST_TAR_GZ=`printf "http://github.com/sh-maxim/databases/releases/download/current/uniref90.%02d.tar.gz" $i`
-   LOCAL_BLAST_TAR_GZ=`printf "download/uniref90.%02d.tar.gz" $i`
-   if [ "$OS_TYPE" == "unix" ] ; then
-      wget $URL_BLAST_TAR_GZ -O $LOCAL_BLAST_TAR_GZ
-   elif [ "$OS_TYPE" == 'mac' ] ; then
-      curl $URL_BLAST_TAR_GZ -L -o $LOCAL_BLAST_TAR_GZ
-   fi
-   if [ $? == 0 ]; then
-      tar -xvzf $LOCAL_BLAST_TAR_GZ --directory $InstallDir/3rd_databases/blast
-      rm $LOCAL_BLAST_TAR_GZ
-      break
-   fi
-   sleep 15
-done
+   tar -xvzf $LOCAL_DOWNLOADED_FILE --directory $InstallDir/3rd_databases/blast
+   rm $LOCAL_DOWNLOADED_FILE
 done
 fi
 
