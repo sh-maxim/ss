@@ -44,7 +44,9 @@ Download a tiny **SecNet Kit Installer**. The installer will automatically downl
     * watch your favorite TV series for ~1-6 hours and come back :-)
 
 * Download **Set2018** data set which includes training, validation and **Test2018** testing sets
-  * from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)
+  * main file from [Github](https://raw.githubusercontent.com/sh-maxim/ss/master/S2_Data_set.txt) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/S2_Data_set.txt)<br/>(with PDB ID, chain ID, full amino-acid sequence, ground-truth secondary structure (8 DSSP labels, 3 labels of Rule #1 and Rule #2, 4 labels and 5 labels) and designation of training or validation or test set)
+  * PSI-BLAST PSSM profiles from [Github](https://github.com/sh-maxim/databases/releases/download/current/Set2018_PSSM_profiles.tar.gz) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/Set2018_PSSM_profiles.tar.gz)
+  * PSI-BLAST alignments from [Github](https://github.com/sh-maxim/databases/releases/download/current/Set2018_alignments.tar.gz) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/Set2018_alignments.tar.gz)
 
 * Explore our SecNet Kit file and directory structure
   * from [Github](https://github.com/sh-maxim/ss/tree/master/explore_secnet) or [dunbrack.fccc.edu](http://dunbrack.fccc.edu/ss/public/explore_secnet)
